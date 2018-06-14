@@ -4,8 +4,6 @@
         <item>ButterKnife</item>
         <item>OkHttp</item>
         <item>Gson</item>
-        <item>ButterKnife</item>
-        <item>ButterKnife</item>
     </string-array>
 
     <string-array name="utilList">

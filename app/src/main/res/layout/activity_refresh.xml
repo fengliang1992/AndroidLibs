@@ -7,7 +7,16 @@
     <include layout="@layout/toolbar_layout" />
 
     <com.fltry.androidlibs.view.refresh.RefreshLayout
+        android:id="@+id/refresh_rl"
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/refresh_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.fltry.androidlibs.view.refresh.RefreshLayout>
 
 </LinearLayout>
