@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fltry.androidlibs">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".utils.excption.ExcptionApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".sdkmodule.butterkinfe.ButterKinfeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".sdkmodule.Okhttp.OkHttpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".utils.Dialog.DialogActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".utils.screen.ScreenUtilActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".utils.excption.ExcptionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".utils.sp.SPActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".utils.toast.ToastActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".sdkmodule.gson.GsonActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.elastic.ElasticActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.refresh.RefreshActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <EditText
+        style="@style/ExplainTextView"
+        android:text="1、在 Project:AndroidLibs 的buildscript中的dependencies中添加 classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'" />
+
+    <EditText
+        style="@style/ExplainTextView"
+        android:text="2、在 Module:app 的顶部添加 apply plugin: 'com.jakewharton.butterknife'" />
+
+    <EditText
+        style="@style/ExplainTextView"
+        android:text="3、在 Module:app 的dependencies中添加依赖compile 'com.jakewharton:butterknife:8.4.0'
+        annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0' " />
+
+</LinearLayout>

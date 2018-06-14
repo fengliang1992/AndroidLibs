@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sdkList">
+        <item>ButterKnife</item>
+        <item>OkHttp</item>
+        <item>Gson</item>
+        <item>ButterKnife</item>
+        <item>ButterKnife</item>
+    </string-array>
+
+    <string-array name="utilList">
+        <item>DialogUtils_弹窗</item>
+        <item>ScreenUtils_屏幕</item>
+        <item>Excption_异常奔溃ANR</item>
+        <item>SharedPreferences</item>
+        <item>Toast</item>
+    </string-array>
+
+    <string-array name="weightList">
+        <item>Elastic_弹性界面</item>
+        <item>Refresh_刷新</item>
+    </string-array>
+</resources>

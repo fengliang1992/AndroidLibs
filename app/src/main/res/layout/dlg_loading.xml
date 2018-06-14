@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8a8888">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="RotatingPlane" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="DoubleBounce" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="Wave" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="WanderingCubes" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="Pulse" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="ChasingDots" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="ThreeBounce" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="Circle" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="CubeGrid" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="FadingCircle" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="FoldingCube" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="RotatingCircle" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="MultiplePulse" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="PulseRing" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:SpinKit_Style="MultiplePulseRing" />
+    </TableRow>
+
+</TableLayout>
