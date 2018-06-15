@@ -34,8 +34,7 @@ public class UtilFragment extends Fragment {
     View view;
     @BindView(R.id.util_lv)
     ListView utilLv;
-
-    private List<Class> classes = new ArrayList<>();
+    private ArrayList<ClassBean> classes;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,15 +53,8 @@ public class UtilFragment extends Fragment {
     }
 
     private void initView() {
-        classes.add(DialogActivity.class);
-        classes.add(ScreenUtilActivity.class);
-        classes.add(ExcptionActivity.class);
-        classes.add(SPActivity.class);
-        classes.add(ToastActivity.class);
-
-        String[] utilList = getResources().getStringArray(R.array.utilList);
-        utilLv.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, utilList));
-
+        classes = ((MainActivity) getContext()).allClasses.get(1);
+        utilLv.setAdapter(new MyClassAdapter(getContext(), classes));
         utilLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -70,7 +62,7 @@ public class UtilFragment extends Fragment {
                     ToastUtil.show(getContext(), "index越界");
                     return;
                 }
-                startActivity(new Intent(getContext(), classes.get(position)));
+                startActivity(new Intent(getContext(), classes.get(position).getcClass()));
             }
         });
     }

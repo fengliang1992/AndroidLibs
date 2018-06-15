@@ -33,7 +33,7 @@ public class SdkFragment extends Fragment {
     @BindView(R.id.sdk_lv)
     ListView sdkLv;
 
-    private List<Class> classes = new ArrayList<>();
+    private ArrayList<ClassBean> classes;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,12 +52,8 @@ public class SdkFragment extends Fragment {
     }
 
     private void initView() {
-        classes.add(ButterKinfeActivity.class);
-        classes.add(OkHttpActivity.class);
-        classes.add(GsonActivity.class);
-
-        String[] sdkList = getResources().getStringArray(R.array.sdkList);
-        sdkLv.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, sdkList));
+        classes = ((MainActivity) getContext()).allClasses.get(0);
+        sdkLv.setAdapter(new MyClassAdapter(getContext(), classes));
 
         sdkLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -66,7 +62,7 @@ public class SdkFragment extends Fragment {
                     ToastUtil.show(getContext(), "index越界");
                     return;
                 }
-                startActivity(new Intent(getContext(), classes.get(position)));
+                startActivity(new Intent(getContext(), classes.get(position).getcClass()));
             }
         });
     }

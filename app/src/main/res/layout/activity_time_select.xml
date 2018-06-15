@@ -6,6 +6,29 @@
 
     <include layout="@layout/toolbar_layout" />
 
+    <TextView
+        android:id="@+id/ts_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/ts_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取时间" />
+
+    <TextView
+        android:id="@+id/ts_tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/ts_btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取日期" />
 
 
 </LinearLayout>

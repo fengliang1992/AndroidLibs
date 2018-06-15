@@ -6,6 +6,8 @@ import android.widget.RadioGroup;
 
 import com.fltry.androidlibs.R;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
@@ -15,10 +17,14 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.radioGroup)
     RadioGroup radioGroup;
 
+    public ArrayList<ArrayList<ClassBean>> allClasses;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getToolbarTitle().setText("第三方");
+
+        allClasses = ListUtils.getAllClasses();
 
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), this, 3));
         radioGroup.check(R.id.btn1);

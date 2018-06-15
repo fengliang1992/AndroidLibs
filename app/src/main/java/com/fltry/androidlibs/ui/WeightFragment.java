@@ -15,6 +15,7 @@ import com.fltry.androidlibs.R;
 import com.fltry.androidlibs.utils.toast.ToastUtil;
 import com.fltry.androidlibs.view.elastic.ElasticActivity;
 import com.fltry.androidlibs.view.refresh.RefreshActivity;
+import com.fltry.androidlibs.view.timeselect.TimeSelectActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ public class WeightFragment extends Fragment {
     @BindView(R.id.weight_lv)
     ListView weightLv;
 
-    private List<Class> classes = new ArrayList<>();
+    private ArrayList<ClassBean> classes;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,11 +52,8 @@ public class WeightFragment extends Fragment {
     }
 
     private void initView() {
-        classes.add(ElasticActivity.class);
-        classes.add(RefreshActivity.class);
-
-        String[] utilList = getResources().getStringArray(R.array.weightList);
-        weightLv.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, utilList));
+        classes = ((MainActivity) getContext()).allClasses.get(2);
+        weightLv.setAdapter(new MyClassAdapter(getContext(), classes));
 
         weightLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,7 +62,7 @@ public class WeightFragment extends Fragment {
                     ToastUtil.show(getContext(), "index越界");
                     return;
                 }
-                startActivity(new Intent(getContext(), classes.get(position)));
+                startActivity(new Intent(getContext(), classes.get(position).getcClass()));
             }
         });
     }
