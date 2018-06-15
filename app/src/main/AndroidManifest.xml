@@ -54,6 +54,9 @@
         <activity
             android:name=".view.timeselect.TimeSelectActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.autotext.AutoTextActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

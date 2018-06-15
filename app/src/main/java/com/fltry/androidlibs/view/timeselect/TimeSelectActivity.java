@@ -33,7 +33,7 @@ public class TimeSelectActivity extends BaseActivity {
 
         calendar = Calendar.getInstance(Locale.CHINA);//获取日期格式器对象
         tsTv.setText(calendar.get(Calendar.HOUR_OF_DAY) + ":" +
-                calendar.get(Calendar.MINUTE) + calendar.get(Calendar.SECOND));
+                calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND));
         tsTv2.setText(calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH) + "-" +
                 calendar.get(Calendar.DAY_OF_MONTH));
     }

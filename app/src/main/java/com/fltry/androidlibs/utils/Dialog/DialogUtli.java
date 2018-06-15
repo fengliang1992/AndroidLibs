@@ -68,4 +68,6 @@ public class DialogUtli {
         p.y = y; // 新位置Y坐标
         dialogWindow.setAttributes(p);
     }
+
+
 }

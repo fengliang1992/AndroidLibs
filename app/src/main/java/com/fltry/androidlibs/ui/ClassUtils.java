@@ -8,6 +8,7 @@ import com.fltry.androidlibs.utils.excption.ExcptionActivity;
 import com.fltry.androidlibs.utils.screen.ScreenUtilActivity;
 import com.fltry.androidlibs.utils.sp.SPActivity;
 import com.fltry.androidlibs.utils.toast.ToastActivity;
+import com.fltry.androidlibs.view.autotext.AutoTextActivity;
 import com.fltry.androidlibs.view.elastic.ElasticActivity;
 import com.fltry.androidlibs.view.refresh.RefreshActivity;
 import com.fltry.androidlibs.view.timeselect.TimeSelectActivity;
@@ -49,7 +50,8 @@ public class ClassUtils {
             case WEIGHT_FRAGMENT:
                 classes.add(new ClassBean("Elastic_弹性界面", ElasticActivity.class));
                 classes.add(new ClassBean("Refresh_刷新", RefreshActivity.class));
-                classes.add(new ClassBean("TimePic_时间日期选择", TimeSelectActivity.class));
+                classes.add(new ClassBean("TimePic_系统时间日期选择器", TimeSelectActivity.class));
+                classes.add(new ClassBean("TextView_富文本", AutoTextActivity.class));
                 break;
         }
         return classes;
