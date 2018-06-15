@@ -1,11 +1,11 @@
 package com.fltry.androidlibs.utils.toast;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 /**
  * 吐司工具类
+ * 测试发现魅族MX6上有bug
  */
 public class ToastUtil {
     private static Toast TOAST;
