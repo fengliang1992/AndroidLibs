@@ -14,7 +14,10 @@ import com.fltry.androidlibs.view.timeselect.TimeSelectActivity;
 
 import java.util.ArrayList;
 
-public class ListUtils {
+/**
+ * 添加新的model
+ */
+public class ClassUtils {
     public static final int SDK_FRAGMENT = 0;
     public static final int UTIL_FRAGMENT = 1;
     public static final int WEIGHT_FRAGMENT = 2;
@@ -27,7 +30,6 @@ public class ListUtils {
         }
         return allClasses;
     }
-
 
     private static ArrayList<ClassBean> getClasses(int fragmentIndex) {
         ArrayList<ClassBean> classes = new ArrayList<>();

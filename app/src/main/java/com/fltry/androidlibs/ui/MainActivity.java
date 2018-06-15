@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         getToolbarTitle().setText("第三方");
 
-        allClasses = ListUtils.getAllClasses();
+        allClasses = ClassUtils.getAllClasses();
 
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), this, 3));
         radioGroup.check(R.id.btn1);
