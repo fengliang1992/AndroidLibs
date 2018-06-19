@@ -70,6 +70,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="多种加载中动效" />
+
+            <Button
+                android:id="@+id/dlg_btn9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="FragmentDialog" />
+
+            <Button
+                android:id="@+id/dlg_btn10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="FragmentDialog_自定义布局" />
         </LinearLayout>
 
     </ScrollView>
