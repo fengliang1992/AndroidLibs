@@ -18,4 +18,10 @@
         android:layout_height="wrap_content"
         android:text="全局的Toast" />
 
+    <Button
+        android:id="@+id/toast_btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="适配各类手机全局吐司" />
+
 </LinearLayout>

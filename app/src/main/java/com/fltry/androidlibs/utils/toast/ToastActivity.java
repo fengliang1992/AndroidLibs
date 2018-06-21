@@ -30,7 +30,7 @@ public class ToastActivity extends BaseActivity {
         return R.layout.activity_toast;
     }
 
-    @OnClick({R.id.toast_btn1, R.id.toast_btn2})
+    @OnClick({R.id.toast_btn1, R.id.toast_btn2, R.id.toast_btn3})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.toast_btn1:
@@ -54,6 +54,24 @@ public class ToastActivity extends BaseActivity {
                     }
                 }).start();
                 break;
+            case R.id.toast_btn3:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < 101; i++) {
+                            Message msg = new Message();
+                            msg.what = 1;
+                            msg.arg1 = i;
+                            handler.sendMessage(msg);
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }).start();
+                break;
         }
     }
 
@@ -63,12 +81,17 @@ public class ToastActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.arg1 <= 100) {
-                ToastUtil.show(mContext, "进度：" + msg.arg1 + "%");
+                if (msg.what == 0) {
+                    ToastUtil.show(mContext, "进度：" + msg.arg1 + "%");
+                } else {
+                    ToastUtil3.showLong(mContext,"进度：" + msg.arg1 + "%");
+                }
             } else {
                 ToastUtil.show(mContext, "谢谢观赏");
             }
         }
     };
+
 
     /**
      * 将Toast封装在一个方法中，在其它地方使用时直接输入要弹出的内容即可
