@@ -5,6 +5,7 @@ import com.fltry.androidlibs.sdkmodule.butterkinfe.ButterKinfeActivity;
 import com.fltry.androidlibs.sdkmodule.gson.GsonActivity;
 import com.fltry.androidlibs.utils.Dialog.DialogActivity;
 import com.fltry.androidlibs.utils.excption.ExcptionActivity;
+import com.fltry.androidlibs.utils.picture.PictureActivity;
 import com.fltry.androidlibs.utils.screen.ScreenUtilActivity;
 import com.fltry.androidlibs.utils.sp.SPActivity;
 import com.fltry.androidlibs.utils.toast.ToastActivity;
@@ -46,6 +47,7 @@ public class ClassUtils {
                 classes.add(new ClassBean("Excption_异常奔溃ANR", ExcptionActivity.class));
                 classes.add(new ClassBean("SharedPreferences", SPActivity.class));
                 classes.add(new ClassBean("Toast", ToastActivity.class));
+                classes.add(new ClassBean("Picture_图片处理", PictureActivity.class));
                 break;
             case WEIGHT_FRAGMENT:
                 classes.add(new ClassBean("Elastic_弹性界面", ElasticActivity.class));

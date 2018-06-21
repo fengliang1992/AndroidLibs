@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="scr与backgroud的区别"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/pic_sb_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="src" />
+
+
+        <ImageView
+            android:id="@+id/pic_sb_iv1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/pic_sb_tv1"
+            android:layout_marginTop="8dp"
+            android:background="#f1f1f1"
+            android:src="@mipmap/sutu_1" />
+
+        <TextView
+            android:id="@+id/pic_sb_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pic_sb_iv1"
+            android:layout_marginTop="8dp"
+            android:text="background" />
+
+        <ImageView
+            android:id="@+id/pic_sb_iv2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/pic_sb_tv2"
+            android:layout_marginTop="8dp"
+            android:background="@mipmap/sutu_1" />
+
+        <RadioGroup
+            android:id="@+id/pic_sb_rg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/pic_sb_rb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="center" />
+
+            <RadioButton
+                android:id="@+id/pic_sb_rb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="center_inside" />
+
+            <RadioButton
+                android:id="@+id/pic_sb_rb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="center_crop" />
+
+            <RadioButton
+                android:id="@+id/pic_sb_rb4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="matrix" />
+
+            <RadioButton
+                android:id="@+id/pic_sb_rb5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="fit_xy" />
+
+            <RadioButton
+                android:id="@+id/pic_sb_rb6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="fit_start" />
+
+            <RadioButton
+                android:id="@+id/pic_sb_rb7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="fit_center" />
+
+            <RadioButton
+                android:id="@+id/pic_sb_rb8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="fit_end" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="#f1f1f1" />
+
+</LinearLayout>

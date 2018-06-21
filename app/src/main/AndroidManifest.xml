@@ -57,6 +57,20 @@
         <activity
             android:name=".view.autotext.AutoTextActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".utils.picture.PictureActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.fltry.androidlibs.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/photofilepaths"/>
+        </provider>
+
     </application>
 
 </manifest>

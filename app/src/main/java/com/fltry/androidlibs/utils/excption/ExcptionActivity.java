@@ -19,17 +19,6 @@ public class ExcptionActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getToolbarTitle().setText("异常捕获");
-
-        if (Build.VERSION.SDK_INT >= 23) {//如果是6.0以上的
-            //验证是否许可权限
-            if (ActivityCompat.checkSelfPermission(this
-                    , Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                //申请权限
-                ActivityCompat.requestPermissions(this
-                        , new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
-                return;
-            }
-        }
     }
 
     @Override

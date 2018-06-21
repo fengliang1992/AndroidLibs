@@ -1,6 +1,10 @@
 package com.fltry.androidlibs.ui;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.widget.RadioGroup;
 
@@ -51,6 +55,17 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+
+        if (Build.VERSION.SDK_INT >= 23) {//如果是6.0以上的
+            //验证是否许可权限
+            if (ActivityCompat.checkSelfPermission(this
+                    , Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                //申请权限
+                ActivityCompat.requestPermissions(this
+                        , new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+                return;
+            }
+        }
     }
 
     @Override
