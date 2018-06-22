@@ -53,7 +53,7 @@ public class UtilFragment extends Fragment {
     }
 
     private void initView() {
-        classes = ((MainActivity) getContext()).allClasses.get(1);
+        classes = ((MainActivity) getContext()).allClasses.get(ClassUtils.UTIL_FRAGMENT);
         utilLv.setAdapter(new MyClassAdapter(getContext(), classes));
         utilLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

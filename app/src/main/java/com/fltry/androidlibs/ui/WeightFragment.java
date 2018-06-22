@@ -52,7 +52,7 @@ public class WeightFragment extends Fragment {
     }
 
     private void initView() {
-        classes = ((MainActivity) getContext()).allClasses.get(2);
+        classes = ((MainActivity) getContext()).allClasses.get(ClassUtils.WEIGHT_FRAGMENT);
         weightLv.setAdapter(new MyClassAdapter(getContext(), classes));
 
         weightLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

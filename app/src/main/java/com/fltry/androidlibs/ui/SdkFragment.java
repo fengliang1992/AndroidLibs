@@ -52,7 +52,7 @@ public class SdkFragment extends Fragment {
     }
 
     private void initView() {
-        classes = ((MainActivity) getContext()).allClasses.get(0);
+        classes = ((MainActivity) getContext()).allClasses.get(ClassUtils.SDK_FRAGMENT);
         sdkLv.setAdapter(new MyClassAdapter(getContext(), classes));
 
         sdkLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

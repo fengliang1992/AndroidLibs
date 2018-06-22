@@ -68,9 +68,12 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/photofilepaths"/>
+                android:resource="@xml/photofilepaths" />
         </provider>
 
+        <activity
+            android:name=".sdkmodule.zxing.ZxingActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

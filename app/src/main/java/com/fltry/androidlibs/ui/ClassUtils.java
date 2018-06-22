@@ -3,6 +3,7 @@ package com.fltry.androidlibs.ui;
 import com.fltry.androidlibs.sdkmodule.Okhttp.OkHttpActivity;
 import com.fltry.androidlibs.sdkmodule.butterkinfe.ButterKinfeActivity;
 import com.fltry.androidlibs.sdkmodule.gson.GsonActivity;
+import com.fltry.androidlibs.sdkmodule.zxing.ZxingActivity;
 import com.fltry.androidlibs.utils.Dialog.DialogActivity;
 import com.fltry.androidlibs.utils.excption.ExcptionActivity;
 import com.fltry.androidlibs.utils.picture.PictureActivity;
@@ -40,6 +41,7 @@ public class ClassUtils {
                 classes.add(new ClassBean("ButterKnife", ButterKinfeActivity.class));
                 classes.add(new ClassBean("OkHttp", OkHttpActivity.class));
                 classes.add(new ClassBean("Gson", GsonActivity.class));
+                classes.add(new ClassBean("Zxing_二维码", ZxingActivity.class));
                 break;
             case UTIL_FRAGMENT:
                 classes.add(new ClassBean("DialogUtils_弹窗", DialogActivity.class));
