@@ -40,21 +40,21 @@ public class SPActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.sp_btn3:
                 if (TextUtils.isEmpty(spEt1.getText().toString())) {
-                    ToastUtil.show(mContext, "请输入key");
+                    ToastUtil.show(getMContext(), "请输入key");
                     return;
                 }
                 if (TextUtils.isEmpty(spEt2.getText().toString())) {
-                    ToastUtil.show(mContext, "请输入内容");
+                    ToastUtil.show(getMContext(), "请输入内容");
                     return;
                 }
-                SPUtils.put(mContext, spEt1.getText().toString(), spEt2.getText().toString());
+                SPUtils.put(getMContext(), spEt1.getText().toString(), spEt2.getText().toString());
                 break;
             case R.id.sp_btn5:
                 if (TextUtils.isEmpty(spEt4.getText().toString())) {
-                    ToastUtil.show(mContext, "请输入key");
+                    ToastUtil.show(getMContext(), "请输入key");
                     return;
                 }
-                String soGet = SPUtils.get(mContext, spEt4.getText().toString(), "").toString();
+                String soGet = SPUtils.get(getMContext(), spEt4.getText().toString(), "").toString();
                 spTv6.setText(soGet);
                 break;
         }

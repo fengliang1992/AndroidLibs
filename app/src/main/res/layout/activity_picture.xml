@@ -16,9 +16,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/pic_srcandbg" />
+            <include layout="@layout/layout_pic_srcandbg" />
 
-            <include layout="@layout/pic_photo" />
+            <include layout="@layout/layout_pic_photo" />
 
         </LinearLayout>
     </ScrollView>

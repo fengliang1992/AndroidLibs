@@ -42,7 +42,7 @@ public class ZxingActivity extends BaseActivity {
             case R.id.zxing_btn3:
                 getToolbarTitle().setText("二维码");
                 if (zxingEd1.getText().toString().equals("")) {
-                    ToastUtil3.showLong(mContext, "请输入内容");
+                    ToastUtil3.showLong(getMContext(), "请输入内容");
                     return;
                 }
                 try {

@@ -82,12 +82,12 @@ public class ToastActivity extends BaseActivity {
             super.handleMessage(msg);
             if (msg.arg1 <= 100) {
                 if (msg.what == 0) {
-                    ToastUtil.show(mContext, "进度：" + msg.arg1 + "%");
+                    ToastUtil.show(getMContext(), "进度：" + msg.arg1 + "%");
                 } else {
-                    ToastUtil3.showLong(mContext,"进度：" + msg.arg1 + "%");
+                    ToastUtil3.showLong(getMContext(),"进度：" + msg.arg1 + "%");
                 }
             } else {
-                ToastUtil.show(mContext, "谢谢观赏");
+                ToastUtil.show(getMContext(), "谢谢观赏");
             }
         }
     };
@@ -100,7 +100,7 @@ public class ToastActivity extends BaseActivity {
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.TOP, 0, 20);//setGravity用来设置Toast显示的位置，相当于xml中的android:gravity或android:layout_gravity
         toast.setDuration(Toast.LENGTH_LONG);//setDuration方法：设置持续时间，以毫秒为单位。该方法是设置补间动画时间长度的主要方法
-        TextView textView = new TextView(mContext);
+        TextView textView = new TextView(getMContext());
         textView.setText(messages);
         textView.setBackgroundColor(Color.YELLOW);
         textView.setTextColor(Color.RED);

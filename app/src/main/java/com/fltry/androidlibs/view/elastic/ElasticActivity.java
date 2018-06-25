@@ -25,7 +25,7 @@ public class ElasticActivity extends BaseActivity {
         for (int i = 0; i < 10; i++) {
             arrayList.add("第：" + (i + 1) + "个");
         }
-        elasticList.setAdapter(new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, arrayList));
+        elasticList.setAdapter(new ArrayAdapter<>(getMContext(), android.R.layout.simple_list_item_1, arrayList));
     }
 
     @Override
