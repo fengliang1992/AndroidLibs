@@ -33,8 +33,8 @@ public class DialogActivity extends BaseActivity {
     }
 
     private void initDialog() {
-        dialog = new Dialog(getMContext());
-        View view = new View(getMContext());
+        dialog = new Dialog(mContext);
+        View view = new View(mContext);
         view.setBackgroundColor(Color.RED);
         dialog.setContentView(view);
         dialog.show();
@@ -129,8 +129,8 @@ public class DialogActivity extends BaseActivity {
     };
 
     private void showLoadingDialog() {
-        Dialog dialog = new Dialog(getMContext(), R.style.MyDialog2);
-        View view = View.inflate(getMContext(), R.layout.dlg_loading, null);
+        Dialog dialog = new Dialog(mContext, R.style.MyDialog2);
+        View view = View.inflate(mContext, R.layout.dlg_loading, null);
         dialog.setContentView(view);
         dialog.show();
         DialogUtli.dialogSize(dialog, 1, "width");

@@ -36,12 +36,12 @@ public class OkHttpActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void httpSccessEvent(HttpResult httpResult) {
-        new AlertDialog.Builder(getMContext()).setMessage(httpResult.getResult()).show();
+        new AlertDialog.Builder(mContext).setMessage(httpResult.getResult()).show();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void httpFaileEvent(HttpFaile httpFaile) {
-        new AlertDialog.Builder(getMContext()).setMessage("请求失败：" + httpFaile.getFalieMsg()).show();
+        new AlertDialog.Builder(mContext).setMessage("请求失败：" + httpFaile.getFalieMsg()).show();
     }
 
     @Override
@@ -55,7 +55,7 @@ public class OkHttpActivity extends BaseActivity {
     @OnClick(R.id.okHttp_btn)
     public void onViewClicked() {
         if (TextUtils.isEmpty(okHttpEt.getText().toString())){
-            Toast.makeText(getMContext(),"输入接口",Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext,"输入接口",Toast.LENGTH_LONG).show();
             return;
         }
         Http_Test_Get http_test_get = new Http_Test_Get("",okHttpEt.getText().toString());

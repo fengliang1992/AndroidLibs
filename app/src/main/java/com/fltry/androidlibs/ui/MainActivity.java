@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.widget.RadioGroup;
 
 import com.fltry.androidlibs.R;
@@ -66,6 +67,8 @@ public class MainActivity extends BaseActivity {
                 return;
             }
         }
+
+        Log.i("aaa","sdfdsaf");
     }
 
     @Override

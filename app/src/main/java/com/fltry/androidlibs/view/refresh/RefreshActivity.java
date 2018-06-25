@@ -39,7 +39,7 @@ public class RefreshActivity extends BaseActivity {
         for (int i = 0; i < 20; i++) {
             arrayList1.add("第" + (i + 1) + "个");
         }
-        refreshLv.setAdapter(new ArrayAdapter<>(getMContext(), android.R.layout.simple_list_item_1, arrayList1));
+        refreshLv.setAdapter(new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, arrayList1));
 
         refreshRl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

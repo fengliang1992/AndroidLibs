@@ -7,7 +7,9 @@ import android.widget.TextView
 import butterknife.BindView
 import com.fltry.androidlibs.R
 import com.fltry.androidlibs.ui.BaseActivity
-class FileManageActivity(override val layoutId: Int = R.layout.activity_file_manage) : BaseActivity() {
+
+class FileManageActivity : BaseActivity() {
+
 
     @BindView(R.id.fm_gv1) lateinit var fmGv1: GridView
     @BindView(R.id.fm_rl2) lateinit var fmRl2: RelativeLayout
@@ -16,9 +18,10 @@ class FileManageActivity(override val layoutId: Int = R.layout.activity_file_man
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        toolbarTitle!!.setText("文件管理器")
+        toolbarTitle!!.text = "文件管理器"
     }
 
-
-
+    override fun getLayoutId(): Int {
+        return R.layout.activity_file_manage
+    }
 }

@@ -40,7 +40,7 @@ public class AutoTextActivity extends BaseActivity {
         SpannableStringBuilder spannableStringBuilder1 = new SpannableStringBuilder(text);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.RED);
         spannableStringBuilder1.setSpan(foregroundColorSpan, 0, 4, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
-        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(ScreenUtils.dip2px(getMContext(), 30));
+        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(ScreenUtils.dip2px(mContext, 30));
         spannableStringBuilder1.setSpan(absoluteSizeSpan, 5, 9, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
         autoTv2.setText(spannableStringBuilder1);
 

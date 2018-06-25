@@ -77,6 +77,9 @@
         <activity
             android:name=".utils.filemanage.FileManageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".sdkmodule.retrofit.RetrofitActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

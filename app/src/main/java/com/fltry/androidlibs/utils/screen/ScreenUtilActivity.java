@@ -30,10 +30,10 @@ public class ScreenUtilActivity extends BaseActivity {
     }
 
     private void initView() {
-        String screenWidth = "屏幕宽度：" + ScreenUtils.getScreenWidth(getMContext()) + "\n";
-        String screenHeight = "屏幕高度：" + ScreenUtils.getScreenHeight(getMContext()) + "\n";
-        String statusHeight = "状态栏的高度1：" + ScreenUtils.getStatusHeight(getMContext()) + "\n";
-        String statusBarHeight = "状态栏的高度2：" + ScreenUtils.getStatusBarHeight(getMContext());
+        String screenWidth = "屏幕宽度：" + ScreenUtils.getScreenWidth(mContext) + "\n";
+        String screenHeight = "屏幕高度：" + ScreenUtils.getScreenHeight(mContext) + "\n";
+        String statusHeight = "状态栏的高度1：" + ScreenUtils.getStatusHeight(mContext) + "\n";
+        String statusBarHeight = "状态栏的高度2：" + ScreenUtils.getStatusBarHeight(mContext);
         suTv.setText(screenWidth + screenHeight + statusHeight + statusBarHeight);
     }
 
