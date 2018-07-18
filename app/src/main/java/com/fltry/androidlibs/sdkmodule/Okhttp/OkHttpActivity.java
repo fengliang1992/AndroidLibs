@@ -24,7 +24,7 @@ public class OkHttpActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("okHttp网络框架");
+        getToolbarTitle().setText("okHttp+EventBus");
         EventBus.getDefault().register(this);
         okHttpEt.setText("http://10.10.10.107:8004/areas");
     }

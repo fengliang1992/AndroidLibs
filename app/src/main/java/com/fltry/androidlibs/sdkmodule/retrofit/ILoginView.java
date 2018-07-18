@@ -1,14 +1,14 @@
 package com.fltry.androidlibs.sdkmodule.retrofit;
 
 
-public interface IResult {
+public interface ILoginView {
 
     void showDialog();
 
     void dismissDialog();
 
-    void loginSucceed();
+    void loginSucceed(String mse);
 
-    void loginFailed();
+    void loginFailed(String error);
 
 }

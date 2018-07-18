@@ -1,16 +1,8 @@
 package com.fltry.androidlibs.sdkmodule.Okhttp;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
-import com.google.gson.Gson;
-
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import okhttp3.Call;
 import okhttp3.Callback;

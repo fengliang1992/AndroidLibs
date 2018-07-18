@@ -1,19 +1,32 @@
 package com.fltry.androidlibs.sdkmodule.retrofit;
 
-import com.fltry.androidlibs.sdkmodule.Okhttp.Http_Test_Get;
 import com.fltry.androidlibs.sdkmodule.retrofit.base.BasePresenter;
+import com.fltry.androidlibs.sdkmodule.retrofit.base.OnHttpCallBack;
 
-/**
- * Created by tol on 2018-06-26.
- */
+public class LoginPresenter extends BasePresenter<ILoginView> {
 
-public class LoginPresenter extends BasePresenter<IResult> {
+    ILoginModelImp loginImp = new ILoginModelImp();
 
-    ILoginImp loginImp = new ILoginImp();
+    public void login() {
+        getView().showDialog();
+        loginImp.login("admin",
+                "MTIzNTQ2IQ==",
+                "123456",
+                "5xc5",
+                new OnHttpCallBack<String>() {
+                    @Override
+                    public void success(String data) {
+                        getView().dismissDialog();
+                        getView().loginSucceed(data);
+                    }
 
-    public void login(){
-        loginImp.login();
-
+                    @Override
+                    public void failed(String error) {
+                        getView().dismissDialog();
+                        getView().loginFailed("登录失败：" + error);
+                    }
+                });
     }
+
 
 }

@@ -41,7 +41,7 @@ public class ClassUtils {
         switch (fragmentIndex) {
             case SDK_FRAGMENT:
                 classes.add(new ClassBean("ButterKnife", ButterKinfeActivity.class));
-                classes.add(new ClassBean("OkHttp", OkHttpActivity.class));
+                classes.add(new ClassBean("OkHttp + EventBus", OkHttpActivity.class));
                 classes.add(new ClassBean("Gson", GsonActivity.class));
                 classes.add(new ClassBean("Zxing_二维码", ZxingActivity.class));
                 classes.add(new ClassBean("rxandroid2 + retrofit", RetrofitActivity.class));

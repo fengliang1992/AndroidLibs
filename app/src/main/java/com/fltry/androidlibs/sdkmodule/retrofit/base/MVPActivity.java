@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.fltry.androidlibs.ui.BaseActivity;
 
 public abstract class MVPActivity<V, T extends BasePresenter<V>> extends BaseActivity {
-    private T mPresenter;
+    public T mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

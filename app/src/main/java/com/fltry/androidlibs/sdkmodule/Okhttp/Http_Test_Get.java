@@ -2,10 +2,6 @@ package com.fltry.androidlibs.sdkmodule.Okhttp;
 
 import okhttp3.RequestBody;
 
-/**
- * Created by tol on 2018-06-07.
- */
-
 public class Http_Test_Get extends BaseHttpRequest {
 
     private String url;

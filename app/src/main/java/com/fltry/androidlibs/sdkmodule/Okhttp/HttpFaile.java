@@ -1,9 +1,5 @@
 package com.fltry.androidlibs.sdkmodule.Okhttp;
 
-/**
- * Created by tol on 2018-04-28.
- */
-
 public class HttpFaile {
 
     private String falieMsg;
