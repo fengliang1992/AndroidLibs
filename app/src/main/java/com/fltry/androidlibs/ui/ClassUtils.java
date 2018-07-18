@@ -2,12 +2,12 @@ package com.fltry.androidlibs.ui;
 
 import com.fltry.androidlibs.sdkmodule.Okhttp.OkHttpActivity;
 import com.fltry.androidlibs.sdkmodule.butterkinfe.ButterKinfeActivity;
+import com.fltry.androidlibs.sdkmodule.gaode.AMapActivity;
 import com.fltry.androidlibs.sdkmodule.gson.GsonActivity;
 import com.fltry.androidlibs.sdkmodule.retrofit.RetrofitActivity;
 import com.fltry.androidlibs.sdkmodule.zxing.ZxingActivity;
 import com.fltry.androidlibs.utils.Dialog.DialogActivity;
 import com.fltry.androidlibs.utils.excption.ExcptionActivity;
-import com.fltry.androidlibs.utils.filemanage.FileManageActivity;
 import com.fltry.androidlibs.utils.picture.PictureActivity;
 import com.fltry.androidlibs.utils.screen.ScreenUtilActivity;
 import com.fltry.androidlibs.utils.sp.SPActivity;
@@ -45,6 +45,7 @@ public class ClassUtils {
                 classes.add(new ClassBean("Gson", GsonActivity.class));
                 classes.add(new ClassBean("Zxing_二维码", ZxingActivity.class));
                 classes.add(new ClassBean("rxandroid2 + retrofit", RetrofitActivity.class));
+                classes.add(new ClassBean("AMap_高德地图", AMapActivity.class));
                 break;
             case UTIL_FRAGMENT:
                 classes.add(new ClassBean("DialogUtils_弹窗", DialogActivity.class));
@@ -53,7 +54,6 @@ public class ClassUtils {
                 classes.add(new ClassBean("SharedPreferences", SPActivity.class));
                 classes.add(new ClassBean("Toast", ToastActivity.class));
                 classes.add(new ClassBean("Picture_图片处理", PictureActivity.class));
-                classes.add(new ClassBean("fileManage_文件管理", FileManageActivity.class));
                 break;
             case WEIGHT_FRAGMENT:
                 classes.add(new ClassBean("Elastic_弹性界面", ElasticActivity.class));
