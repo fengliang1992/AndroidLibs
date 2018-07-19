@@ -7,15 +7,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.fltry.androidlibs.R;
 import com.fltry.androidlibs.ui.BaseActivity;
-import com.github.ybq.android.spinkit.SpinKitView;
-import com.github.ybq.android.spinkit.SpriteFactory;
-import com.github.ybq.android.spinkit.Style;
-import com.github.ybq.android.spinkit.sprite.Sprite;
 
 import java.util.Random;
 

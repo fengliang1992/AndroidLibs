@@ -1,5 +1,6 @@
 package com.fltry.androidlibs.utils.picture;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,9 +15,12 @@ import android.widget.RadioGroup;
 
 import com.fltry.androidlibs.R;
 import com.fltry.androidlibs.ui.BaseActivity;
+import com.fltry.androidlibs.utils.Dialog.DialogUtli;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -51,7 +55,7 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
         return R.layout.activity_picture;
     }
 
-    @OnClick({R.id.pic_photo_btn1, R.id.pic_photo_btn2})
+    @OnClick({R.id.pic_photo_btn1, R.id.pic_photo_btn2, R.id.pic_large_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.pic_photo_btn1:
@@ -61,6 +65,22 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
                 Intent intent = new Intent("android.intent.action.GET_CONTENT");
                 intent.setType("image/*");
                 startActivityForResult(intent, 2);//打开相册
+                break;
+            case R.id.pic_large_btn:
+                try {
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = true;
+                    InputStream is = getResources().getAssets().open("qingming.jpg");
+                    BitmapFactory.decodeStream(is, null, options);
+                    LargeImageView largeImageView = new LargeImageView(mContext);
+                    Dialog dialog = new Dialog(mContext, R.style.MyDialog2);
+                    largeImageView.setInputStream(is, options.outWidth, options.outHeight);
+                    dialog.setContentView(largeImageView);
+                    DialogUtli.dialogSize(dialog, 1, 1);
+                    dialog.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }

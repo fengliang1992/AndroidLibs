@@ -20,6 +20,11 @@
 
             <include layout="@layout/layout_pic_photo" />
 
+            <Button
+                android:id="@+id/pic_large_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="展示大图片"/>
         </LinearLayout>
     </ScrollView>
 
