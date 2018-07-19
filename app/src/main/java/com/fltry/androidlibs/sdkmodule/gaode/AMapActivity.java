@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,13 +22,17 @@ import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.MyLocationStyle;
-import com.amap.api.services.route.RouteSearch;
+import com.amap.api.services.weather.LocalWeatherForecastResult;
+import com.amap.api.services.weather.LocalWeatherLive;
+import com.amap.api.services.weather.LocalWeatherLiveResult;
+import com.amap.api.services.weather.WeatherSearch;
+import com.amap.api.services.weather.WeatherSearchQuery;
 import com.fltry.androidlibs.R;
 import com.fltry.androidlibs.ui.BaseActivity;
-import com.fltry.androidlibs.utils.toast.ToastUtil;
 import com.fltry.androidlibs.utils.toast.ToastUtil3;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class AMapActivity extends BaseActivity {
 
@@ -101,6 +104,7 @@ public class AMapActivity extends BaseActivity {
         MyLocationStyle myLocationStyle = new MyLocationStyle();
         myLocationStyle.strokeColor(Color.TRANSPARENT);
         myLocationStyle.radiusFillColor(Color.parseColor("#204E91E9"));
+        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE);//定位一次
         AMap aMap = mMapView.getMap();
         aMap.setMyLocationStyle(myLocationStyle);
         aMap.setMyLocationEnabled(true);
@@ -126,9 +130,9 @@ public class AMapActivity extends BaseActivity {
 //        2-1000km-（3=<zoom<4）
         aMap.moveCamera(CameraUpdateFactory.zoomTo(16));//初始化比例尺比例
         //地图模式可选类型：MAP_TYPE_NORMAL,MAP_TYPE_SATELLITE,MAP_TYPE_NIGHT
-        aMap.setMapType(AMap.MAP_TYPE_NORMAL);// 卫星地图模式
+        aMap.setMapType(AMap.MAP_TYPE_NORMAL);//地图类型
         UiSettings uiSettings = aMap.getUiSettings();
-        uiSettings.setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
+//        uiSettings.setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
         uiSettings.setScaleControlsEnabled(true);//控制比例尺控件是否显示
         //初始化client
         locationClient = new AMapLocationClient(this.getApplicationContext());
@@ -148,6 +152,8 @@ public class AMapActivity extends BaseActivity {
         locationClient.setLocationListener(locationListener);
     }
 
+    AMapLocation mLocation;
+
     /**
      * 定位监听
      */
@@ -156,11 +162,10 @@ public class AMapActivity extends BaseActivity {
         public void onLocationChanged(AMapLocation location) {
             if (null != location) {
                 if (location.getErrorCode() == 0) {
+                    mLocation = location;
                     //定位成功回调信息，设置相关消息
-                    new AlertDialog.Builder(mContext)
-                            .setTitle("定位成功")
-                            .setMessage(location.toString())
-                            .show();
+
+                    weather();
                     stopLocation();
                 } else {
                     //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
@@ -173,6 +178,53 @@ public class AMapActivity extends BaseActivity {
             }
         }
     };
+
+    /**
+     * 查询天气
+     */
+    private void weather() {
+        WeatherSearchQuery mquery = new WeatherSearchQuery(mLocation.getCity(), WeatherSearchQuery.WEATHER_TYPE_LIVE);
+        WeatherSearch mweathersearch = new WeatherSearch(this);
+        mweathersearch.setOnWeatherSearchListener(weatherSearchListener);
+        mweathersearch.setQuery(mquery);
+        mweathersearch.searchWeatherAsyn(); //异步搜索
+    }
+
+    /**
+     * 实时天气查询回调
+     */
+    WeatherSearch.OnWeatherSearchListener weatherSearchListener = new WeatherSearch.OnWeatherSearchListener() {
+        @Override
+        public void onWeatherLiveSearched(LocalWeatherLiveResult localWeatherLiveResult, int i) {
+            if (i == 1000) {
+                if (localWeatherLiveResult != null && localWeatherLiveResult.getLiveResult() != null) {
+                    LocalWeatherLive weatherlive = localWeatherLiveResult.getLiveResult();
+                    new AlertDialog.Builder(mContext)
+                            .setTitle("定位结果")
+                            .setMessage("城市：" + mLocation.getCity() + "\n" +
+                                    "经纬度：" + mLocation.getLongitude() + "，" + mLocation.getLatitude() + "\n" +
+                                    "具体位置：" + mLocation.getAddress() + "\n" +
+                                    "查询时间：" + weatherlive.getReportTime() + "\n" +
+                                    "天气：" + weatherlive.getWeather() + "\n" +
+                                    "温度：" + weatherlive.getTemperature() + "℃\n" +
+                                    "湿度：" + weatherlive.getWindDirection() + "%\n" +
+                                    "风力：" + weatherlive.getWindDirection() + "风     " + weatherlive.getWindPower() + "级")
+                            .setNegativeButton("知道了", null)
+                            .show();
+                } else {
+                    ToastUtil3.showShort(mContext, "获取天气失败");
+                }
+            } else {
+                ToastUtil3.showShort(mContext, "获取天气失败：" + i);
+            }
+        }
+
+        @Override
+        public void onWeatherForecastSearched(LocalWeatherForecastResult localWeatherForecastResult, int i) {
+
+        }
+    };
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -260,5 +312,10 @@ public class AMapActivity extends BaseActivity {
         super.onSaveInstanceState(outState);
         //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，保存地图当前的状态
         mMapView.onSaveInstanceState(outState);
+    }
+
+    @OnClick(R.id.a_map_btn)
+    public void onViewClicked() {
+        startLocation();
     }
 }
