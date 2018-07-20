@@ -6,17 +6,48 @@
 
     <include layout="@layout/toolbar_layout" />
 
-    <com.fltry.androidlibs.view.refresh.RefreshLayout
-        android:id="@+id/refresh_rl"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        <ListView
-            android:id="@+id/refresh_lv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-    </com.fltry.androidlibs.view.refresh.RefreshLayout>
+        <com.fltry.androidlibs.view.refresh.RefreshLayout
+            android:id="@+id/refresh_rl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
+            <ListView
+                android:id="@+id/refresh_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.fltry.androidlibs.view.refresh.RefreshLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_r2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/refresh_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <include
+                    layout="@layout/refresh_view_footer"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
 </LinearLayout>
