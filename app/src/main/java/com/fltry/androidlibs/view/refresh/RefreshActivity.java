@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.fltry.androidlibs.R;
 import com.fltry.androidlibs.ui.BaseActivity;
@@ -20,7 +19,6 @@ import com.fltry.androidlibs.ui.BaseActivity;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class RefreshActivity extends BaseActivity {
 
@@ -149,15 +147,4 @@ public class RefreshActivity extends BaseActivity {
         return R.layout.activity_refresh;
     }
 
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        @BindView(R.id.item_refresh)
-        TextView itemRefresh;
-
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
-        }
-    }
 }

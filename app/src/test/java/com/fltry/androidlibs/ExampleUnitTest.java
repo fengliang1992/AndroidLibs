@@ -2,7 +2,7 @@ package com.fltry.androidlibs;
 
 import com.fltry.androidlibs.sdkmodule.retrofit.ILoginModel;
 import com.fltry.androidlibs.sdkmodule.retrofit.ILoginModelImp;
-import com.fltry.androidlibs.sdkmodule.retrofit.base.OnHttpCallBack;
+import com.fltry.androidlibs.sdkmodule.retrofit.bas.OnHttpCallBack;
 
 import org.junit.Test;
 

@@ -23,8 +23,11 @@ public class TimeSelectActivity extends BaseActivity {
     TextView tsTv;
     @BindView(R.id.ts_tv2)
     TextView tsTv2;
+    @BindView(R.id.ts_tv3)
+    TextView tsTv3;
 
     private Calendar calendar;
+    private CustomDatePicker timePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,16 @@ public class TimeSelectActivity extends BaseActivity {
                 calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND));
         tsTv2.setText(calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH) + "-" +
                 calendar.get(Calendar.DAY_OF_MONTH));
+
+        timePicker = new CustomDatePicker(this, "请选择时间", new CustomDatePicker.ResultHandler() {
+            @Override
+            public void handle(String time) {
+                tsTv3.setText(time);
+            }
+        }, "2000-01-01 00:00", "2050-12-31 23:59");// "2027-12-31 23:59"
+        timePicker.showSpecificTime(true);
+        timePicker.setIsLoop(true);
+        tsTv3.setText(GetTimeUtli.getTime("yyyy-MM-dd HH"));
     }
 
     @Override
@@ -43,7 +56,7 @@ public class TimeSelectActivity extends BaseActivity {
         return R.layout.activity_time_select;
     }
 
-    @OnClick({R.id.ts_btn, R.id.ts_btn2})
+    @OnClick({R.id.ts_btn, R.id.ts_btn2, R.id.ts_btn3})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ts_btn:
@@ -66,6 +79,9 @@ public class TimeSelectActivity extends BaseActivity {
                     }
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
+                break;
+            case R.id.ts_btn3:
+                timePicker.show(tsTv3.getText().toString());
                 break;
         }
     }

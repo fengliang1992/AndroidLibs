@@ -132,7 +132,7 @@ public class AMapActivity extends BaseActivity {
         //地图模式可选类型：MAP_TYPE_NORMAL,MAP_TYPE_SATELLITE,MAP_TYPE_NIGHT
         aMap.setMapType(AMap.MAP_TYPE_NORMAL);//地图类型
         UiSettings uiSettings = aMap.getUiSettings();
-//        uiSettings.setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
+        uiSettings.setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
         uiSettings.setScaleControlsEnabled(true);//控制比例尺控件是否显示
         //初始化client
         locationClient = new AMapLocationClient(this.getApplicationContext());

@@ -81,9 +81,9 @@
             android:name=".sdkmodule.zxing.ZxingActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity
-            android:name=".sdkmodule.retrofit.RetrofitActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity-->
+            <!--android:name=".sdkmodule.retrofit.RetrofitActivity"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
         <activity
             android:name=".sdkmodule.gaode.AMapActivity"
             android:theme="@style/AppTheme.NoActionBar" />
