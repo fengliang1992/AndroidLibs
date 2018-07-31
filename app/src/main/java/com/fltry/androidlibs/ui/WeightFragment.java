@@ -8,17 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.fltry.androidlibs.R;
 import com.fltry.androidlibs.utils.toast.ToastUtil;
-import com.fltry.androidlibs.view.elastic.ElasticActivity;
-import com.fltry.androidlibs.view.refresh.RefreshActivity;
-import com.fltry.androidlibs.view.timeselect.TimeSelectActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

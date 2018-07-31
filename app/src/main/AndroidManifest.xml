@@ -2,16 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fltry.androidlibs">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <application
-        android:name="com.fltry.module.excption.ExcptionApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,24 +22,6 @@
             android:name=".sdkmodule.butterkinfe.ButterKinfeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".sdkmodule.Okhttp.OkHttpActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.fltry.module.dialog.DialogActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.fltry.module.screen.ScreenUtilActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.fltry.module.excption.ExcptionActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".utils.sp.SPActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".utils.toast.ToastActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".sdkmodule.gson.GsonActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -63,9 +36,6 @@
         <activity
             android:name=".view.autotext.AutoTextActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".utils.picture.PictureActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -78,21 +48,9 @@
         </provider>
 
         <activity
-            android:name=".sdkmodule.zxing.ZxingActivity"
+            android:name="com.fltry.module.qrcode.ZxingActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <!--<activity-->
-            <!--android:name=".sdkmodule.retrofit.RetrofitActivity"-->
-            <!--android:theme="@style/AppTheme.NoActionBar" />-->
-        <activity
-            android:name=".sdkmodule.gaode.AMapActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <meta-data
-            android:name="com.amap.api.v2.apikey"
-            android:value="4ece4a7ea3176d485ec2363119f09b6c" />
-
-        <service android:name="com.amap.api.location.APSService" />
     </application>
 
 </manifest>

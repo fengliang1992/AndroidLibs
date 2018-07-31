@@ -33,9 +33,6 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'org.greenrobot:eventbus:3.1.1'
-    implementation files('libs/core-3.3.3.jar')
-    implementation files('libs/AMap3DMap_6.3.0_AMapNavi_6.2.0_AMapSearch_6.1.0_AMapLocation_4.1.0_20180705.jar')
 
     implementation project(':lib_common')
     if (!isModule.toBoolean()){

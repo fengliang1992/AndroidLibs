@@ -8,17 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.fltry.androidlibs.R;
-import com.fltry.androidlibs.sdkmodule.Okhttp.OkHttpActivity;
-import com.fltry.androidlibs.sdkmodule.butterkinfe.ButterKinfeActivity;
-import com.fltry.androidlibs.sdkmodule.gson.GsonActivity;
 import com.fltry.androidlibs.utils.toast.ToastUtil;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
