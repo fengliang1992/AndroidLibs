@@ -34,10 +34,10 @@
             android:name=".sdkmodule.Okhttp.OkHttpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".utils.Dialog.DialogActivity"
+            android:name="com.fltry.module.dialog.DialogActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".utils.screen.ScreenUtilActivity"
+            android:name="com.fltry.module.screen.ScreenUtilActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".utils.excption.ExcptionActivity"

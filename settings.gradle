@@ -1,1 +1,1 @@
-include ':app', ':spinkit'
+include ':app', ':spinkit', ':dialog', ':lib_common', ':screen'
