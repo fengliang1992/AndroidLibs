@@ -20,7 +20,6 @@ public class ScreenUtilActivity extends BaseActivity implements View.OnClickList
         getToolbarTitle().setText("屏幕属性");
 
         initView();
-        setContentView(R.layout.activity_screen_util);
     }
 
     private void initView() {
@@ -48,7 +47,7 @@ public class ScreenUtilActivity extends BaseActivity implements View.OnClickList
         if (v.getId() == R.id.su_iv2) {
             Bitmap bitmap = ScreenUtils.snapShotWithStatusBar(ScreenUtilActivity.this);
             mSuIv2.setImageBitmap(bitmap);
-        } else if (v.getId() == R.id.su_iv2) {
+        } else if (v.getId() == R.id.su_iv3) {
             Bitmap bitmap2 = ScreenUtils.snapShotWithoutStatusBar(ScreenUtilActivity.this);
             mSuIv3.setImageBitmap(bitmap2);
         }

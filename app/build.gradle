@@ -34,20 +34,14 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'org.greenrobot:eventbus:3.1.1'
-    implementation project(':spinkit')
-    compile 'com.github.markzhai:blockcanary-android:1.5.0'
     implementation files('libs/core-3.3.3.jar')
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.9'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.retrofit2:converter-scalars:2.2.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation files('libs/AMap3DMap_6.3.0_AMapNavi_6.2.0_AMapSearch_6.1.0_AMapLocation_4.1.0_20180705.jar')
 
     implementation project(':lib_common')
     if (!isModule.toBoolean()){
         implementation project(':dialog')
+        implementation project(':screen')
+        implementation project(':excption')
     }
 }
 repositories {

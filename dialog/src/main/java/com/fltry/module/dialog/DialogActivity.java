@@ -63,7 +63,6 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setToolBarTitle("Dialog");
-        setContentView(R.layout.activity_dialog);
         initView();
     }
 

@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".utils.excption.ExcptionApplication"
+        android:name="com.fltry.module.excption.ExcptionApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -40,7 +40,7 @@
             android:name="com.fltry.module.screen.ScreenUtilActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".utils.excption.ExcptionActivity"
+            android:name="com.fltry.module.excption.ExcptionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".utils.sp.SPActivity"

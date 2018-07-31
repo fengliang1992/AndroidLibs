@@ -36,12 +36,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             setSupportActionBar(mToolbar);
         }
 
-//        if (mToolbarTitle != null) {
-//            //getTitle()的值是activity的android:lable属性值
-//            mToolbarTitle.setText(getTitle());
-//            //设置默认的标题不显示
-//            getSupportActionBar().setDisplayShowTitleEnabled(false);
-//        }
+        if (mToolbarTitle != null) {
+            //设置默认的标题不显示
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
     }
 
 
