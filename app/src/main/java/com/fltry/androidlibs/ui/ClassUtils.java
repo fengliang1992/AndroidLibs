@@ -1,17 +1,5 @@
 package com.fltry.androidlibs.ui;
 
-import com.fltry.androidlibs.sdkmodule.Okhttp.OkHttpActivity;
-import com.fltry.androidlibs.sdkmodule.butterkinfe.ButterKinfeActivity;
-import com.fltry.androidlibs.sdkmodule.gaode.AMapActivity;
-import com.fltry.androidlibs.sdkmodule.gson.GsonActivity;
-import com.fltry.androidlibs.sdkmodule.retrofit.RetrofitActivity;
-import com.fltry.androidlibs.sdkmodule.zxing.ZxingActivity;
-import com.fltry.androidlibs.utils.Dialog.DialogActivity;
-import com.fltry.androidlibs.utils.excption.ExcptionActivity;
-import com.fltry.androidlibs.utils.picture.PictureActivity;
-import com.fltry.androidlibs.utils.screen.ScreenUtilActivity;
-import com.fltry.androidlibs.utils.sp.SPActivity;
-import com.fltry.androidlibs.utils.toast.ToastActivity;
 import com.fltry.androidlibs.view.autotext.AutoTextActivity;
 import com.fltry.androidlibs.view.elastic.ElasticActivity;
 import com.fltry.androidlibs.view.refresh.RefreshActivity;
@@ -40,26 +28,25 @@ public class ClassUtils {
         ArrayList<ClassBean> classes = new ArrayList<>();
         switch (fragmentIndex) {
             case SDK_FRAGMENT:
-                classes.add(new ClassBean("ButterKnife", ButterKinfeActivity.class));
-                classes.add(new ClassBean("OkHttp + EventBus", OkHttpActivity.class));
-                classes.add(new ClassBean("Gson", GsonActivity.class));
-                classes.add(new ClassBean("Zxing_二维码", ZxingActivity.class));
-                classes.add(new ClassBean("rxandroid2 + retrofit", RetrofitActivity.class));
-                classes.add(new ClassBean("AMap_高德地图", AMapActivity.class));
+                classes.add(new ClassBean("OkHttp + EventBus", "eventbus"));
+                classes.add(new ClassBean("Gson", "gson"));
+                classes.add(new ClassBean("Zxing_二维码", "qrcode"));
+                classes.add(new ClassBean("rxandroid2 + retrofit", "retrofit"));
+                classes.add(new ClassBean("AMap_高德地图", "amap"));
                 break;
             case UTIL_FRAGMENT:
-                classes.add(new ClassBean("DialogUtils_弹窗", DialogActivity.class));
-                classes.add(new ClassBean("ScreenUtils_屏幕", ScreenUtilActivity.class));
-                classes.add(new ClassBean("Excption_异常奔溃ANR", ExcptionActivity.class));
-                classes.add(new ClassBean("SharedPreferences", SPActivity.class));
-                classes.add(new ClassBean("Toast", ToastActivity.class));
-                classes.add(new ClassBean("Picture_图片处理", PictureActivity.class));
+                classes.add(new ClassBean("DialogUtils_弹窗", "dialog"));
+                classes.add(new ClassBean("ScreenUtils_屏幕", "screen"));
+                classes.add(new ClassBean("Excption_异常奔溃ANR", "excption"));
+                classes.add(new ClassBean("数据存储", "database"));
+                classes.add(new ClassBean("Toast", "toast"));
+                classes.add(new ClassBean("Picture_图片处理", "picture"));
                 break;
             case WEIGHT_FRAGMENT:
-                classes.add(new ClassBean("Elastic_弹性界面", ElasticActivity.class));
-                classes.add(new ClassBean("Refresh_刷新", RefreshActivity.class));
-                classes.add(new ClassBean("TimePic_系统时间日期选择器", TimeSelectActivity.class));
-                classes.add(new ClassBean("TextView_富文本", AutoTextActivity.class));
+                classes.add(new ClassBean("Elastic_弹性界面", "elastic"));
+                classes.add(new ClassBean("Refresh_刷新", "refresh"));
+                classes.add(new ClassBean("TimePic_系统时间日期选择器", "timeSelect"));
+                classes.add(new ClassBean("TextView_富文本", "autoText"));
                 break;
         }
         return classes;

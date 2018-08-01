@@ -10,12 +10,12 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.TextView;
 
 import com.fltry.androidlibs.R;
-import com.fltry.androidlibs.ui.BaseActivity;
-import com.fltry.androidlibs.utils.screen.ScreenUtils;
+import com.fltry.androidlibs.ui.ButterknifeActivity;
+import com.fltry.module.screen.ScreenUtils;
 
 import butterknife.BindView;
 
-public class AutoTextActivity extends BaseActivity {
+public class AutoTextActivity extends ButterknifeActivity {
 
     @BindView(R.id.auto_tv)
     AutoTextView autoTv;

@@ -18,39 +18,71 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".sdkmodule.butterkinfe.ButterKinfeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".sdkmodule.gson.GsonActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".view.elastic.ElasticActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <!--协议部分，随便设置-->
+                <data
+                    android:host="module"
+                    android:path="/elastic"
+                    android:port="80"
+                    android:scheme="fltry" />
+                <!--下面这几行也必须得设置-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.refresh.RefreshActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <!--协议部分，随便设置-->
+                <data
+                    android:host="module"
+                    android:path="/refresh"
+                    android:port="80"
+                    android:scheme="fltry" />
+                <!--下面这几行也必须得设置-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.timeselect.TimeSelectActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <!--协议部分，随便设置-->
+                <data
+                    android:host="module"
+                    android:path="/timeSelect"
+                    android:port="80"
+                    android:scheme="fltry" />
+                <!--下面这几行也必须得设置-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.autotext.AutoTextActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.fltry.androidlibs.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/photofilepaths" />
-        </provider>
-
-        <activity
-            android:name="com.fltry.module.qrcode.ZxingActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <!--协议部分，随便设置-->
+                <data
+                    android:host="module"
+                    android:path="/autoText"
+                    android:port="80"
+                    android:scheme="fltry" />
+                <!--下面这几行也必须得设置-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

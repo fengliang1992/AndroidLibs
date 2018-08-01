@@ -11,16 +11,26 @@
             <intent-filter>
                 <!--协议部分，随便设置-->
                 <data
-                    android:host="lights"
-                    android:path="/changepwd"
+                    android:host="module"
+                    android:path="/picture"
                     android:port="80"
-                    android:scheme="jtjsd" />
+                    android:scheme="fltry" />
                 <!--下面这几行也必须得设置-->
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.fltry.androidlibs.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/photofilepaths" />
+        </provider>
 
     </application>
 </manifest>

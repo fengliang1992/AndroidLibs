@@ -39,6 +39,14 @@ dependencies {
         implementation project(':dialog')
         implementation project(':screen')
         implementation project(':excption')
+        implementation project(':rretrofit')
+        implementation project(':picture')
+        implementation project(':amap')//若使用模拟器，需要导入相对应的so文件
+        implementation project(':toast')
+        implementation project(':database')
+        implementation project(':eventbus')
+        implementation project(':qrcode')
+        implementation project(':gson')
     }
 }
 repositories {

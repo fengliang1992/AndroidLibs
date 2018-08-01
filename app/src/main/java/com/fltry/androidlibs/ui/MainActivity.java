@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends ButterknifeActivity {
 
     @BindView(R.id.viewPager)
     ViewPager viewPager;
@@ -23,11 +23,11 @@ public class MainActivity extends BaseActivity {
 
     public ArrayList<ArrayList<ClassBean>> allClasses;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getToolbarTitle().setText("第三方");
-
         allClasses = ClassUtils.getAllClasses();
 
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), this, 3));

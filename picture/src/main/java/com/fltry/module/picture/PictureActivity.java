@@ -59,31 +59,22 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         ImageView.ScaleType scaleType = ImageView.ScaleType.CENTER;
-        switch (checkedId) {
-            case R.id.pic_sb_rb1:
-                scaleType = ImageView.ScaleType.CENTER;
-                break;
-            case R.id.pic_sb_rb2:
-                scaleType = ImageView.ScaleType.CENTER_INSIDE;
-                break;
-            case R.id.pic_sb_rb3:
-                scaleType = ImageView.ScaleType.CENTER_CROP;
-                break;
-            case R.id.pic_sb_rb4:
-                scaleType = ImageView.ScaleType.MATRIX;
-                break;
-            case R.id.pic_sb_rb5:
-                scaleType = ImageView.ScaleType.FIT_XY;
-                break;
-            case R.id.pic_sb_rb6:
-                scaleType = ImageView.ScaleType.FIT_START;
-                break;
-            case R.id.pic_sb_rb7:
-                scaleType = ImageView.ScaleType.FIT_CENTER;
-                break;
-            case R.id.pic_sb_rb8:
-                scaleType = ImageView.ScaleType.FIT_END;
-                break;
+        if (checkedId == R.id.pic_sb_rb1) {
+            scaleType = ImageView.ScaleType.CENTER;
+        } else if (checkedId == R.id.pic_sb_rb2) {
+            scaleType = ImageView.ScaleType.CENTER_INSIDE;
+        } else if (checkedId == R.id.pic_sb_rb3) {
+            scaleType = ImageView.ScaleType.CENTER_CROP;
+        } else if (checkedId == R.id.pic_sb_rb4) {
+            scaleType = ImageView.ScaleType.MATRIX;
+        } else if (checkedId == R.id.pic_sb_rb5) {
+            scaleType = ImageView.ScaleType.FIT_XY;
+        } else if (checkedId == R.id.pic_sb_rb6) {
+            scaleType = ImageView.ScaleType.FIT_START;
+        } else if (checkedId == R.id.pic_sb_rb7) {
+            scaleType = ImageView.ScaleType.FIT_CENTER;
+        } else if (checkedId == R.id.pic_sb_rb8) {
+            scaleType = ImageView.ScaleType.FIT_END;
         }
         mPicSbIv1.setScaleType(scaleType);
         mPicSbIv2.setScaleType(scaleType);

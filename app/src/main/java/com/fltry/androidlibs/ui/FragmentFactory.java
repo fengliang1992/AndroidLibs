@@ -4,11 +4,6 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 
-
-/**
- * Created by tol on 2018/3/21.
- */
-
 public class FragmentFactory {
     public static SparseArray<Fragment> mFragments = new SparseArray<Fragment>();
 

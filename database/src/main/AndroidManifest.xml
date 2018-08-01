@@ -10,10 +10,10 @@
             <intent-filter>
                 <!--协议部分，随便设置-->
                 <data
-                    android:host="lights"
-                    android:path="/changepwd"
+                    android:host="module"
+                    android:path="/database"
                     android:port="80"
-                    android:scheme="jtjsd" />
+                    android:scheme="fltry" />
                 <!--下面这几行也必须得设置-->
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.VIEW" />

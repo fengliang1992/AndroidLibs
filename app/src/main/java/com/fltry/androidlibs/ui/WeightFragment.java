@@ -1,6 +1,7 @@
 package com.fltry.androidlibs.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,18 +10,14 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.fltry.androidlibs.R;
-import com.fltry.androidlibs.utils.toast.ToastUtil;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-/**
- * Created by tol on 2018-06-13.
- */
 
 public class WeightFragment extends Fragment {
 
@@ -54,10 +51,10 @@ public class WeightFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position > classes.size() - 1) {
-                    ToastUtil.show(getContext(), "index越界");
+                    Toast.makeText(getContext(), "index越界", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                startActivity(new Intent(getContext(), classes.get(position).getcClass()));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(classes.get(position).getClassName())));
             }
         });
     }

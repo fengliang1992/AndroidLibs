@@ -5,7 +5,7 @@
         android:name=".ExcptionApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="异常捕获"
+        android:label="i_异常捕获"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

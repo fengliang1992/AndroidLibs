@@ -1,24 +1,26 @@
 package com.fltry.androidlibs.ui;
 
-/**
- * Created by tol on 2018-06-15.
- */
+import android.net.Uri;
 
 public class ClassBean {
 
     private String name;
-    private Class cClass;
+    private String className;
 
-    public ClassBean(String name, Class cClass) {
+    public ClassBean(String name, String className) {
         this.name = name;
-        this.cClass = cClass;
+        this.className = className;
     }
 
     public String getName() {
         return name;
     }
 
-    public Class getcClass() {
-        return cClass;
+    public String getClassName() {
+        return "fltry://module:80/" + className;
+    }
+
+    public Uri getUri() {
+        return Uri.parse(getClassName());
     }
 }

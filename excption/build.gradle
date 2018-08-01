@@ -9,7 +9,6 @@ android {
 
 
     defaultConfig {
-        applicationId "com.fltry.module.excption"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1

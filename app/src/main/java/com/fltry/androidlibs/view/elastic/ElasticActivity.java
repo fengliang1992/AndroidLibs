@@ -5,13 +5,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.fltry.androidlibs.R;
-import com.fltry.androidlibs.ui.BaseActivity;
+import com.fltry.androidlibs.ui.ButterknifeActivity;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 
-public class ElasticActivity extends BaseActivity {
+public class ElasticActivity extends ButterknifeActivity {
 
     @BindView(R.id.elastic_list)
     ElasticListView elasticList;
