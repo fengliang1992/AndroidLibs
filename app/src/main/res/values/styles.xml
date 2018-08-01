@@ -1,6 +1,5 @@
 <resources>
 
-
     <style name="RadioButtonStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>

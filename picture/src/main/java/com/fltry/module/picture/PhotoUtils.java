@@ -1,23 +1,14 @@
 package com.fltry.module.picture;
 
 import android.app.Activity;
-import android.content.ContentUris;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
 
 import java.io.File;
 import java.io.IOException;
-
-/**
- * Created by tol on 2018-06-21.
- */
 
 public class PhotoUtils {
 

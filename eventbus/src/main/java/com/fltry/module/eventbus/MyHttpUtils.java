@@ -11,10 +11,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-/**
- * Created by tol on 2018-04-25.
- */
-
 public class MyHttpUtils {
 
     /**

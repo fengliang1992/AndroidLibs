@@ -13,10 +13,6 @@ import android.widget.TextView;
  * base类
  */
 public abstract class BaseActivity extends AppCompatActivity {
-
-    //登录返回的token
-    public static String JWT = "";
-
     public Context mContext;
     private TextView mToolbarTitle;
     private Toolbar mToolbar;

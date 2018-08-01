@@ -1,10 +1,5 @@
 package com.fltry.androidlibs.ui;
 
-import com.fltry.androidlibs.view.autotext.AutoTextActivity;
-import com.fltry.androidlibs.view.elastic.ElasticActivity;
-import com.fltry.androidlibs.view.refresh.RefreshActivity;
-import com.fltry.androidlibs.view.timeselect.TimeSelectActivity;
-
 import java.util.ArrayList;
 
 /**

@@ -27,7 +27,7 @@ public class MainActivity extends ButterknifeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("第三方");
+        setToolBarTitle("第三方");
         allClasses = ClassUtils.getAllClasses();
 
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), this, 3));
@@ -55,17 +55,6 @@ public class MainActivity extends ButterknifeActivity {
                 }
             }
         });
-
-        if (Build.VERSION.SDK_INT >= 23) {//如果是6.0以上的
-            //验证是否许可权限
-            if (ActivityCompat.checkSelfPermission(this
-                    , Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                //申请权限
-                ActivityCompat.requestPermissions(this
-                        , new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
-                return;
-            }
-        }
     }
 
     @Override
