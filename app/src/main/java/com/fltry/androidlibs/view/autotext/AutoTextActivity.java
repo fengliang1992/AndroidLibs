@@ -1,5 +1,6 @@
 package com.fltry.androidlibs.view.autotext;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 
 import com.fltry.androidlibs.R;
 import com.fltry.androidlibs.ui.ButterknifeActivity;
-import com.fltry.module.screen.ScreenUtils;
 
 import butterknife.BindView;
 
@@ -40,7 +40,7 @@ public class AutoTextActivity extends ButterknifeActivity {
         SpannableStringBuilder spannableStringBuilder1 = new SpannableStringBuilder(text);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.RED);
         spannableStringBuilder1.setSpan(foregroundColorSpan, 0, 4, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
-        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(ScreenUtils.dip2px(mContext, 30));
+        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(dip2px(mContext, 30));
         spannableStringBuilder1.setSpan(absoluteSizeSpan, 5, 9, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
         autoTv2.setText(spannableStringBuilder1);
 
@@ -53,4 +53,13 @@ public class AutoTextActivity extends ButterknifeActivity {
     protected int getLayoutId() {
         return R.layout.activity_auto_text;
     }
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
 }

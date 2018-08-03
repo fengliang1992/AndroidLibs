@@ -1,7 +1,6 @@
 package com.fltry.androidlibs.ui;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -52,7 +51,7 @@ public class UtilFragment extends Fragment {
                     Toast.makeText(getContext(), "index越界", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(classes.get(position).getClassName())));
+                startActivity(new Intent(Intent.ACTION_VIEW, classes.get(position).getUri()));
             }
         });
     }
