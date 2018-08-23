@@ -27,20 +27,7 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
     private File file;
     private ImageView mPicSbIv1;
     private ImageView mPicSbIv2;
-    private RadioGroup mPicSbRg1;
     private ImageView mPicPhotoIv1;
-    /**
-     * 拍照
-     */
-    private Button mPicPhotoBtn1;
-    /**
-     * 相册
-     */
-    private Button mPicPhotoBtn2;
-    /**
-     * 展示大图片
-     */
-    private Button mPicLargeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,14 +110,17 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
     private void initView() {
         mPicSbIv1 = (ImageView) findViewById(R.id.pic_sb_iv1);
         mPicSbIv2 = (ImageView) findViewById(R.id.pic_sb_iv2);
-        mPicSbRg1 = (RadioGroup) findViewById(R.id.pic_sb_rg1);
+        RadioGroup mPicSbRg1 = (RadioGroup) findViewById(R.id.pic_sb_rg1);
         mPicSbRg1.setOnCheckedChangeListener(this);
         mPicPhotoIv1 = (ImageView) findViewById(R.id.pic_photo_iv1);
-        mPicPhotoBtn1 = (Button) findViewById(R.id.pic_photo_btn1);
+        /*拍照*/
+        Button mPicPhotoBtn1 = (Button) findViewById(R.id.pic_photo_btn1);
         mPicPhotoBtn1.setOnClickListener(this);
-        mPicPhotoBtn2 = (Button) findViewById(R.id.pic_photo_btn2);
+        /*相册*/
+        Button mPicPhotoBtn2 = (Button) findViewById(R.id.pic_photo_btn2);
         mPicPhotoBtn2.setOnClickListener(this);
-        mPicLargeBtn = (Button) findViewById(R.id.pic_large_btn);
+        /*展示大图片*/
+        Button mPicLargeBtn = (Button) findViewById(R.id.pic_large_btn);
         mPicLargeBtn.setOnClickListener(this);
     }
 
