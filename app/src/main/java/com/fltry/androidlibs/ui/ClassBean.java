@@ -7,7 +7,7 @@ public class ClassBean {
     private String name;
     private String className;
 
-    public ClassBean(String name, String className) {
+    ClassBean(String name, String className) {
         this.name = name;
         this.className = className;
     }
@@ -16,11 +16,11 @@ public class ClassBean {
         return name;
     }
 
-    public String getClassName() {
+    private String getClassName() {
         return "fltry://module:80/" + className;
     }
 
-    public Uri getUri() {
+    Uri getUri() {
         return Uri.parse(getClassName());
     }
 }

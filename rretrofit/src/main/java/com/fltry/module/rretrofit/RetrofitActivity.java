@@ -69,7 +69,7 @@ public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> im
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.retrofit_btn){
+        if (v.getId() == R.id.retrofit_btn) {
             mPresenter.login();
         }
     }

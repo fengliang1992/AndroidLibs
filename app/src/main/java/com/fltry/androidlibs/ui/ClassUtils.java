@@ -32,7 +32,7 @@ public class ClassUtils {
             case UTIL_FRAGMENT:
                 classes.add(new ClassBean("DialogUtils_弹窗", "dialog"));
                 classes.add(new ClassBean("ScreenUtils_屏幕", "screen"));
-                classes.add(new ClassBean("Excption_异常奔溃ANR", "excption"));
+                classes.add(new ClassBean("Exception_异常奔溃ANR", "exception"));
                 classes.add(new ClassBean("数据存储", "database"));
                 classes.add(new ClassBean("Toast", "toast"));
                 classes.add(new ClassBean("Picture_图片处理", "picture"));

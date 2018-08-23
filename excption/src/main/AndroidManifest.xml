@@ -13,7 +13,7 @@
                 <!--协议部分，随便设置-->
                 <data
                     android:host="module"
-                    android:path="/excption"
+                    android:path="/exception"
                     android:port="80"
                     android:scheme="fltry" />
                 <!--下面这几行也必须得设置-->
