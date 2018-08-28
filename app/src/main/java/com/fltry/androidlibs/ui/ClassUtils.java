@@ -28,6 +28,7 @@ public class ClassUtils {
                 classes.add(new ClassBean("Zxing_二维码", "qrcode"));
                 classes.add(new ClassBean("rxandroid2 + retrofit", "retrofit"));
                 classes.add(new ClassBean("AMap_高德地图", "amap"));
+                classes.add(new ClassBean("glide", "glide"));
                 break;
             case UTIL_FRAGMENT:
                 classes.add(new ClassBean("DialogUtils_弹窗", "dialog"));

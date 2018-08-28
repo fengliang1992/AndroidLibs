@@ -47,6 +47,7 @@ dependencies {
         implementation project(':eventbus')
         implementation project(':qrcode')
         implementation project(':gson')
+        implementation project(':glide')
     }
 }
 repositories {
