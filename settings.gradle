@@ -1,1 +1,1 @@
-include ':app', ':spinkit', ':dialog', ':lib_common', ':screen', ':excption', ':rretrofit', ':picture', ':amap', ':toast', ':database', ':eventbus', ':qrcode', ':gson'
+include ':app', ':spinkit', ':dialog', ':lib_common', ':screen', ':excption', ':rretrofit', ':picture', ':amap', ':toast', ':database', ':eventbus', ':qrcode', ':gson', ':glide'
