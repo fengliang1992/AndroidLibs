@@ -6,12 +6,12 @@ import java.util.ArrayList;
  * 添加新的model
  */
 public class ClassUtils {
-    public static final int SDK_FRAGMENT = 0;
-    public static final int UTIL_FRAGMENT = 1;
-    public static final int WEIGHT_FRAGMENT = 2;
+    static final int SDK_FRAGMENT = 0;
+    static final int UTIL_FRAGMENT = 1;
+    static final int WEIGHT_FRAGMENT = 2;
 
 
-    public static ArrayList<ArrayList<ClassBean>> getAllClasses() {
+    static ArrayList<ArrayList<ClassBean>> getAllClasses() {
         ArrayList<ArrayList<ClassBean>> allClasses = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             allClasses.add(getClasses(i));
