@@ -8,11 +8,17 @@
 
     <include layout="@layout/toolbar_layout" />
 
+    <Button
+        android:id="@+id/glide_btn"
+        android:text="切换效果"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/glide_gv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="horizontal"
         android:padding="6dp"/>
 
 </LinearLayout>

@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/screen/screen.iml" filepath="$PROJECT_DIR$/screen/screen.iml" />
       <module fileurl="file://$PROJECT_DIR$/spinkit/spinkit.iml" filepath="$PROJECT_DIR$/spinkit/spinkit.iml" />
       <module fileurl="file://$PROJECT_DIR$/toast/toast.iml" filepath="$PROJECT_DIR$/toast/toast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpagerlayoutmanager/viewpagerlayoutmanager.iml" filepath="$PROJECT_DIR$/viewpagerlayoutmanager/viewpagerlayoutmanager.iml" />
     </modules>
   </component>
 </project>
