@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.fltry.module.lib_common.Dialog;
+
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
@@ -48,7 +50,7 @@ public abstract class ClassBeanFragemt extends Fragment {
 
     protected abstract int getLayoutId();
 
-    private void initView(){
+    private void initView() {
         unbinder = ButterKnife.bind(this, mRootView);
         final ArrayList<ClassBean> classes = getClasses();
         getLv().setAdapter(new MyClassAdapter(getContext(), classes));
@@ -60,7 +62,11 @@ public abstract class ClassBeanFragemt extends Fragment {
                     Toast.makeText(getContext(), "index越界", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                startActivity(new Intent(Intent.ACTION_VIEW, classes.get(position).getUri()));
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, classes.get(position).getUri()));
+                } catch (Exception e) {
+                    Dialog.getMyAlert(mContext, "跳转失败", "由于65535报错，SDK暂时组件化运行").show();
+                }
             }
         });
     }

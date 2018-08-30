@@ -58,4 +58,8 @@ public class MainActivity extends ButterknifeActivity {
         return R.layout.activity_main;
     }
 
+    @Override
+    protected boolean isShowBacking() {
+        return false;
+    }
 }
