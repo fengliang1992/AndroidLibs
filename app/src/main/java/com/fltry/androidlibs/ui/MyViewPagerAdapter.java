@@ -9,7 +9,7 @@ public class MyViewPagerAdapter extends FragmentStatePagerAdapter {
 	private Context context;
 	private int size = 0;
 
-	public MyViewPagerAdapter(FragmentManager fm, Context context, int size) {
+	MyViewPagerAdapter(FragmentManager fm, Context context, int size) {
 		super(fm);
 		this.context = context;
 		this.size = size;

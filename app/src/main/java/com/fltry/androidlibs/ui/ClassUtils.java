@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * 添加新的model
  */
-public class ClassUtils {
+class ClassUtils {
     static final int SDK_FRAGMENT = 0;
     static final int UTIL_FRAGMENT = 1;
     static final int WEIGHT_FRAGMENT = 2;

@@ -118,7 +118,7 @@ public class GlideActivity extends BaseActivity {
 
     private void getPic() {
         mRetrofit.create(ApiService.class)
-                .getMovice(10)
+                .getMovice(250)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Movice>() {
@@ -186,7 +186,7 @@ public class GlideActivity extends BaseActivity {
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, final int position) {
+        public void onBindViewHolder(final ViewHolder holder, int position) {
             Glide.with(mContext)
                     .load(subjects.get(position).getImages().getMedium())
                     .placeholder(R.mipmap.ic_launcher)
@@ -194,7 +194,7 @@ public class GlideActivity extends BaseActivity {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onItemClickListener.onItemClick(v, position);
+                    onItemClickListener.onItemClick(v, holder.getAdapterPosition());
                 }
             });
         }

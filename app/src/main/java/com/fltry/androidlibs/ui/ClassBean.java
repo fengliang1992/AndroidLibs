@@ -2,7 +2,7 @@ package com.fltry.androidlibs.ui;
 
 import android.net.Uri;
 
-public class ClassBean {
+class ClassBean {
 
     private String name;
     private String className;
@@ -12,7 +12,7 @@ public class ClassBean {
         this.className = className;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 

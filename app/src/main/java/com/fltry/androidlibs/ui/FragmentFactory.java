@@ -4,10 +4,10 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 
-public class FragmentFactory {
-    public static SparseArray<Fragment> mFragments = new SparseArray<Fragment>();
+class FragmentFactory {
+    static SparseArray<Fragment> mFragments = new SparseArray<Fragment>();
 
-    public static Fragment createFragment(int position, Context context) {
+    static Fragment createFragment(int position, Context context) {
         Fragment fragment;
         fragment = mFragments.get(position); // 在集合中取出来Fragment
         if (fragment == null) { // 如果再集合中没有取出来 需要重新创建

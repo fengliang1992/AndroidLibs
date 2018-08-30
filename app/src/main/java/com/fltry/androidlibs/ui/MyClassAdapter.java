@@ -14,7 +14,7 @@ public class MyClassAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<ClassBean> classes;
 
-    public MyClassAdapter(Context context, ArrayList<ClassBean> classes) {
+    MyClassAdapter(Context context, ArrayList<ClassBean> classes) {
         this.context = context;
         this.classes = classes;
     }
