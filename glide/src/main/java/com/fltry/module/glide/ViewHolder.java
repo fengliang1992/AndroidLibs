@@ -1,8 +1,14 @@
 package com.fltry.module.glide;
 
-/**
- * Created by tol on 2018-09-10.
- */
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 
-public class ViewHolder {
+public class ViewHolder extends RecyclerView.ViewHolder {
+    ImageView imageView;
+
+    public ViewHolder(View itemView) {
+        super(itemView);
+        imageView = itemView.findViewById(R.id.glide_item_iv);
+    }
 }

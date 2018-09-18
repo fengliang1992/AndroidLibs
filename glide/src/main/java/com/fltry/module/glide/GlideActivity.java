@@ -12,14 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.fltry.module.lib_common.BaseActivity;
 import com.fltry.module.lib_common.Dialog;
 import com.leochuan.CarouselLayoutManager;
-import com.leochuan.CenterSnapHelper;
 import com.leochuan.CircleLayoutManager;
 import com.leochuan.CircleScaleLayoutManager;
 import com.leochuan.GalleryLayoutManager;
@@ -154,7 +151,7 @@ public class GlideActivity extends BaseActivity {
         mGlideGv.setItemAnimator(new DefaultItemAnimator());
         MyAdapter myAdapter = new MyAdapter(subjects, mContext);
         mGlideGv.setAdapter(myAdapter);
-        myAdapter.setOnItemClickListener(new OnItemClickListener() {
+        myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
                 ScrollHelper.smoothScrollToTargetView(mGlideGv, v);
@@ -166,57 +163,8 @@ public class GlideActivity extends BaseActivity {
         });
     }
 
-    public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
-        private List<Movice.SubjectsBean> subjects;
-        private Context mContext;
-        private OnItemClickListener onItemClickListener;
 
-        public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-            this.onItemClickListener = onItemClickListener;
-        }
 
-        public MyAdapter(List<Movice.SubjectsBean> subjects, Context mContext) {
-            this.subjects = subjects;
-            this.mContext = mContext;
-        }
 
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new ViewHolder(View.inflate(mContext, R.layout.glide_item_movie, null));
-        }
-
-        @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
-            Glide.with(mContext)
-                    .load(subjects.get(position).getImages().getMedium())
-                    .placeholder(R.mipmap.ic_launcher)
-                    .into(holder.imageView);
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onItemClickListener.onItemClick(v, holder.getAdapterPosition());
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return subjects.size();
-        }
-
-    }
-
-    public interface OnItemClickListener {
-        void onItemClick(View v, int position);
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.glide_item_iv);
-        }
-    }
 
 }
