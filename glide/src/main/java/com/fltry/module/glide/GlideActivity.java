@@ -1,19 +1,18 @@
 package com.fltry.module.glide;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Bundle;
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.fltry.module.glide.databinding.ActivityGlideBinding;
 import com.fltry.module.lib_common.BaseActivity;
 import com.fltry.module.lib_common.Dialog;
 import com.leochuan.CarouselLayoutManager;
@@ -37,31 +36,26 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class GlideActivity extends BaseActivity {
+public class GlideActivity extends DataBindingActivity {
 
-    private RecyclerView mGlideGv;
-    private Button glideBtn;
     List<Movice.SubjectsBean> subjects;
     private Retrofit mRetrofit;
-    String[] types;
+
+    protected ActivityGlideBinding mBinding;
+    private String[] types;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("glide+豆瓣API使用");
+    protected String title() {
+        return "glide+豆瓣API使用";
+    }
+
+    @Override
+    protected void initView() {
         /*https://developers.douban.com/  豆瓣api首页*/
-        initView();
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_glide;
-    }
-
-    private void initView() {
-        mGlideGv = (RecyclerView) findViewById(R.id.glide_gv);
-        glideBtn = (Button) findViewById(R.id.glide_btn);
-        types = new String[]{"环形滚动", "横向滑动", "环形缩放", "向前推进", "环绕效果", "旋转平移", "无"};
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_glide);
+        types = new String[]{"环形滚动", "横向滑动", "环形缩放", "向前推进", "环绕效果", "旋转平移", "无特殊效果"};
+        mBinding.setTypes(types);
+        mBinding.setIndex(6);
 
         OkHttpClient okHttpClient;
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -78,40 +72,8 @@ public class GlideActivity extends BaseActivity {
                 .build();
 
         getPic();
-        glideBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (subjects == null) {
-                    getPic();
-                    return;
-                }
-                new AlertDialog.Builder(mContext).setTitle("选择效果")
-                        .setAdapter(new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, types),
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        glideBtn.setText(types[which]);
-                                        if (which == 0) {
-                                            setMyRecyleLayoutManage(new CircleLayoutManager(mContext));
-                                        } else if (which == 1) {
-                                            setMyRecyleLayoutManage(new ScaleLayoutManager(mContext, 20));
-                                        } else if (which == 2) {
-                                            setMyRecyleLayoutManage(new CircleScaleLayoutManager(mContext));
-                                        } else if (which == 3) {
-                                            setMyRecyleLayoutManage(new CarouselLayoutManager(mContext, 100));
-                                        } else if (which == 4) {
-                                            setMyRecyleLayoutManage(new GalleryLayoutManager(mContext, 20));
-                                        } else if (which == 5) {
-                                            setMyRecyleLayoutManage(new RotateLayoutManager(mContext, 20));
-                                        } else {
-                                            setMyRecyleLayoutManage(new GridLayoutManager(mContext, 3));
-                                        }
-                                    }
-                                }).show();
-            }
-        });
-
     }
+
 
     private void getPic() {
         mRetrofit.create(ApiService.class)
@@ -147,14 +109,14 @@ public class GlideActivity extends BaseActivity {
     }
 
     private void setMyRecyleLayoutManage(RecyclerView.LayoutManager layout) {
-        mGlideGv.setLayoutManager(layout);
-        mGlideGv.setItemAnimator(new DefaultItemAnimator());
+        mBinding.glideGv.setLayoutManager(layout);
+        mBinding.glideGv.setItemAnimator(new DefaultItemAnimator());
         MyAdapter myAdapter = new MyAdapter(subjects, mContext);
-        mGlideGv.setAdapter(myAdapter);
+        mBinding.glideGv.setAdapter(myAdapter);
         myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                ScrollHelper.smoothScrollToTargetView(mGlideGv, v);
+                ScrollHelper.smoothScrollToTargetView(mBinding.glideGv, v);
                 String msg = "名字：" + subjects.get(position).getTitle()
                         + "\n类型：" + subjects.get(position).getGenres().toString()
                         + "\n上映时间：" + subjects.get(position).getYear();
@@ -163,8 +125,34 @@ public class GlideActivity extends BaseActivity {
         });
     }
 
-
-
-
+    public void changeType(View v) {
+        if (subjects == null) {
+            getPic();
+        } else {
+            new AlertDialog.Builder(mContext).setTitle("选择效果")
+                    .setAdapter(new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, types),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mBinding.setIndex(which);
+                                    if (which == 0) {
+                                        setMyRecyleLayoutManage(new CircleLayoutManager(mContext));
+                                    } else if (which == 1) {
+                                        setMyRecyleLayoutManage(new ScaleLayoutManager(mContext, 20));
+                                    } else if (which == 2) {
+                                        setMyRecyleLayoutManage(new CircleScaleLayoutManager(mContext));
+                                    } else if (which == 3) {
+                                        setMyRecyleLayoutManage(new CarouselLayoutManager(mContext, 100));
+                                    } else if (which == 4) {
+                                        setMyRecyleLayoutManage(new GalleryLayoutManager(mContext, 20));
+                                    } else if (which == 5) {
+                                        setMyRecyleLayoutManage(new RotateLayoutManager(mContext, 20));
+                                    } else {
+                                        setMyRecyleLayoutManage(new GridLayoutManager(mContext, 3));
+                                    }
+                                }
+                            }).show();
+        }
+    }
 
 }

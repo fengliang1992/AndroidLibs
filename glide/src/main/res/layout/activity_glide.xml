@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.fltry.module.glide.GlideActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <include layout="@layout/toolbar_layout" />
+    <data>
 
-    <Button
-        android:id="@+id/glide_btn"
-        android:text="切换效果"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <import type="android.view.View" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/glide_gv"
+        <variable
+            name="types"
+            type="String[]" />
+
+        <variable
+            name="index"
+            type="int" />
+
+    </data>
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="horizontal"
-        android:padding="6dp" />
+        tools:context="com.fltry.module.glide.GlideActivity">
 
-</LinearLayout>
+        <include
+            android:id="@+id/include"
+            layout="@layout/toolbar_data_layout" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/glide_gv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            android:scrollbars="horizontal" />
+
+        <Button
+            android:id="@+id/glide_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:onClick="changeType"
+            android:text="@{types[index]}" />
+
+    </RelativeLayout>
+</layout>
