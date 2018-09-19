@@ -1,6 +1,5 @@
 package com.fltry.androidlibs.ui;
 
-import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.widget.RadioGroup;
 
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 import butterknife.BindView;
 
 public class MainActivity extends ButterknifeActivity {
-
     @BindView(R.id.viewPager)
     ViewPager viewPager;
     @BindView(R.id.radioGroup)
@@ -19,11 +17,18 @@ public class MainActivity extends ButterknifeActivity {
 
     public ArrayList<ArrayList<ClassBean>> allClasses;
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("第三方");
+    protected String title() {
+        return "第三方";
+    }
+
+    @Override
+    protected void initView() {
         allClasses = ClassUtils.getAllClasses();
 
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), this, 3));
@@ -51,11 +56,6 @@ public class MainActivity extends ButterknifeActivity {
                 }
             }
         });
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_main;
     }
 
     @Override

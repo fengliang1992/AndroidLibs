@@ -2,18 +2,13 @@ package com.fltry.module.glide;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.databinding.DataBindingUtil;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.fltry.module.glide.databinding.ActivityGlideBinding;
-import com.fltry.module.lib_common.BaseActivity;
 import com.fltry.module.lib_common.Dialog;
 import com.leochuan.CarouselLayoutManager;
 import com.leochuan.CircleLayoutManager;
@@ -45,6 +40,11 @@ public class GlideActivity extends DataBindingActivity {
     private String[] types;
 
     @Override
+    protected int ResourecId() {
+        return R.layout.activity_glide;
+    }
+
+    @Override
     protected String title() {
         return "glide+豆瓣API使用";
     }
@@ -52,7 +52,7 @@ public class GlideActivity extends DataBindingActivity {
     @Override
     protected void initView() {
         /*https://developers.douban.com/  豆瓣api首页*/
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_glide);
+        mBinding = (ActivityGlideBinding) dataBinding;
         types = new String[]{"环形滚动", "横向滑动", "环形缩放", "向前推进", "环绕效果", "旋转平移", "无特殊效果"};
         mBinding.setTypes(types);
         mBinding.setIndex(6);

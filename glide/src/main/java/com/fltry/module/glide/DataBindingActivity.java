@@ -1,6 +1,8 @@
 package com.fltry.module.glide;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +15,14 @@ public abstract class DataBindingActivity extends AppCompatActivity {
     public Context mContext;
     TextView mToolbarTitle;
     private Toolbar mToolbar;
+    public ViewDataBinding dataBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
+
+        dataBinding = DataBindingUtil.setContentView(this, ResourecId());
 
         mToolbar = findViewById(R.id.toolbar);
         mToolbarTitle = findViewById(R.id.toolbar_title);
@@ -69,6 +74,8 @@ public abstract class DataBindingActivity extends AppCompatActivity {
     protected boolean isShowBacking() {
         return true;
     }
+
+    protected abstract int ResourecId();
 
     protected abstract String title();
 
