@@ -24,12 +24,10 @@ public class ScreenUtilActivity extends BaseActivity implements View.OnClickList
         getWindow().getDecorView()
                 .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("屏幕属性");
-
-        initView();
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         mSuTv = (TextView) findViewById(R.id.su_tv);
         mSuIv2 = (ImageView) findViewById(R.id.su_iv2);
         mSuIv2.setOnClickListener(this);
@@ -47,6 +45,11 @@ public class ScreenUtilActivity extends BaseActivity implements View.OnClickList
     @Override
     protected int getLayoutId() {
         return R.layout.activity_screen_util;
+    }
+
+    @Override
+    protected String title() {
+        return "屏幕属性";
     }
 
     @Override

@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include layout="@layout/toolbar_layout" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <include layout="@layout/toolbar_layout" />
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <include layout="@layout/layout_pic_srcandbg" />
-
-            <include layout="@layout/layout_pic_photo" />
-
-            <Button
-                android:id="@+id/pic_large_btn"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="展示大图片"/>
-        </LinearLayout>
-    </ScrollView>
+                android:orientation="vertical">
 
-</LinearLayout>
+                <include layout="@layout/layout_pic_srcandbg" />
+
+                <include layout="@layout/layout_pic_photo" />
+
+                <Button
+                    android:id="@+id/pic_large_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="展示大图片" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

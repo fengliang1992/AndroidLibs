@@ -1,6 +1,5 @@
 package com.fltry.module.gson;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,26 +28,24 @@ public class GsonActivity extends BaseActivity implements View.OnClickListener {
     private Button mGsonBtn2;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("Gson的使用");
-
-        gson = new Gson();
-        initView();
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_gson;
     }
 
-    private void initView() {
+    @Override
+    protected String title() {
+        return "Gson的使用";
+    }
+
+    @Override
+    protected void initView() {
         mGsonTv1 = (TextView) findViewById(R.id.gson_tv1);
         mGsonBtn1 = (Button) findViewById(R.id.gson_btn1);
         mGsonBtn1.setOnClickListener(this);
         mGsonTv2 = (TextView) findViewById(R.id.gson_tv2);
         mGsonBtn2 = (Button) findViewById(R.id.gson_btn2);
         mGsonBtn2.setOnClickListener(this);
+        gson = new Gson();
     }
 
     @Override

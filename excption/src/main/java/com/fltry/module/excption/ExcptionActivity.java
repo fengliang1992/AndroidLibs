@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Button;
@@ -23,18 +22,17 @@ public class ExcptionActivity extends BaseActivity implements View.OnClickListen
     private Button mExcptionBtn2;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("异常捕获");
-        initView();
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_excption;
     }
 
-    private void initView() {
+    @Override
+    protected String title() {
+        return "异常捕获";
+    }
+
+    @Override
+    protected void initView() {
         mExcptionBtn1 = (Button) findViewById(R.id.excption_btn1);
         mExcptionBtn1.setOnClickListener(this);
         mExcptionBtn2 = (Button) findViewById(R.id.excption_btn2);

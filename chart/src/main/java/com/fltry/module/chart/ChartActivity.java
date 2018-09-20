@@ -1,7 +1,6 @@
 package com.fltry.module.chart;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
@@ -24,20 +23,23 @@ public class ChartActivity extends BaseActivity {
     private LinearLayout mContainer;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("各类统计图形");
+    protected int getLayoutId() {
+        return R.layout.activity_chart;
+    }
+
+    @Override
+    protected String title() {
+        return "各类统计图形";
+    }
+
+    @Override
+    protected void initView() {
         mContainer = findViewById(R.id.mContainer);
 
         for (int i = 0; i < 20; i++) {
             datas.add(new ChartData("第" + i + "个数据", i + 1, i * new Random().nextFloat() * 100));
         }
         showChart(new LineChart(this), getLineData());
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_chart;
     }
 
     /**

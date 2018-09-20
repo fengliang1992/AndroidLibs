@@ -1,7 +1,6 @@
 package com.fltry.module.toast;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
@@ -27,18 +26,16 @@ public class ToastActivity extends BaseActivity implements View.OnClickListener 
      */
     private Button mToastBtn3;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("Toast");
-        initView();
-    }
-
     int i = 0;
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_toast;
+    }
+
+    @Override
+    protected String title() {
+        return "Toast";
     }
 
 
@@ -76,7 +73,8 @@ public class ToastActivity extends BaseActivity implements View.OnClickListener 
         toast.show();
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         mToastBtn1 = (Button) findViewById(R.id.toast_btn1);
         mToastBtn1.setOnClickListener(this);
         mToastBtn2 = (Button) findViewById(R.id.toast_btn2);

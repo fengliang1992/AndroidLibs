@@ -1,7 +1,6 @@
 package com.fltry.module.qrcode;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,19 +28,17 @@ public class ZxingActivity extends BaseActivity implements View.OnClickListener 
     private Button mZxingBtn3;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("二维码");
-        initView();
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_zxing;
     }
 
+    @Override
+    protected String title() {
+        return "二维码";
+    }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         mZxingEd1 = (EditText) findViewById(R.id.zxing_ed1);
         mZxingBtn2 = (Button) findViewById(R.id.zxing_btn2);
         mZxingBtn2.setOnClickListener(this);
@@ -54,9 +51,9 @@ public class ZxingActivity extends BaseActivity implements View.OnClickListener 
     public void onClick(View v) {
         if (v.getId() == R.id.zxing_btn2) {
             mZxingEd1.setText("");
-        }else if (v.getId() == R.id.zxing_btn3) {
+        } else if (v.getId() == R.id.zxing_btn3) {
             if (mZxingEd1.getText().toString().equals("")) {
-                Toast.makeText(mContext, "请输入内容",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "请输入内容", Toast.LENGTH_SHORT).show();
                 return;
             }
             try {

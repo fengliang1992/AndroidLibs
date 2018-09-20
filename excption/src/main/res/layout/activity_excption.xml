@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include layout="@layout/toolbar_layout" />
 
-    <Button
-        android:id="@+id/excption_btn1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="模拟奔溃" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/excption_btn2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="模拟ANRs" />
+        <include layout="@layout/toolbar_layout" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/excption_btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="模拟奔溃" />
+
+        <Button
+            android:id="@+id/excption_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="模拟ANRs" />
+
+    </LinearLayout>
+</layout>

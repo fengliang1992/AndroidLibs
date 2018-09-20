@@ -2,7 +2,6 @@ package com.fltry.module.eventbus;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
-import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,13 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -28,17 +21,6 @@ import com.fltry.module.lib_common.BaseActivity;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 
 public class OkHttpActivity extends BaseActivity implements View.OnClickListener {
@@ -54,20 +36,13 @@ public class OkHttpActivity extends BaseActivity implements View.OnClickListener
     private Button mOkHttpBtn2;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("okHttp+EventBus");
-        EventBus.getDefault().register(this);
-        mOkHttpBtn = (Button) findViewById(R.id.okHttp_btn);
-        mOkHttpBtn.setOnClickListener(this);
-        okHttpEt = findViewById(R.id.okHttp_et);
-        okHttpEt.setText("http://10.10.10.107:8004/areas");
-        initView();
+    protected int getLayoutId() {
+        return R.layout.activity_http;
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_http;
+    protected String title() {
+        return "okHttp+EventBus";
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -113,7 +88,13 @@ public class OkHttpActivity extends BaseActivity implements View.OnClickListener
         }
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
+        EventBus.getDefault().register(this);
+        mOkHttpBtn = (Button) findViewById(R.id.okHttp_btn);
+        mOkHttpBtn.setOnClickListener(this);
+        okHttpEt = findViewById(R.id.okHttp_et);
+        okHttpEt.setText("http://10.10.10.107:8004/areas");
         mOkHttpBtn2 = (Button) findViewById(R.id.okHttp_btn2);
         mOkHttpBtn2.setOnClickListener(this);
     }

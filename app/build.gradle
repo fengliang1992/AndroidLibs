@@ -23,6 +23,10 @@ android {
             outputFileName = "安卓工具_" + "${defaultConfig.versionCode}" + ".apk"
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {

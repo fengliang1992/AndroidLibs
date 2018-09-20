@@ -1,6 +1,5 @@
 package com.fltry.module.database;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -34,19 +33,17 @@ public class SPActivity extends BaseActivity implements View.OnClickListener {
     private TextView mSpTv6;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("SharedPreferences");
-        initView();
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_sp;
     }
 
+    @Override
+    protected String title() {
+        return "SharedPreferences";
+    }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         mSpEt1 = (EditText) findViewById(R.id.sp_et1);
         mSpEt2 = (EditText) findViewById(R.id.sp_et2);
         mSpBtn3 = (Button) findViewById(R.id.sp_btn3);

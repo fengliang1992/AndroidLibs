@@ -1,6 +1,5 @@
 package com.fltry.androidlibs.view.elastic;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
@@ -17,20 +16,22 @@ public class ElasticActivity extends ButterknifeActivity {
     ElasticListView elasticList;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("弹性界面");
+    protected int getLayoutId() {
+        return R.layout.activity_elastic;
+    }
 
+    @Override
+    protected String title() {
+        return "弹性界面";
+    }
+
+    @Override
+    protected void initView() {
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             arrayList.add("第：" + (i + 1) + "个");
         }
         elasticList.setAdapter(new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, arrayList));
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_elastic;
     }
 
     @Override

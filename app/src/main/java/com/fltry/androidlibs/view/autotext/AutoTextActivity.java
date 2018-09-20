@@ -2,7 +2,6 @@ package com.fltry.androidlibs.view.autotext;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -25,14 +24,7 @@ public class AutoTextActivity extends ButterknifeActivity {
     TextView autoTv3;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("富文本");
-
-        initView();
-    }
-
-    private void initView() {
+    protected void initView() {
         autoTv.setText("冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥");
         String text = "改变颜色，改变大小，冯亮是帅哥冯亮是帅哥冯亮是帅哥---SpannableStringBuilder";
 
@@ -52,6 +44,11 @@ public class AutoTextActivity extends ButterknifeActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_auto_text;
+    }
+
+    @Override
+    protected String title() {
+        return "富文本";
     }
 
     /**

@@ -10,10 +10,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
@@ -22,7 +22,6 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
-import com.amap.api.maps.MapView;
 import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.services.weather.LocalWeatherForecastResult;
@@ -30,6 +29,7 @@ import com.amap.api.services.weather.LocalWeatherLive;
 import com.amap.api.services.weather.LocalWeatherLiveResult;
 import com.amap.api.services.weather.WeatherSearch;
 import com.amap.api.services.weather.WeatherSearchQuery;
+import com.fltry.module.amap.databinding.ActivityAmapBinding;
 import com.fltry.module.lib_common.BaseActivity;
 
 
@@ -38,29 +38,19 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
     private static final int MY_PERMISSIONS_REQUEST_LOACLTION = 1;
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = null;
-    MapView mMapView;
-    /**
-     * 定位
-     */
-    private Button mAMapBtn;
 
+    ActivityAmapBinding mBinding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("高德地图");
-
-        mMapView = findViewById(R.id.a_map_view);
-        mAMapBtn = (Button) findViewById(R.id.a_map_btn);
-        mAMapBtn.setOnClickListener(this);
-
-        mMapView.onCreate(savedInstanceState);
-        initView();
+        mBinding = (ActivityAmapBinding) dataBinding;
+        mBinding.aMapView.onCreate(savedInstanceState);
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         initLocation();
-
         if (Build.VERSION.SDK_INT >= 23
                 && getApplicationInfo().targetSdkVersion >= 23) {
             if (ActivityCompat.checkSelfPermission(this,
@@ -99,6 +89,11 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
         return R.layout.activity_amap;
     }
 
+    @Override
+    protected String title() {
+        return "高德地图";
+    }
+
 
     /**
      * 初始化定位
@@ -111,7 +106,7 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
         myLocationStyle.strokeColor(Color.TRANSPARENT);
         myLocationStyle.radiusFillColor(Color.parseColor("#204E91E9"));
         myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE);//定位一次
-        AMap aMap = mMapView.getMap();
+        AMap aMap = mBinding.aMapView.getMap();
         aMap.setMyLocationStyle(myLocationStyle);
         aMap.setMyLocationEnabled(true);
         aMap.setTrafficEnabled(true);// 显示实时交通状况
@@ -282,8 +277,8 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
         super.onDestroy();
         destroyLocation();
         //在activity执行onDestroy时执行mMapView.onDestroy()，销毁地图
-        if (mMapView != null)
-            mMapView.onDestroy();
+        if (mBinding.aMapView != null)
+            mBinding.aMapView.onDestroy();
     }
 
     /**
@@ -303,21 +298,21 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         //在activity执行onResume时执行mMapView.onResume ()，重新绘制加载地图
-        mMapView.onResume();
+        mBinding.aMapView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         //在activity执行onPause时执行mMapView.onPause ()，暂停地图的绘制
-        mMapView.onPause();
+        mBinding.aMapView.onPause();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，保存地图当前的状态
-        mMapView.onSaveInstanceState(outState);
+        mBinding.aMapView.onSaveInstanceState(outState);
     }
 
 

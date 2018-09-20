@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include layout="@layout/toolbar_layout" />
 
-    <EditText
-        android:id="@+id/sp_et1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="请输入key" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/sp_et2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="请输入需要保存的内容" />
+        <include layout="@layout/toolbar_layout" />
 
-    <Button
-        android:id="@+id/sp_btn3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="存储" />
+        <EditText
+            android:id="@+id/sp_et1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入key" />
 
-    <EditText
-        android:id="@+id/sp_et4"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:hint="请输入key" />
+        <EditText
+            android:id="@+id/sp_et2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入需要保存的内容" />
 
-    <Button
-        android:id="@+id/sp_btn5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="读取" />
+        <Button
+            android:id="@+id/sp_btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="存储" />
 
-    <TextView
-        android:id="@+id/sp_tv6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp" />
-</LinearLayout>
+        <EditText
+            android:id="@+id/sp_et4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:hint="请输入key" />
+
+        <Button
+            android:id="@+id/sp_btn5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="读取" />
+
+        <TextView
+            android:id="@+id/sp_tv6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp" />
+    </LinearLayout>
+</layout>

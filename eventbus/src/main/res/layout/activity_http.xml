@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include layout="@layout/toolbar_layout" />
 
-    <EditText
-        android:id="@+id/okHttp_et"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="接口(只能为get请求)"
-        android:singleLine="true" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/okHttp_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="发送请求" />
+        <include layout="@layout/toolbar_layout" />
 
-    <Button
-        android:id="@+id/okHttp_btn2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="下载apk" />
+        <EditText
+            android:id="@+id/okHttp_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="接口(只能为get请求)"
+            android:singleLine="true" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/okHttp_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="发送请求" />
+
+        <Button
+            android:id="@+id/okHttp_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下载apk" />
+
+    </LinearLayout>
+</layout>

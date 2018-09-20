@@ -2,8 +2,6 @@ package com.fltry.module.rretrofit;
 
 import android.app.AlertDialog;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,13 +18,6 @@ public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> im
     private TextView mRetrofitTv;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("Retrofit+rxandroid+MVP");
-        initView();
-    }
-
-    @Override
     protected LoginPresenter createPresenter() {
         return new LoginPresenter();
     }
@@ -34,6 +25,11 @@ public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> im
     @Override
     protected int getLayoutId() {
         return R.layout.activity_retrofit;
+    }
+
+    @Override
+    protected String title() {
+        return "Retrofit+rxandroid+MVP";
     }
 
 
@@ -61,7 +57,8 @@ public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> im
         new AlertDialog.Builder(mContext).setMessage(error).show();
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         mRetrofitBtn = (Button) findViewById(R.id.retrofit_btn);
         mRetrofitBtn.setOnClickListener(this);
         mRetrofitTv = (TextView) findViewById(R.id.retrofit_tv);

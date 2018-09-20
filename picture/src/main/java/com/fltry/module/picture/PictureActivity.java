@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
@@ -30,16 +29,13 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
     private ImageView mPicPhotoIv1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolBarTitle("图片的各类处理");
-        initView();
-    }
-
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_picture;
+    }
+
+    @Override
+    protected String title() {
+        return "图片的各类处理";
     }
 
 
@@ -106,8 +102,8 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
         }
     }
 
-
-    private void initView() {
+    @Override
+    protected void initView() {
         mPicSbIv1 = (ImageView) findViewById(R.id.pic_sb_iv1);
         mPicSbIv2 = (ImageView) findViewById(R.id.pic_sb_iv2);
         RadioGroup mPicSbRg1 = (RadioGroup) findViewById(R.id.pic_sb_rg1);

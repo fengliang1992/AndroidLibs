@@ -2,7 +2,6 @@ package com.fltry.androidlibs.view.timeselect;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -30,10 +29,17 @@ public class TimeSelectActivity extends ButterknifeActivity {
     private CustomDatePicker timePicker;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("调用系统日期时间");
+    protected int getLayoutId() {
+        return R.layout.activity_time_select;
+    }
 
+    @Override
+    protected String title() {
+        return "调用系统日期时间";
+    }
+
+    @Override
+    protected void initView() {
         calendar = Calendar.getInstance(Locale.CHINA);//获取日期格式器对象
         tsTv.setText(calendar.get(Calendar.HOUR_OF_DAY) + ":" +
                 calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND));
@@ -49,11 +55,6 @@ public class TimeSelectActivity extends ButterknifeActivity {
         timePicker.showSpecificTime(true);
         timePicker.setIsLoop(true);
         tsTv3.setText(GetTimeUtli.getTime("yyyy-MM-dd HH"));
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_time_select;
     }
 
     @OnClick({R.id.ts_btn, R.id.ts_btn2, R.id.ts_btn3})

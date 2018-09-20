@@ -1,91 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include layout="@layout/toolbar_layout" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <include layout="@layout/toolbar_layout" />
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/dlg_btn1"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="只设置Dialog的宽" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/dlg_btn2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="只设置Dialog的高" />
+                <Button
+                    android:id="@+id/dlg_btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="只设置Dialog的宽" />
 
-            <Button
-                android:id="@+id/dlg_btn3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="设置Dialog的宽和高" />
+                <Button
+                    android:id="@+id/dlg_btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="只设置Dialog的高" />
 
-            <Button
-                android:id="@+id/dlg_btn4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="设置Dialog的位置（上）" />
+                <Button
+                    android:id="@+id/dlg_btn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="设置Dialog的宽和高" />
 
-            <Button
-                android:id="@+id/dlg_btn5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="设置Dialog的位置（下）" />
+                <Button
+                    android:id="@+id/dlg_btn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="设置Dialog的位置（上）" />
 
-            <Button
-                android:id="@+id/dlg_btn6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="设置Dialog的位置（左）" />
+                <Button
+                    android:id="@+id/dlg_btn5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="设置Dialog的位置（下）" />
 
-            <Button
-                android:id="@+id/dlg_btn7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="设置Dialog的位置（右）" />
+                <Button
+                    android:id="@+id/dlg_btn6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="设置Dialog的位置（左）" />
 
-            <Button
-                android:id="@+id/dlg_btn8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="多种加载中动效" />
+                <Button
+                    android:id="@+id/dlg_btn7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="设置Dialog的位置（右）" />
 
-            <Button
-                android:id="@+id/dlg_btn9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="FragmentDialog" />
+                <Button
+                    android:id="@+id/dlg_btn8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="多种加载中动效" />
 
-            <Button
-                android:id="@+id/dlg_btn10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="FragmentDialog_自定义布局" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/dlg_btn9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="FragmentDialog" />
 
-    </ScrollView>
+                <Button
+                    android:id="@+id/dlg_btn10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="FragmentDialog_自定义布局" />
+            </LinearLayout>
 
-</LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

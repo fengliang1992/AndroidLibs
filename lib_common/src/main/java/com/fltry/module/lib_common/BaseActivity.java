@@ -1,6 +1,8 @@
 package com.fltry.module.lib_common;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,13 +19,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     public Context mContext;
     private TextView mToolbarTitle;
     private Toolbar mToolbar;
+    public ViewDataBinding dataBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
 
-        setContentView(getLayoutId());
+        dataBinding = DataBindingUtil.setContentView(this, getLayoutId());
 
         mToolbar = findViewById(R.id.toolbar);
         mToolbarTitle = findViewById(R.id.toolbar_title);

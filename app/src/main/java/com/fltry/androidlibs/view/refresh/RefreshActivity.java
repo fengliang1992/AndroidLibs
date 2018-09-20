@@ -1,6 +1,5 @@
 package com.fltry.androidlibs.view.refresh;
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -36,14 +35,7 @@ public class RefreshActivity extends ButterknifeActivity {
     private MyAdapter myAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getToolbarTitle().setText("刷新");
-
-        initView();
-    }
-
-    private void initView() {
+    protected void initView() {
         arrayList1 = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             arrayList1.add("第" + (i + 1) + "个");
@@ -108,7 +100,7 @@ public class RefreshActivity extends ButterknifeActivity {
         refreshRv.addOnScrollListener(new EndLessOnScrollListener(layoutManager) {
             @Override
             public void onLoadMore(int currentPage) {
-                Log.i("aaa","记载更改");
+                Log.i("aaa", "记载更改");
                 loadmore_footer_view.setVisibility(View.VISIBLE);
                 new Thread(new Runnable() {
                     @Override
@@ -129,7 +121,7 @@ public class RefreshActivity extends ButterknifeActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case 1:
                     refreshRl.setRefreshing(false);
                     refreshRl.setLoading(false);
@@ -145,6 +137,11 @@ public class RefreshActivity extends ButterknifeActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_refresh;
+    }
+
+    @Override
+    protected String title() {
+        return "刷新";
     }
 
 }
