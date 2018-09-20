@@ -13,6 +13,7 @@
             android:id="@+id/excption_btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="exception"
             android:text="模拟奔溃" />
 
         <Button
@@ -20,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:onClick="unresponse"
             android:text="模拟ANRs" />
 
     </LinearLayout>

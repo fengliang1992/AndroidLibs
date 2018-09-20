@@ -6,20 +6,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
-import android.widget.Button;
 
+import com.fltry.module.excption.databinding.ActivityExcptionBinding;
 import com.fltry.module.lib_common.BaseActivity;
 
-public class ExcptionActivity extends BaseActivity implements View.OnClickListener {
+public class ExcptionActivity extends BaseActivity {
 
-    /**
-     * 模拟奔溃
-     */
-    private Button mExcptionBtn1;
-    /**
-     * 模拟ANRs
-     */
-    private Button mExcptionBtn2;
+    ActivityExcptionBinding mBinding;
 
     @Override
     protected int getLayoutId() {
@@ -33,11 +26,7 @@ public class ExcptionActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void initView() {
-        mExcptionBtn1 = (Button) findViewById(R.id.excption_btn1);
-        mExcptionBtn1.setOnClickListener(this);
-        mExcptionBtn2 = (Button) findViewById(R.id.excption_btn2);
-        mExcptionBtn2.setOnClickListener(this);
-
+        mBinding = (ActivityExcptionBinding) dataBinding;
         if (Build.VERSION.SDK_INT >= 23
                 && getApplicationInfo().targetSdkVersion >= 23) {
             if (ActivityCompat.checkSelfPermission(this,
@@ -52,17 +41,16 @@ public class ExcptionActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.excption_btn1) {
-            Activity activity = null;
-            activity.finish();
-        } else if (v.getId() == R.id.excption_btn2) {
-            try {
-                Thread.sleep(8000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+    public void exception(View v) {
+        Activity activity = null;
+        activity.finish();
+    }
+
+    public void unresponse(View v) {
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

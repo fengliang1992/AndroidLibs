@@ -13,18 +13,21 @@
             android:id="@+id/toast_btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="customToast"
             android:text="自定义Toast" />
 
         <Button
             android:id="@+id/toast_btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="loadingToast"
             android:text="全局的Toast" />
 
         <Button
             android:id="@+id/toast_btn3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="loadingToast2"
             android:text="适配各类手机全局吐司" />
 
     </LinearLayout>

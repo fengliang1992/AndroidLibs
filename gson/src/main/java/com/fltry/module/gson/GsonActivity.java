@@ -1,9 +1,8 @@
 package com.fltry.module.gson;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
+import com.fltry.module.gson.databinding.ActivityGsonBinding;
 import com.fltry.module.lib_common.BaseActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -11,21 +10,12 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 
 
-public class GsonActivity extends BaseActivity implements View.OnClickListener {
+public class GsonActivity extends BaseActivity {
 
     String json = "{'id':1,'name':'小明','sex':'男'}";
     String json2 = "[{'id':1,'name':'小明','sex':'男'},{'id':1,'name':'小红','sex':'女'}]";
     Gson gson;
-    private TextView mGsonTv1;
-    /**
-     * 解析普通对象
-     */
-    private Button mGsonBtn1;
-    private TextView mGsonTv2;
-    /**
-     * 解析数组
-     */
-    private Button mGsonBtn2;
+    ActivityGsonBinding mBinding;
 
     @Override
     protected int getLayoutId() {
@@ -39,24 +29,18 @@ public class GsonActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
-        mGsonTv1 = (TextView) findViewById(R.id.gson_tv1);
-        mGsonBtn1 = (Button) findViewById(R.id.gson_btn1);
-        mGsonBtn1.setOnClickListener(this);
-        mGsonTv2 = (TextView) findViewById(R.id.gson_tv2);
-        mGsonBtn2 = (Button) findViewById(R.id.gson_btn2);
-        mGsonBtn2.setOnClickListener(this);
+        mBinding = (ActivityGsonBinding) dataBinding;
         gson = new Gson();
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.gson_btn1) {
-            Student student = gson.fromJson(json, Student.class);
-            mGsonTv1.setText(student.toString());
-        } else if (v.getId() == R.id.gson_btn2) {
-            ArrayList<Student> students = gson.fromJson(json2, new TypeToken<ArrayList<Student>>() {
-            }.getType());
-            mGsonTv2.setText(students.toString());
-        }
+    public void gson1(View v) {
+        Student student = gson.fromJson(json, Student.class);
+        mBinding.gsonTv1.setText(student.toString());
+    }
+
+    public void gson2(View v) {
+        ArrayList<Student> students = gson.fromJson(json2, new TypeToken<ArrayList<Student>>() {
+        }.getType());
+        mBinding.gsonTv2.setText(students.toString());
     }
 }

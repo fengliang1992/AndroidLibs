@@ -25,7 +25,8 @@
             android:id="@+id/sp_btn3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="存储" />
+            android:text="存储"
+            android:onClick="saveOnClick"/>
 
         <EditText
             android:id="@+id/sp_et4"
@@ -38,7 +39,8 @@
             android:id="@+id/sp_btn5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="读取" />
+            android:text="读取"
+            android:onClick="readOnClick"/>
 
         <TextView
             android:id="@+id/sp_tv6"

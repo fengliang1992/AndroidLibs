@@ -23,6 +23,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="onlyWidth"
                     android:text="只设置Dialog的宽" />
 
                 <Button
@@ -30,6 +31,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="onlyHeight"
                     android:text="只设置Dialog的高" />
 
                 <Button
@@ -37,6 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="widthAndHeight"
                     android:text="设置Dialog的宽和高" />
 
                 <Button
@@ -44,6 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="positionTop"
                     android:text="设置Dialog的位置（上）" />
 
                 <Button
@@ -51,6 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="positionBottom"
                     android:text="设置Dialog的位置（下）" />
 
                 <Button
@@ -58,6 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="positionLeft"
                     android:text="设置Dialog的位置（左）" />
 
                 <Button
@@ -65,6 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="positionRight"
                     android:text="设置Dialog的位置（右）" />
 
                 <Button
@@ -72,6 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="loading"
                     android:text="多种加载中动效" />
 
                 <Button
@@ -79,6 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="fragmentDialog"
                     android:text="FragmentDialog" />
 
                 <Button
@@ -86,6 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="fragmentDialog2"
                     android:text="FragmentDialog_自定义布局" />
             </LinearLayout>
 

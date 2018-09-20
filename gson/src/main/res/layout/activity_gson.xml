@@ -25,6 +25,7 @@
             android:id="@+id/gson_btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="gson1"
             android:text="解析普通对象" />
 
         <TextView
@@ -44,6 +45,7 @@
             android:id="@+id/gson_btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="gson2"
             android:text="解析数组" />
 
 

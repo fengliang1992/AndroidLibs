@@ -6,16 +6,13 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.fltry.module.lib_common.BaseActivity;
+import com.fltry.module.screen.databinding.ActivityScreenUtilBinding;
 
 
-public class ScreenUtilActivity extends BaseActivity implements View.OnClickListener {
-    private TextView mSuTv;
-    private ImageView mSuIv2;
-    private ImageView mSuIv3;
+public class ScreenUtilActivity extends BaseActivity {
+    ActivityScreenUtilBinding mBinding;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -28,18 +25,14 @@ public class ScreenUtilActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void initView() {
-        mSuTv = (TextView) findViewById(R.id.su_tv);
-        mSuIv2 = (ImageView) findViewById(R.id.su_iv2);
-        mSuIv2.setOnClickListener(this);
-        mSuIv3 = (ImageView) findViewById(R.id.su_iv3);
-        mSuIv3.setOnClickListener(this);
+        mBinding = (ActivityScreenUtilBinding) dataBinding;
 
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("屏幕宽度：" + ScreenUtils.getScreenWidth(mContext) + "\n");
         stringBuffer.append("屏幕高度：" + ScreenUtils.getScreenHeight(mContext) + "\n");
         stringBuffer.append("状态栏的高度1：" + ScreenUtils.getStatusHeight(mContext) + "\n");
         stringBuffer.append("状态栏的高度2：" + ScreenUtils.getStatusBarHeight(mContext));
-        mSuTv.setText(stringBuffer.toString());
+        mBinding.suTv.setText(stringBuffer.toString());
     }
 
     @Override
@@ -52,14 +45,14 @@ public class ScreenUtilActivity extends BaseActivity implements View.OnClickList
         return "屏幕属性";
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.su_iv2) {
-            Bitmap bitmap = ScreenUtils.snapShotWithStatusBar(ScreenUtilActivity.this);
-            mSuIv2.setImageBitmap(bitmap);
-        } else if (v.getId() == R.id.su_iv3) {
-            Bitmap bitmap2 = ScreenUtils.snapShotWithoutStatusBar(ScreenUtilActivity.this);
-            mSuIv3.setImageBitmap(bitmap2);
-        }
+
+    public void getPic(View v){
+        Bitmap bitmap = ScreenUtils.snapShotWithStatusBar(ScreenUtilActivity.this);
+        mBinding.suIv2.setImageBitmap(bitmap);
+    }
+
+    public void getPic2(View v){
+        Bitmap bitmap2 = ScreenUtils.snapShotWithoutStatusBar(ScreenUtilActivity.this);
+        mBinding.suIv3.setImageBitmap(bitmap2);
     }
 }

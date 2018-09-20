@@ -19,14 +19,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/layout_pic_srcandbg" />
+                <include
+                    android:id="@+id/include1"
+                    layout="@layout/layout_pic_srcandbg" />
 
-                <include layout="@layout/layout_pic_photo" />
+                <include
+                    android:id="@+id/include2"
+                    layout="@layout/layout_pic_photo" />
 
                 <Button
                     android:id="@+id/pic_large_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="largePicture"
                     android:text="展示大图片" />
             </LinearLayout>
         </ScrollView>

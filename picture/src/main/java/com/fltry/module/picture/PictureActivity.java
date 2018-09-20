@@ -9,11 +9,11 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
 import com.fltry.module.lib_common.BaseActivity;
+import com.fltry.module.picture.databinding.ActivityPictureBinding;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,12 +21,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-public class PictureActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
+public class PictureActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
     private File file;
-    private ImageView mPicSbIv1;
-    private ImageView mPicSbIv2;
-    private ImageView mPicPhotoIv1;
+    ActivityPictureBinding mBinding;
 
     @Override
     protected int getLayoutId() {
@@ -59,8 +57,8 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
         } else if (checkedId == R.id.pic_sb_rb8) {
             scaleType = ImageView.ScaleType.FIT_END;
         }
-        mPicSbIv1.setScaleType(scaleType);
-        mPicSbIv2.setScaleType(scaleType);
+        mBinding.include1.picSbIv1.setScaleType(scaleType);
+        mBinding.include1.picSbIv2.setScaleType(scaleType);
     }
 
 
@@ -87,14 +85,14 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == 1) {
-                mPicPhotoIv1.setImageURI(Uri.fromFile(file));
+                mBinding.include2.picPhotoIv1.setImageURI(Uri.fromFile(file));
             } else if (requestCode == 2) {
                 cropImageUri = PhotoUtils.getCropImageUri(PictureActivity.this, "myHead.png");
                 PhotoUtils.startPhotoZoom(PictureActivity.this, data.getData(), cropImageUri);
             } else if (requestCode == 3) {
                 try {
                     Bitmap headShot = BitmapFactory.decodeStream(getContentResolver().openInputStream(cropImageUri));
-                    mPicPhotoIv1.setImageBitmap(headShot);
+                    mBinding.include2.picPhotoIv1.setImageBitmap(headShot);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -104,44 +102,35 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
 
     @Override
     protected void initView() {
-        mPicSbIv1 = (ImageView) findViewById(R.id.pic_sb_iv1);
-        mPicSbIv2 = (ImageView) findViewById(R.id.pic_sb_iv2);
+        mBinding = (ActivityPictureBinding) dataBinding;
+
         RadioGroup mPicSbRg1 = (RadioGroup) findViewById(R.id.pic_sb_rg1);
         mPicSbRg1.setOnCheckedChangeListener(this);
-        mPicPhotoIv1 = (ImageView) findViewById(R.id.pic_photo_iv1);
-        /*拍照*/
-        Button mPicPhotoBtn1 = (Button) findViewById(R.id.pic_photo_btn1);
-        mPicPhotoBtn1.setOnClickListener(this);
-        /*相册*/
-        Button mPicPhotoBtn2 = (Button) findViewById(R.id.pic_photo_btn2);
-        mPicPhotoBtn2.setOnClickListener(this);
-        /*展示大图片*/
-        Button mPicLargeBtn = (Button) findViewById(R.id.pic_large_btn);
-        mPicLargeBtn.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.pic_photo_btn1) {
-            useCamera();
-        } else if (v.getId() == R.id.pic_photo_btn2) {
-            Intent intent = new Intent("android.intent.action.GET_CONTENT");
-            intent.setType("image/*");
-            startActivityForResult(intent, 2);//打开相册
-        } else if (v.getId() == R.id.pic_large_btn) {
-            try {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = true;
-                InputStream is = getResources().getAssets().open("qingming.jpg");
-                BitmapFactory.decodeStream(is, null, options);
-                LargeImageView largeImageView = new LargeImageView(mContext);
-                Dialog dialog = new Dialog(mContext);
-                largeImageView.setInputStream(is, options.outWidth, options.outHeight);
-                dialog.setContentView(largeImageView);
-                dialog.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void camera(View v) {
+        useCamera();
+    }
+
+    public void photo(View v) {
+        Intent intent = new Intent("android.intent.action.GET_CONTENT");
+        intent.setType("image/*");
+        startActivityForResult(intent, 2);//打开相册
+    }
+
+    public void largePicture(View v) {
+        try {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            InputStream is = getResources().getAssets().open("qingming.jpg");
+            BitmapFactory.decodeStream(is, null, options);
+            LargeImageView largeImageView = new LargeImageView(mContext);
+            Dialog dialog = new Dialog(mContext);
+            largeImageView.setInputStream(is, options.outWidth, options.outHeight);
+            dialog.setContentView(largeImageView);
+            dialog.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

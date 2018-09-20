@@ -3,19 +3,14 @@ package com.fltry.module.rretrofit;
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.fltry.module.rretrofit.base.MVPActivity;
+import com.fltry.module.rretrofit.databinding.ActivityRetrofitBinding;
 
 
-public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> implements ILoginView, View.OnClickListener {
+public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> implements ILoginView {
     public static final String BASE_URL = "http://192.168.100.109:8004";
-    /**
-     * 登录（无异常）
-     */
-    private Button mRetrofitBtn;
-    private TextView mRetrofitTv;
+    ActivityRetrofitBinding mBinding;
 
     @Override
     protected LoginPresenter createPresenter() {
@@ -35,16 +30,16 @@ public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> im
 
     @Override
     public void showDialog() {
-        mRetrofitTv.setText("正在请求");
-        mRetrofitTv.setTextColor(Color.GREEN);
-        mRetrofitBtn.setClickable(false);
+        mBinding.retrofitTv.setText("正在请求");
+        mBinding.retrofitTv.setTextColor(Color.GREEN);
+        mBinding.retrofitBtn.setClickable(false);
     }
 
     @Override
     public void dismissDialog() {
-        mRetrofitTv.setText("请求结束");
-        mRetrofitTv.setTextColor(Color.GRAY);
-        mRetrofitBtn.setClickable(true);
+        mBinding.retrofitTv.setText("请求结束");
+        mBinding.retrofitTv.setTextColor(Color.GRAY);
+        mBinding.retrofitBtn.setClickable(true);
     }
 
     @Override
@@ -59,15 +54,10 @@ public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> im
 
     @Override
     protected void initView() {
-        mRetrofitBtn = (Button) findViewById(R.id.retrofit_btn);
-        mRetrofitBtn.setOnClickListener(this);
-        mRetrofitTv = (TextView) findViewById(R.id.retrofit_tv);
+        mBinding = (ActivityRetrofitBinding) dataBinding;
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.retrofit_btn) {
-            mPresenter.login();
-        }
+    public void request(View v) {
+        mPresenter.login();
     }
 }

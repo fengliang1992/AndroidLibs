@@ -13,6 +13,7 @@
             android:id="@+id/retrofit_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="request"
             android:text="登录（无异常）" />
 
         <TextView

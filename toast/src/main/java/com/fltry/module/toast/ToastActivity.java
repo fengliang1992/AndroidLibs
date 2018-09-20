@@ -5,28 +5,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fltry.module.lib_common.BaseActivity;
+import com.fltry.module.toast.databinding.ActivityToastBinding;
 
-public class ToastActivity extends BaseActivity implements View.OnClickListener {
+public class ToastActivity extends BaseActivity {
 
-    /**
-     * 自定义Toast
-     */
-    private Button mToastBtn1;
-    /**
-     * 全局的Toast
-     */
-    private Button mToastBtn2;
-    /**
-     * 适配各类手机全局吐司
-     */
-    private Button mToastBtn3;
-
-    int i = 0;
+    ActivityToastBinding mBinding;
 
     @Override
     protected int getLayoutId() {
@@ -75,52 +62,48 @@ public class ToastActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void initView() {
-        mToastBtn1 = (Button) findViewById(R.id.toast_btn1);
-        mToastBtn1.setOnClickListener(this);
-        mToastBtn2 = (Button) findViewById(R.id.toast_btn2);
-        mToastBtn2.setOnClickListener(this);
-        mToastBtn3 = (Button) findViewById(R.id.toast_btn3);
-        mToastBtn3.setOnClickListener(this);
+        mBinding = (ActivityToastBinding) dataBinding;
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.toast_btn1) {
-            ToastMessage("我是一个自定义的吐司");
-        } else if (v.getId() == R.id.toast_btn2) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < 101; i++) {
-                        Message msg = new Message();
-                        msg.what = 0;
-                        msg.arg1 = i;
-                        handler.sendMessage(msg);
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+    public void customToast(View v) {
+        ToastMessage("我是一个自定义的吐司");
+    }
+
+    public void loadingToast(View v) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 101; i++) {
+                    Message msg = new Message();
+                    msg.what = 0;
+                    msg.arg1 = i;
+                    handler.sendMessage(msg);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
-            }).start();
-        } else if (v.getId() == R.id.toast_btn3) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < 101; i++) {
-                        Message msg = new Message();
-                        msg.what = 1;
-                        msg.arg1 = i;
-                        handler.sendMessage(msg);
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+            }
+        }).start();
+    }
+
+    public void loadingToast2(View v) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 101; i++) {
+                    Message msg = new Message();
+                    msg.what = 1;
+                    msg.arg1 = i;
+                    handler.sendMessage(msg);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
-            }).start();
-        }
+            }
+        }).start();
     }
 }

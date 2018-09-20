@@ -12,10 +12,9 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import com.fltry.module.eventbus.databinding.ActivityHttpBinding;
 import com.fltry.module.lib_common.BaseActivity;
 
 import org.greenrobot.eventbus.EventBus;
@@ -23,17 +22,9 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
-public class OkHttpActivity extends BaseActivity implements View.OnClickListener {
+public class OkHttpActivity extends BaseActivity {
 
-    EditText okHttpEt;
-    /**
-     * 发送请求
-     */
-    private Button mOkHttpBtn;
-    /**
-     * 下载apk
-     */
-    private Button mOkHttpBtn2;
+    ActivityHttpBinding mBinding;
 
     @Override
     protected int getLayoutId() {
@@ -65,38 +56,33 @@ public class OkHttpActivity extends BaseActivity implements View.OnClickListener
 
     String url = "https://www.pgyer.com/apiv2/app/install?appKey=d72ffc3b7aef8fac939fa125241c4910&_api_key=9de4f82d0d07a4d2b57e02479861febc";
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.okHttp_btn) {
-            if (TextUtils.isEmpty(okHttpEt.getText().toString())) {
-                Toast.makeText(mContext, "输入接口", Toast.LENGTH_LONG).show();
-                return;
-            }
-            Http_Test_Get http_test_get = new Http_Test_Get("", okHttpEt.getText().toString());
-            http_test_get.sendRequest();
-        } else if (v.getId() == R.id.okHttp_btn2) {
-            new AlertDialog.Builder(mContext).setTitle("温馨提示")
-                    .setMessage("是否更新apk？")
-                    .setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            downloadAPK(url, "test.apk");
-                        }
-                    })
-                    .setNegativeButton("取消", null)
-                    .show();
+    public void sendGet(View v) {
+        if (TextUtils.isEmpty(mBinding.okHttpEt.getText().toString())) {
+            Toast.makeText(mContext, "输入接口", Toast.LENGTH_LONG).show();
+            return;
         }
+        Http_Test_Get http_test_get = new Http_Test_Get("", mBinding.okHttpEt.getText().toString());
+        http_test_get.sendRequest();
+    }
+
+    public void update(View v) {
+        new AlertDialog.Builder(mContext).setTitle("温馨提示")
+                .setMessage("是否更新apk？")
+                .setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        downloadAPK(url, "test.apk");
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .show();
     }
 
     @Override
     protected void initView() {
         EventBus.getDefault().register(this);
-        mOkHttpBtn = (Button) findViewById(R.id.okHttp_btn);
-        mOkHttpBtn.setOnClickListener(this);
-        okHttpEt = findViewById(R.id.okHttp_et);
-        okHttpEt.setText("http://10.10.10.107:8004/areas");
-        mOkHttpBtn2 = (Button) findViewById(R.id.okHttp_btn2);
-        mOkHttpBtn2.setOnClickListener(this);
+        mBinding = (ActivityHttpBinding) dataBinding;
+        mBinding.okHttpEt.setText("http://10.10.10.107:8004/areas");
     }
 
 

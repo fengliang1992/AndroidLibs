@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.fltry.module.chart.databinding.ActivityChartBinding;
 import com.fltry.module.lib_common.BaseActivity;
 import com.github.mikephil.charting.charts.BarLineChartBase;
 import com.github.mikephil.charting.charts.LineChart;
@@ -20,7 +21,7 @@ import java.util.Random;
 
 public class ChartActivity extends BaseActivity {
     private ArrayList<ChartData> datas = new ArrayList<>();
-    private LinearLayout mContainer;
+    ActivityChartBinding mbinding;
 
     @Override
     protected int getLayoutId() {
@@ -34,7 +35,7 @@ public class ChartActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mContainer = findViewById(R.id.mContainer);
+        mbinding = (ActivityChartBinding) dataBinding;
 
         for (int i = 0; i < 20; i++) {
             datas.add(new ChartData("第" + i + "个数据", i + 1, i * new Random().nextFloat() * 100));
@@ -69,7 +70,7 @@ public class ChartActivity extends BaseActivity {
      * @param data          线性表的 数据
      */
     public void showChart(BarLineChartBase lineChartBase, BarLineScatterCandleBubbleData data) {
-        mContainer.addView(lineChartBase);
+        mbinding.mContainer.addView(lineChartBase);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300);
         lineChartBase.setLayoutParams(params);
 

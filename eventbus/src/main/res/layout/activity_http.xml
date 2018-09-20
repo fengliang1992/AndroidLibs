@@ -20,12 +20,14 @@
             android:id="@+id/okHttp_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="sendGet"
             android:text="发送请求" />
 
         <Button
             android:id="@+id/okHttp_btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="update"
             android:text="下载apk" />
 
     </LinearLayout>
