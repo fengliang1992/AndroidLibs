@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.fltry.module.lib_common.BaseActivity;
 import com.fltry.module.toast.databinding.ActivityToastBinding;
 
+import es.dmoral.toasty.Toasty;
+
 public class ToastActivity extends BaseActivity<ActivityToastBinding> {
 
     @Override
@@ -104,4 +106,18 @@ public class ToastActivity extends BaseActivity<ActivityToastBinding> {
             }
         }).start();
     }
+
+    public void toasty(View v){
+        Toasty.error(mContext,"你是个大！").show();
+    }
+    public void toasty2(View v){
+        Toasty.success(mContext,"你是个大！").show();
+    }
+    public void toasty3(View v){
+        Toasty.info(mContext,"你是个大！").show();
+    }
+    public void toasty4(View v){
+        Toasty.warning(mContext,"你是个大！").show();
+    }
+
 }

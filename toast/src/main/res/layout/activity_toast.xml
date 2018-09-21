@@ -30,5 +30,29 @@
             android:onClick="loadingToast2"
             android:text="适配各类手机全局吐司" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toasty"
+            android:text="toasty" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toasty2"
+            android:text="toasty2" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toasty3"
+            android:text="toasty3" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toasty4"
+            android:text="toasty4" />
+
     </LinearLayout>
 </layout>
