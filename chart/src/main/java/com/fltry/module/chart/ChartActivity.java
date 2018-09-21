@@ -19,9 +19,8 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ChartActivity extends BaseActivity {
+public class ChartActivity extends BaseActivity<ActivityChartBinding> {
     private ArrayList<ChartData> datas = new ArrayList<>();
-    ActivityChartBinding mbinding;
 
     @Override
     protected int getLayoutId() {
@@ -35,8 +34,6 @@ public class ChartActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mbinding = (ActivityChartBinding) dataBinding;
-
         for (int i = 0; i < 20; i++) {
             datas.add(new ChartData("第" + i + "个数据", i + 1, i * new Random().nextFloat() * 100));
         }
@@ -70,7 +67,7 @@ public class ChartActivity extends BaseActivity {
      * @param data          线性表的 数据
      */
     public void showChart(BarLineChartBase lineChartBase, BarLineScatterCandleBubbleData data) {
-        mbinding.mContainer.addView(lineChartBase);
+        dataBinding.mContainer.addView(lineChartBase);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300);
         lineChartBase.setLayoutParams(params);
 

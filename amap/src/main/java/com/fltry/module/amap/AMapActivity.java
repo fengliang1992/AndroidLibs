@@ -33,19 +33,17 @@ import com.fltry.module.amap.databinding.ActivityAmapBinding;
 import com.fltry.module.lib_common.BaseActivity;
 
 
-public class AMapActivity extends BaseActivity implements View.OnClickListener {
+public class AMapActivity extends BaseActivity<ActivityAmapBinding> {
 
     private static final int MY_PERMISSIONS_REQUEST_LOACLTION = 1;
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = null;
 
-    ActivityAmapBinding mBinding;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = (ActivityAmapBinding) dataBinding;
-        mBinding.aMapView.onCreate(savedInstanceState);
+        dataBinding.aMapView.onCreate(savedInstanceState);
+        dataBinding.setLocation(this);
     }
 
     @Override
@@ -69,7 +67,7 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 开始定位
      */
-    private void startLocation() {
+    public void startLocation() {
         // 设置定位参数
         locationClient.setLocationOption(locationOption);
         // 启动定位
@@ -106,7 +104,7 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
         myLocationStyle.strokeColor(Color.TRANSPARENT);
         myLocationStyle.radiusFillColor(Color.parseColor("#204E91E9"));
         myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE);//定位一次
-        AMap aMap = mBinding.aMapView.getMap();
+        AMap aMap = dataBinding.aMapView.getMap();
         aMap.setMyLocationStyle(myLocationStyle);
         aMap.setMyLocationEnabled(true);
         aMap.setTrafficEnabled(true);// 显示实时交通状况
@@ -277,8 +275,8 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
         super.onDestroy();
         destroyLocation();
         //在activity执行onDestroy时执行mMapView.onDestroy()，销毁地图
-        if (mBinding.aMapView != null)
-            mBinding.aMapView.onDestroy();
+        if (dataBinding.aMapView != null)
+            dataBinding.aMapView.onDestroy();
     }
 
     /**
@@ -298,28 +296,21 @@ public class AMapActivity extends BaseActivity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         //在activity执行onResume时执行mMapView.onResume ()，重新绘制加载地图
-        mBinding.aMapView.onResume();
+        dataBinding.aMapView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         //在activity执行onPause时执行mMapView.onPause ()，暂停地图的绘制
-        mBinding.aMapView.onPause();
+        dataBinding.aMapView.onPause();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，保存地图当前的状态
-        mBinding.aMapView.onSaveInstanceState(outState);
+        dataBinding.aMapView.onSaveInstanceState(outState);
     }
 
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.a_map_btn) {
-            startLocation();
-        }
-    }
 }

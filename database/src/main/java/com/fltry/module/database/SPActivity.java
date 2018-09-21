@@ -7,8 +7,7 @@ import android.widget.Toast;
 import com.fltry.module.database.databinding.ActivitySpBinding;
 import com.fltry.module.lib_common.BaseActivity;
 
-public class SPActivity extends BaseActivity {
-    ActivitySpBinding mBinding;
+public class SPActivity extends BaseActivity<ActivitySpBinding> {
 
     @Override
     protected int getLayoutId() {
@@ -22,28 +21,28 @@ public class SPActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mBinding = (ActivitySpBinding) dataBinding;
+
     }
 
     public void saveOnClick(View v) {
-        if (TextUtils.isEmpty(mBinding.spEt1.getText().toString())) {
+        if (TextUtils.isEmpty(dataBinding.spEt1.getText().toString())) {
             Toast.makeText(mContext, "请输入key", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (TextUtils.isEmpty(mBinding.spEt2.getText().toString())) {
+        if (TextUtils.isEmpty(dataBinding.spEt2.getText().toString())) {
             Toast.makeText(mContext, "请输入内容", Toast.LENGTH_SHORT).show();
             return;
         }
-        SPUtils.put(mContext, mBinding.spEt1.getText().toString(), mBinding.spEt2.getText().toString());
+        SPUtils.put(mContext, dataBinding.spEt1.getText().toString(), dataBinding.spEt2.getText().toString());
     }
 
     public void readOnClick(View v) {
-        if (TextUtils.isEmpty(mBinding.spEt4.getText().toString())) {
+        if (TextUtils.isEmpty(dataBinding.spEt4.getText().toString())) {
             Toast.makeText(mContext, "请输入key", Toast.LENGTH_SHORT).show();
             return;
         }
-        String soGet = SPUtils.get(mContext, mBinding.spEt4.getText().toString(), "").toString();
-        mBinding.spTv6.setText(soGet);
+        String soGet = SPUtils.get(mContext, dataBinding.spEt4.getText().toString(), "").toString();
+        dataBinding.spTv6.setText(soGet);
     }
 
 }

@@ -21,10 +21,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-public class PictureActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
+public class PictureActivity extends BaseActivity<ActivityPictureBinding> implements RadioGroup.OnCheckedChangeListener {
 
     private File file;
-    ActivityPictureBinding mBinding;
 
     @Override
     protected int getLayoutId() {
@@ -57,8 +56,8 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
         } else if (checkedId == R.id.pic_sb_rb8) {
             scaleType = ImageView.ScaleType.FIT_END;
         }
-        mBinding.include1.picSbIv1.setScaleType(scaleType);
-        mBinding.include1.picSbIv2.setScaleType(scaleType);
+        dataBinding.include1.picSbIv1.setScaleType(scaleType);
+        dataBinding.include1.picSbIv2.setScaleType(scaleType);
     }
 
 
@@ -85,14 +84,14 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == 1) {
-                mBinding.include2.picPhotoIv1.setImageURI(Uri.fromFile(file));
+                dataBinding.include2.picPhotoIv1.setImageURI(Uri.fromFile(file));
             } else if (requestCode == 2) {
                 cropImageUri = PhotoUtils.getCropImageUri(PictureActivity.this, "myHead.png");
                 PhotoUtils.startPhotoZoom(PictureActivity.this, data.getData(), cropImageUri);
             } else if (requestCode == 3) {
                 try {
                     Bitmap headShot = BitmapFactory.decodeStream(getContentResolver().openInputStream(cropImageUri));
-                    mBinding.include2.picPhotoIv1.setImageBitmap(headShot);
+                    dataBinding.include2.picPhotoIv1.setImageBitmap(headShot);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -102,8 +101,6 @@ public class PictureActivity extends BaseActivity implements RadioGroup.OnChecke
 
     @Override
     protected void initView() {
-        mBinding = (ActivityPictureBinding) dataBinding;
-
         RadioGroup mPicSbRg1 = (RadioGroup) findViewById(R.id.pic_sb_rg1);
         mPicSbRg1.setOnCheckedChangeListener(this);
     }

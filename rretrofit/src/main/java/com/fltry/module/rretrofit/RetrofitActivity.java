@@ -8,9 +8,8 @@ import com.fltry.module.rretrofit.base.MVPActivity;
 import com.fltry.module.rretrofit.databinding.ActivityRetrofitBinding;
 
 
-public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> implements ILoginView {
+public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter, ActivityRetrofitBinding> implements ILoginView {
     public static final String BASE_URL = "http://192.168.100.109:8004";
-    ActivityRetrofitBinding mBinding;
 
     @Override
     protected LoginPresenter createPresenter() {
@@ -30,16 +29,16 @@ public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> im
 
     @Override
     public void showDialog() {
-        mBinding.retrofitTv.setText("正在请求");
-        mBinding.retrofitTv.setTextColor(Color.GREEN);
-        mBinding.retrofitBtn.setClickable(false);
+        dataBinding.retrofitTv.setText("正在请求");
+        dataBinding.retrofitTv.setTextColor(Color.GREEN);
+        dataBinding.retrofitBtn.setClickable(false);
     }
 
     @Override
     public void dismissDialog() {
-        mBinding.retrofitTv.setText("请求结束");
-        mBinding.retrofitTv.setTextColor(Color.GRAY);
-        mBinding.retrofitBtn.setClickable(true);
+        dataBinding.retrofitTv.setText("请求结束");
+        dataBinding.retrofitTv.setTextColor(Color.GRAY);
+        dataBinding.retrofitBtn.setClickable(true);
     }
 
     @Override
@@ -54,7 +53,7 @@ public class RetrofitActivity extends MVPActivity<ILoginView, LoginPresenter> im
 
     @Override
     protected void initView() {
-        mBinding = (ActivityRetrofitBinding) dataBinding;
+
     }
 
     public void request(View v) {

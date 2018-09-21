@@ -10,12 +10,11 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 
 
-public class GsonActivity extends BaseActivity {
+public class GsonActivity extends BaseActivity<ActivityGsonBinding> {
 
     String json = "{'id':1,'name':'小明','sex':'男'}";
     String json2 = "[{'id':1,'name':'小明','sex':'男'},{'id':1,'name':'小红','sex':'女'}]";
     Gson gson;
-    ActivityGsonBinding mBinding;
 
     @Override
     protected int getLayoutId() {
@@ -29,18 +28,17 @@ public class GsonActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mBinding = (ActivityGsonBinding) dataBinding;
         gson = new Gson();
     }
 
     public void gson1(View v) {
         Student student = gson.fromJson(json, Student.class);
-        mBinding.gsonTv1.setText(student.toString());
+        dataBinding.gsonTv1.setText(student.toString());
     }
 
     public void gson2(View v) {
         ArrayList<Student> students = gson.fromJson(json2, new TypeToken<ArrayList<Student>>() {
         }.getType());
-        mBinding.gsonTv2.setText(students.toString());
+        dataBinding.gsonTv2.setText(students.toString());
     }
 }

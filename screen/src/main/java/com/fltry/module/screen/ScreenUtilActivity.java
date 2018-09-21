@@ -11,8 +11,7 @@ import com.fltry.module.lib_common.BaseActivity;
 import com.fltry.module.screen.databinding.ActivityScreenUtilBinding;
 
 
-public class ScreenUtilActivity extends BaseActivity {
-    ActivityScreenUtilBinding mBinding;
+public class ScreenUtilActivity extends BaseActivity<ActivityScreenUtilBinding> {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -25,14 +24,12 @@ public class ScreenUtilActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mBinding = (ActivityScreenUtilBinding) dataBinding;
-
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("屏幕宽度：" + ScreenUtils.getScreenWidth(mContext) + "\n");
         stringBuffer.append("屏幕高度：" + ScreenUtils.getScreenHeight(mContext) + "\n");
         stringBuffer.append("状态栏的高度1：" + ScreenUtils.getStatusHeight(mContext) + "\n");
         stringBuffer.append("状态栏的高度2：" + ScreenUtils.getStatusBarHeight(mContext));
-        mBinding.suTv.setText(stringBuffer.toString());
+        dataBinding.suTv.setText(stringBuffer.toString());
     }
 
     @Override
@@ -46,13 +43,13 @@ public class ScreenUtilActivity extends BaseActivity {
     }
 
 
-    public void getPic(View v){
+    public void getPic(View v) {
         Bitmap bitmap = ScreenUtils.snapShotWithStatusBar(ScreenUtilActivity.this);
-        mBinding.suIv2.setImageBitmap(bitmap);
+        dataBinding.suIv2.setImageBitmap(bitmap);
     }
 
-    public void getPic2(View v){
+    public void getPic2(View v) {
         Bitmap bitmap2 = ScreenUtils.snapShotWithoutStatusBar(ScreenUtilActivity.this);
-        mBinding.suIv3.setImageBitmap(bitmap2);
+        dataBinding.suIv3.setImageBitmap(bitmap2);
     }
 }

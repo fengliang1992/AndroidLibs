@@ -22,9 +22,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
-public class OkHttpActivity extends BaseActivity {
-
-    ActivityHttpBinding mBinding;
+public class OkHttpActivity extends BaseActivity<ActivityHttpBinding> {
 
     @Override
     protected int getLayoutId() {
@@ -57,11 +55,11 @@ public class OkHttpActivity extends BaseActivity {
     String url = "https://www.pgyer.com/apiv2/app/install?appKey=d72ffc3b7aef8fac939fa125241c4910&_api_key=9de4f82d0d07a4d2b57e02479861febc";
 
     public void sendGet(View v) {
-        if (TextUtils.isEmpty(mBinding.okHttpEt.getText().toString())) {
+        if (TextUtils.isEmpty(dataBinding.okHttpEt.getText().toString())) {
             Toast.makeText(mContext, "输入接口", Toast.LENGTH_LONG).show();
             return;
         }
-        Http_Test_Get http_test_get = new Http_Test_Get("", mBinding.okHttpEt.getText().toString());
+        Http_Test_Get http_test_get = new Http_Test_Get("", dataBinding.okHttpEt.getText().toString());
         http_test_get.sendRequest();
     }
 
@@ -81,8 +79,7 @@ public class OkHttpActivity extends BaseActivity {
     @Override
     protected void initView() {
         EventBus.getDefault().register(this);
-        mBinding = (ActivityHttpBinding) dataBinding;
-        mBinding.okHttpEt.setText("http://10.10.10.107:8004/areas");
+        dataBinding.okHttpEt.setText("http://10.10.10.107:8004/areas");
     }
 
 

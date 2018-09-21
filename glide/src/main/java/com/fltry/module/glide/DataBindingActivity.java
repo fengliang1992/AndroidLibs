@@ -11,11 +11,11 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public abstract class DataBindingActivity extends AppCompatActivity {
+public abstract class DataBindingActivity<B extends ViewDataBinding> extends AppCompatActivity {
     public Context mContext;
     TextView mToolbarTitle;
     private Toolbar mToolbar;
-    public ViewDataBinding dataBinding;
+    public B dataBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

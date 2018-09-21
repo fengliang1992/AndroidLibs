@@ -12,15 +12,13 @@ import com.fltry.module.lib_common.BaseActivity;
 
 import java.util.Random;
 
-public class DialogActivity extends BaseActivity {
+public class DialogActivity extends BaseActivity<ActivityDialogBinding> {
 
     private Dialog dialog;
     private FragmentDlg2 fragmentDlg2;
 
-    ActivityDialogBinding mBinding;
 
     private void initDialog() {
-        mBinding = (ActivityDialogBinding) dataBinding;
         dialog = new Dialog(mContext);
         View view = new View(mContext);
         view.setBackgroundColor(Color.RED);

@@ -52,6 +52,7 @@ public class AutoTextView extends AppCompatTextView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        //变色关键代码
         mShaderA = new LinearGradient(0, 300, getMeasuredWidth(), -300,
                 new int[]{Color.parseColor("#005a5a5a"),
                         Color.parseColor("#5a5a5a"),
@@ -63,7 +64,7 @@ public class AutoTextView extends AppCompatTextView {
                         Color.BLUE
                 },
                 //设置横向距离
-                new float[]{0, 0.2f, 0.21f, 0.31f, 0.499f, 0.5f, 0.7f,0.8f}, Shader.TileMode.CLAMP);
+                new float[]{0, 0.2f, 0.21f, 0.31f, 0.499f, 0.5f, 0.7f, 0.8f}, Shader.TileMode.CLAMP);
         mPaint.setShader(mShaderA);
     }
 

@@ -9,9 +9,7 @@ import com.fltry.module.qrcode.databinding.ActivityZxingBinding;
 import com.google.zxing.WriterException;
 
 
-public class ZxingActivity extends BaseActivity {
-
-    ActivityZxingBinding mBinding;
+public class ZxingActivity extends BaseActivity<ActivityZxingBinding> {
 
     @Override
     protected int getLayoutId() {
@@ -25,21 +23,21 @@ public class ZxingActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mBinding = (ActivityZxingBinding) dataBinding;
+
     }
 
     public void clearPic(View v) {
-        mBinding.zxingEd1.setText("");
+        dataBinding.zxingEd1.setText("");
     }
 
     public void createPic(View v) {
-        if (mBinding.zxingEd1.getText().toString().equals("")) {
+        if (dataBinding.zxingEd1.getText().toString().equals("")) {
             Toast.makeText(mContext, "请输入内容", Toast.LENGTH_SHORT).show();
             return;
         }
         try {
-            Bitmap qrCodeBitmap = EncodingHandler.createQRCode(mBinding.zxingEd1.getText().toString(), 600);
-            mBinding.zxingIv2.setImageBitmap(qrCodeBitmap);
+            Bitmap qrCodeBitmap = EncodingHandler.createQRCode(dataBinding.zxingEd1.getText().toString(), 600);
+            dataBinding.zxingIv2.setImageBitmap(qrCodeBitmap);
         } catch (WriterException e) {
             e.printStackTrace();
         }

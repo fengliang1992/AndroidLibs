@@ -11,9 +11,7 @@ import android.widget.Toast;
 import com.fltry.module.lib_common.BaseActivity;
 import com.fltry.module.toast.databinding.ActivityToastBinding;
 
-public class ToastActivity extends BaseActivity {
-
-    ActivityToastBinding mBinding;
+public class ToastActivity extends BaseActivity<ActivityToastBinding> {
 
     @Override
     protected int getLayoutId() {
@@ -62,7 +60,7 @@ public class ToastActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mBinding = (ActivityToastBinding) dataBinding;
+
     }
 
     public void customToast(View v) {

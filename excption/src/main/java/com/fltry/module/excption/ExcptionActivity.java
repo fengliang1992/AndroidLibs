@@ -10,9 +10,7 @@ import android.view.View;
 import com.fltry.module.excption.databinding.ActivityExcptionBinding;
 import com.fltry.module.lib_common.BaseActivity;
 
-public class ExcptionActivity extends BaseActivity {
-
-    ActivityExcptionBinding mBinding;
+public class ExcptionActivity extends BaseActivity<ActivityExcptionBinding> {
 
     @Override
     protected int getLayoutId() {
@@ -26,7 +24,6 @@ public class ExcptionActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mBinding = (ActivityExcptionBinding) dataBinding;
         if (Build.VERSION.SDK_INT >= 23
                 && getApplicationInfo().targetSdkVersion >= 23) {
             if (ActivityCompat.checkSelfPermission(this,

@@ -31,12 +31,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class GlideActivity extends DataBindingActivity {
+public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> {
 
     List<Movice.SubjectsBean> subjects;
     private Retrofit mRetrofit;
-
-    protected ActivityGlideBinding mBinding;
     private String[] types;
 
     @Override
@@ -52,10 +50,9 @@ public class GlideActivity extends DataBindingActivity {
     @Override
     protected void initView() {
         /*https://developers.douban.com/  豆瓣api首页*/
-        mBinding = (ActivityGlideBinding) dataBinding;
         types = new String[]{"环形滚动", "横向滑动", "环形缩放", "向前推进", "环绕效果", "旋转平移", "无特殊效果"};
-        mBinding.setTypes(types);
-        mBinding.setIndex(6);
+        dataBinding.setTypes(types);
+        dataBinding.setIndex(6);
 
         OkHttpClient okHttpClient;
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -109,14 +106,14 @@ public class GlideActivity extends DataBindingActivity {
     }
 
     private void setMyRecyleLayoutManage(RecyclerView.LayoutManager layout) {
-        mBinding.glideGv.setLayoutManager(layout);
-        mBinding.glideGv.setItemAnimator(new DefaultItemAnimator());
+        dataBinding.glideGv.setLayoutManager(layout);
+        dataBinding.glideGv.setItemAnimator(new DefaultItemAnimator());
         MyAdapter myAdapter = new MyAdapter(subjects, mContext);
-        mBinding.glideGv.setAdapter(myAdapter);
+        dataBinding.glideGv.setAdapter(myAdapter);
         myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                ScrollHelper.smoothScrollToTargetView(mBinding.glideGv, v);
+                ScrollHelper.smoothScrollToTargetView(dataBinding.glideGv, v);
                 String msg = "名字：" + subjects.get(position).getTitle()
                         + "\n类型：" + subjects.get(position).getGenres().toString()
                         + "\n上映时间：" + subjects.get(position).getYear();
@@ -134,7 +131,7 @@ public class GlideActivity extends DataBindingActivity {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    mBinding.setIndex(which);
+                                    dataBinding.setIndex(which);
                                     if (which == 0) {
                                         setMyRecyleLayoutManage(new CircleLayoutManager(mContext));
                                     } else if (which == 1) {
