@@ -19,26 +19,15 @@ import com.leochuan.ScaleLayoutManager;
 import com.leochuan.ScrollHelper;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import okhttp3.OkHttpClient;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
-
-public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> {
+public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> implements IGlideView {
 
     List<Movice.SubjectsBean> subjects;
-    private Retrofit mRetrofit;
     private String[] types;
+    GlideVM glideVM;
 
     @Override
-    protected int ResourecId() {
+    protected int getLayoutId() {
         return R.layout.activity_glide;
     }
 
@@ -51,53 +40,11 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> {
     protected void initView() {
         /*https://developers.douban.com/  豆瓣api首页*/
         types = new String[]{"环形滚动", "横向滑动", "环形缩放", "向前推进", "环绕效果", "旋转平移", "无特殊效果"};
-        dataBinding.setTypes(types);
-        dataBinding.setIndex(6);
-
-        OkHttpClient okHttpClient;
-        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.connectTimeout(12, TimeUnit.SECONDS);
-        builder.readTimeout(60, TimeUnit.SECONDS);
-        okHttpClient = builder.build();
-
-
-        mRetrofit = new Retrofit.Builder().client(okHttpClient)
-                .baseUrl("https://api.douban.com")
-                .addConverterFactory(ScalarsConverterFactory.create())//增加返回值为String的支持
-                .addConverterFactory(GsonConverterFactory.create())//增加返回值为Gson的支持(以实体类返回)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//增加返回值为Oservable<T>的支持
-                .build();
-
-        getPic();
-    }
-
-
-    private void getPic() {
-        mRetrofit.create(ApiService.class)
-                .getMovice(250)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Movice>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(Movice movice) {
-                        setGvList(movice.getSubjects());
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Dialog.getMyAlert(mContext, "错误提示", e.getMessage()).show();
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+        dataBinding.setType(types[0]);
+        glideVM = new GlideVM(this);
+        dataBinding.setGlideVM(glideVM);
+        dataBinding.setCount(10 + "");
+        glideVM.gitMovies();
     }
 
     private void setGvList(final List<Movice.SubjectsBean> subjects) {
@@ -124,14 +71,14 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> {
 
     public void changeType(View v) {
         if (subjects == null) {
-            getPic();
+            glideVM.gitMovies();
         } else {
             new AlertDialog.Builder(mContext).setTitle("选择效果")
                     .setAdapter(new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, types),
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    dataBinding.setIndex(which);
+                                    dataBinding.setType(types[which]);
                                     if (which == 0) {
                                         setMyRecyleLayoutManage(new CircleLayoutManager(mContext));
                                     } else if (which == 1) {
@@ -152,4 +99,18 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> {
         }
     }
 
+    @Override
+    public void httpSucceed(Movice movice) {
+        setGvList(movice.getSubjects());
+    }
+
+    @Override
+    public void httpFailed(String error) {
+        Dialog.getMyAlert(mContext, "错误提示", error).show();
+    }
+
+    @Override
+    public String getCount() {
+        return dataBinding.getCount();
+    }
 }

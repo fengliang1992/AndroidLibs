@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -7,24 +8,51 @@
         <import type="android.view.View" />
 
         <variable
-            name="types"
-            type="String[]" />
+            name="type"
+            type="String" />
 
         <variable
-            name="index"
-            type="int" />
+            name="count"
+            type="String" />
+
+        <variable
+            name="glideVM"
+            type="com.fltry.module.glide.GlideVM" />
 
     </data>
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="com.fltry.module.glide.GlideActivity">
 
         <include
             android:id="@+id/include"
             layout="@layout/toolbar_data_layout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/glide_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="changeType"
+                android:text="@{type}" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="@={count}"
+                app:addTextChangedListener="@{glideVM.textWatcher}" />
+        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/glide_gv"
@@ -33,13 +61,6 @@
             android:padding="6dp"
             android:scrollbars="horizontal" />
 
-        <Button
-            android:id="@+id/glide_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:onClick="changeType"
-            android:text="@{types[index]}" />
 
-    </RelativeLayout>
+    </LinearLayout>
 </layout>

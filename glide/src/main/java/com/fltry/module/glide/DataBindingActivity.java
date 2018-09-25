@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public abstract class DataBindingActivity<B extends ViewDataBinding> extends AppCompatActivity {
+public abstract class DataBindingActivity<B extends ViewDataBinding> extends AppCompatActivity{
     public Context mContext;
     TextView mToolbarTitle;
     private Toolbar mToolbar;
@@ -22,7 +22,7 @@ public abstract class DataBindingActivity<B extends ViewDataBinding> extends App
         super.onCreate(savedInstanceState);
         mContext = this;
 
-        dataBinding = DataBindingUtil.setContentView(this, ResourecId());
+        dataBinding = DataBindingUtil.setContentView(this, getLayoutId());
 
         mToolbar = findViewById(R.id.toolbar);
         mToolbarTitle = findViewById(R.id.toolbar_title);
@@ -75,7 +75,7 @@ public abstract class DataBindingActivity<B extends ViewDataBinding> extends App
         return true;
     }
 
-    protected abstract int ResourecId();
+    protected abstract int getLayoutId();
 
     protected abstract String title();
 
