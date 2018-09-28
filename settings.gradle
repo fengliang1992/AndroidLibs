@@ -1,1 +1,1 @@
-include ':app', ':spinkit', ':dialog', ':lib_common', ':screen', ':excption', ':rretrofit', ':picture', ':amap', ':toast', ':database', ':eventbus', ':qrcode', ':gson', ':glide', ':chart', ':MPChartLib', ':viewpagerlayoutmanager', ':permission'
+include ':app', ':spinkit', ':dialog', ':lib_common', ':screen', ':excption', ':rretrofit', ':picture', ':amap', ':toast', ':database', ':eventbus', ':qrcode', ':gson', ':glide', ':chart', ':MPChartLib', ':viewpagerlayoutmanager', ':permission', ':sensor'

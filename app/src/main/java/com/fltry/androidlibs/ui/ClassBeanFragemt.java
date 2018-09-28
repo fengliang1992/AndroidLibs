@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.fltry.module.lib_common.Dialog;
+import com.fltry.module.lib_common.AlertDialogUtils;
 
 import java.util.ArrayList;
 
@@ -65,7 +65,7 @@ public abstract class ClassBeanFragemt extends Fragment {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, classes.get(position).getUri()));
                 } catch (Exception e) {
-                    Dialog.getMyAlert(mContext, "跳转失败", "由于65535报错，SDK暂时组件化运行").show();
+                    AlertDialogUtils.getMyAlert(mContext, "跳转失败", "由于65535报错，SDK暂时组件化运行").show();
                 }
             }
         });

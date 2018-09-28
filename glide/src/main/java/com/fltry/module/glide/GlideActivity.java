@@ -49,10 +49,10 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> imp
 
     private void setGvList(final List<Movice.SubjectsBean> subjects) {
         this.subjects = subjects;
-        setMyRecyleLayoutManage(new GridLayoutManager(mContext, 3));
+        setMyRecyclerLayoutManage(new GridLayoutManager(mContext, 3));
     }
 
-    private void setMyRecyleLayoutManage(RecyclerView.LayoutManager layout) {
+    private void setMyRecyclerLayoutManage(RecyclerView.LayoutManager layout) {
         dataBinding.glideGv.setLayoutManager(layout);
         dataBinding.glideGv.setItemAnimator(new DefaultItemAnimator());
         MyAdapter myAdapter = new MyAdapter(subjects, mContext);
@@ -80,19 +80,19 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> imp
                                 public void onClick(DialogInterface dialog, int which) {
                                     dataBinding.setType(types[which]);
                                     if (which == 0) {
-                                        setMyRecyleLayoutManage(new CircleLayoutManager(mContext));
+                                        setMyRecyclerLayoutManage(new CircleLayoutManager(mContext));
                                     } else if (which == 1) {
-                                        setMyRecyleLayoutManage(new ScaleLayoutManager(mContext, 20));
+                                        setMyRecyclerLayoutManage(new ScaleLayoutManager(mContext, 20));
                                     } else if (which == 2) {
-                                        setMyRecyleLayoutManage(new CircleScaleLayoutManager(mContext));
+                                        setMyRecyclerLayoutManage(new CircleScaleLayoutManager(mContext));
                                     } else if (which == 3) {
-                                        setMyRecyleLayoutManage(new CarouselLayoutManager(mContext, 100));
+                                        setMyRecyclerLayoutManage(new CarouselLayoutManager(mContext, 100));
                                     } else if (which == 4) {
-                                        setMyRecyleLayoutManage(new GalleryLayoutManager(mContext, 20));
+                                        setMyRecyclerLayoutManage(new GalleryLayoutManager(mContext, 20));
                                     } else if (which == 5) {
-                                        setMyRecyleLayoutManage(new RotateLayoutManager(mContext, 20));
+                                        setMyRecyclerLayoutManage(new RotateLayoutManager(mContext, 20));
                                     } else {
-                                        setMyRecyleLayoutManage(new GridLayoutManager(mContext, 3));
+                                        setMyRecyclerLayoutManage(new GridLayoutManager(mContext, 3));
                                     }
                                 }
                             }).show();
