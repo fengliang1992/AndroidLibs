@@ -37,6 +37,7 @@ class ClassUtils {
                 classes.add(new ClassBean("数据存储", "database"));
                 classes.add(new ClassBean("Toast", "toast"));
                 classes.add(new ClassBean("Picture_图片处理", "picture"));
+                classes.add(new ClassBean("传感器", "sensor"));
                 break;
             case WEIGHT_FRAGMENT:
                 classes.add(new ClassBean("Elastic_弹性界面", "elastic"));
