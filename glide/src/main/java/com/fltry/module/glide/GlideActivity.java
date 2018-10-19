@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.fltry.module.glide.databinding.ActivityGlideBinding;
-import com.fltry.module.lib_common.Dialog;
+import com.fltry.module.lib_common.AlertDialogUtils;
 import com.leochuan.CarouselLayoutManager;
 import com.leochuan.CircleLayoutManager;
 import com.leochuan.CircleScaleLayoutManager;
@@ -64,7 +64,7 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> imp
                 String msg = "名字：" + subjects.get(position).getTitle()
                         + "\n类型：" + subjects.get(position).getGenres().toString()
                         + "\n上映时间：" + subjects.get(position).getYear();
-                Dialog.getMyAlert(mContext, "电影详情", msg).show();
+                AlertDialogUtils.getMyAlert(mContext, "电影详情", msg).show();
             }
         });
     }
@@ -106,7 +106,7 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> imp
 
     @Override
     public void httpFailed(String error) {
-        Dialog.getMyAlert(mContext, "错误提示", error).show();
+        AlertDialogUtils.getMyAlert(mContext, "错误提示", error).show();
     }
 
     @Override
