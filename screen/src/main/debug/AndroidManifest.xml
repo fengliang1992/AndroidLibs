@@ -2,6 +2,7 @@
     package="com.fltry.module.screen">
 
     <application
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="i_屏幕设置"

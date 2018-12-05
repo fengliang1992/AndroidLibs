@@ -43,7 +43,7 @@ public class AMapActivity extends BaseActivity<ActivityAmapBinding> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dataBinding.aMapView.onCreate(savedInstanceState);
-        dataBinding.setLocation(this);
+        dataBinding.setLocation(AMapActivity.this);
     }
 
     @Override
@@ -60,14 +60,17 @@ public class AMapActivity extends BaseActivity<ActivityAmapBinding> {
                         MY_PERMISSIONS_REQUEST_LOACLTION);
                 return;
             }
-            startLocation();
+            // 设置定位参数
+            locationClient.setLocationOption(locationOption);
+            // 启动定位
+            locationClient.startLocation();
         }
     }
 
     /**
      * 开始定位
      */
-    public void startLocation() {
+    public void startLocation(View v) {
         // 设置定位参数
         locationClient.setLocationOption(locationOption);
         // 启动定位
@@ -229,7 +232,10 @@ public class AMapActivity extends BaseActivity<ActivityAmapBinding> {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == MY_PERMISSIONS_REQUEST_LOACLTION) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                startLocation();
+                // 设置定位参数
+                locationClient.setLocationOption(locationOption);
+                // 启动定位
+                locationClient.startLocation();
             } else {
                 showMissingPermissionDialog();
             }
