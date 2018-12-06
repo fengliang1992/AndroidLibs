@@ -13,3 +13,5 @@
 |qrcode|[中兴二维码](https://github.com/fengliang1992/AndroidLibs/blob/master/qrcode/src/main/java/com/fltry/module/qrcode/ZxingActivity.java)|[生成二维码](https://github.com/fengliang1992/AndroidLibs/blob/master/qrcode/src/main/java/com/fltry/module/qrcode/EncodingHandler.java)|
 |rretrofit|[网络请求](https://github.com/fengliang1992/AndroidLibs/blob/master/rretrofit/src/main/java/com/fltry/module/rretrofit/RetrofitActivity.java)|mvp|
 |screen|手机屏幕|获取屏幕宽度、高度、状态栏高度、屏幕截图、[今日头条适配](https://github.com/fengliang1992/AndroidLibs/blob/master/screen/src/main/java/com/fltry/module/screen/Density.java)|
+|sensor|[传感器](https://github.com/fengliang1992/AndroidLibs/blob/master/sensor/src/main/java/com/fltry/module/sensor/SensorActivity.java)|加速传感器、磁场传感器、方向传感器等|
+|toast|[提示](https://github.com/fengliang1992/AndroidLibs/blob/master/toast/src/main/java/com/fltry/module/toast/ToastActivity.java)|Toasty|
