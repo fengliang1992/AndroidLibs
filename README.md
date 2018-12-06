@@ -9,3 +9,7 @@
 |glide|[第三方图片加载库](https://github.com/fengliang1992/AndroidLibs/blob/master/glide/src/main/java/com/fltry/module/glide/GlideActivity.java)|mvp+豆瓣api|
 |gson|[json解析库](https://github.com/fengliang1992/AndroidLibs/blob/master/gson/src/main/java/com/fltry/module/gson/GsonActivity.java)|解析对象和数组|
 |permission|[6.0以上权限申请](https://github.com/fengliang1992/AndroidLibs/blob/master/permission/src/main/java/com/fltry/module/permission/PermissionActivity.java)|读写权限、摄像头权限、定位权限|
+|picture|[图片处理](https://github.com/fengliang1992/AndroidLibs/blob/master/picture/src/main/java/com/fltry/module/picture/PictureActivity.java)|图片ScaleType、拍照、调用系统相册、查看超大图片|
+|qrcode|[中兴二维码](https://github.com/fengliang1992/AndroidLibs/blob/master/qrcode/src/main/java/com/fltry/module/qrcode/ZxingActivity.java)|[生成二维码](https://github.com/fengliang1992/AndroidLibs/blob/master/qrcode/src/main/java/com/fltry/module/qrcode/EncodingHandler.java)|
+|rretrofit|[网络请求](https://github.com/fengliang1992/AndroidLibs/blob/master/rretrofit/src/main/java/com/fltry/module/rretrofit/RetrofitActivity.java)|mvp|
+|screen|手机屏幕|获取屏幕宽度、高度、状态栏高度、屏幕截图、[今日头条适配](https://github.com/fengliang1992/AndroidLibs/blob/master/screen/src/main/java/com/fltry/module/screen/Density.java)|
