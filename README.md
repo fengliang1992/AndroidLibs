@@ -8,3 +8,4 @@
 |excption|[异常处理](https://github.com/fengliang1992/AndroidLibs/blob/master/excption/src/main/java/com/fltry/module/excption/ExcptionActivity.java)|[异常捕获](https://github.com/fengliang1992/AndroidLibs/blob/master/excption/src/main/java/com/fltry/module/excption/CrashHandler.java)、[ANR](https://github.com/fengliang1992/AndroidLibs/blob/master/excption/src/main/java/com/fltry/module/excption/AppBlockCanaryContext.java)|
 |glide|[第三方图片加载库](https://github.com/fengliang1992/AndroidLibs/blob/master/glide/src/main/java/com/fltry/module/glide/GlideActivity.java)|mvp+豆瓣api|
 |gson|[json解析库](https://github.com/fengliang1992/AndroidLibs/blob/master/gson/src/main/java/com/fltry/module/gson/GsonActivity.java)|解析对象和数组|
+|permission|[6.0以上权限申请](https://github.com/fengliang1992/AndroidLibs/blob/master/permission/src/main/java/com/fltry/module/permission/PermissionActivity.java)|读写权限、摄像头权限、定位权限|
