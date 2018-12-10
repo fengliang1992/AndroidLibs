@@ -19,5 +19,5 @@
 |lib_common|公用的库|[BaseActivity](https://github.com/fengliang1992/AndroidLibs/blob/master/lib_common/src/main/java/com/fltry/module/lib_common/BaseActivity.java)、[AlertDialogUtils](https://github.com/fengliang1992/AndroidLibs/blob/master/lib_common/src/main/java/com/fltry/module/lib_common/AlertDialogUtils.java)|
 |app|[主页面](https://github.com/fengliang1992/AndroidLibs/blob/master/app/src/main/java/com/fltry/androidlibs/ui/MainActivity.java)|[TextView富文本](https://github.com/fengliang1992/AndroidLibs/blob/master/app/src/main/java/com/fltry/androidlibs/view/autotext/AutoTextActivity.java)、[仿IOS弹性页面](https://github.com/fengliang1992/AndroidLibs/blob/master/app/src/main/java/com/fltry/androidlibs/view/elastic/ElasticActivity.java)、[下拉刷新上拉加载](https://github.com/fengliang1992/AndroidLibs/blob/master/app/src/main/java/com/fltry/androidlibs/view/refresh/RefreshActivity.java)、[时间、日期选择](https://github.com/fengliang1992/AndroidLibs/blob/master/app/src/main/java/com/fltry/androidlibs/view/timeselect/TimeSelectActivity.java)|
 # 第三方链接
-[MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
+[MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)<br/>
 [高德地图](https://lbs.amap.com/)
