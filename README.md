@@ -15,4 +15,4 @@
 |screen|[手机屏幕](https://github.com/fengliang1992/AndroidLibs/blob/master/screen/src/main/java/com/fltry/module/screen/ScreenUtilActivity.java)|获取屏幕宽度、高度、状态栏高度、屏幕截图、[今日头条适配](https://github.com/fengliang1992/AndroidLibs/blob/master/screen/src/main/java/com/fltry/module/screen/Density.java)|
 |sensor|[传感器](https://github.com/fengliang1992/AndroidLibs/blob/master/sensor/src/main/java/com/fltry/module/sensor/SensorActivity.java)|加速传感器、磁场传感器、方向传感器等|
 |toast|[提示](https://github.com/fengliang1992/AndroidLibs/blob/master/toast/src/main/java/com/fltry/module/toast/ToastActivity.java)|Toasty|
-|lib_common|公用的库|[BaseActivity](https://github.com/fengliang1992/AndroidLibs/blob/master/lib_common/src/main/java/com/fltry/module/lib_common/BaseActivity.java)、AlertDialogUtils|
+|lib_common|公用的库|[BaseActivity](https://github.com/fengliang1992/AndroidLibs/blob/master/lib_common/src/main/java/com/fltry/module/lib_common/BaseActivity.java)、[AlertDialogUtils](https://github.com/fengliang1992/AndroidLibs/blob/master/lib_common/src/main/java/com/fltry/module/lib_common/AlertDialogUtils.java)|
