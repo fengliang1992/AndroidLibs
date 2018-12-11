@@ -45,6 +45,8 @@
             android:layout_height="wrap_content"
             android:onClick="createPic"
             android:text="生成二维码" />
+
+
         <Button
             android:id="@+id/zxing_btn4"
             android:layout_width="match_parent"

@@ -53,7 +53,7 @@ public class ZxingActivity extends BaseActivity<ActivityZxingBinding> {
         dataBinding.zxingBtn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, CaptureActivity.class);
+                Intent intent = new Intent(ZxingActivity.this, CaptureActivity.class);
                 /*ZxingConfig是配置类
                 *可以设置是否显示底部布局，闪光灯，相册，
                 * 是否播放提示音  震动
@@ -80,8 +80,8 @@ public class ZxingActivity extends BaseActivity<ActivityZxingBinding> {
         // 扫描二维码/条码回传
         if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
             if (data != null) {
-                String content = data.getStringExtra(Constant.CODED_CONTENT);
-                AlertDialogUtils.getMyAlert(mContext, "扫描结果", content);
+                String content = data.getStringExtra("codedContent");
+                AlertDialogUtils.getMyAlert(mContext, "", content).show();
             }
         }
 
