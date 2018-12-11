@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidLibs.iml" filepath="$PROJECT_DIR$/AndroidLibs.iml" />
       <module fileurl="file://$PROJECT_DIR$/amap/amap.iml" filepath="$PROJECT_DIR$/amap/amap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apk/apk.iml" filepath="$PROJECT_DIR$/apk/apk.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/chart/chart.iml" filepath="$PROJECT_DIR$/chart/chart.iml" />
       <module fileurl="file://$PROJECT_DIR$/database/database.iml" filepath="$PROJECT_DIR$/database/database.iml" />
