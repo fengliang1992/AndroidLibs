@@ -23,4 +23,5 @@
 [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)<br/>
 [高德地图](https://lbs.amap.com/)<br/>
 [Toasty](https://github.com/GrenderG/Toasty)<br/>
+[blockcanary异常检测](https://github.com/markzhai/AndroidPerformanceMonitor)<br/>
 
