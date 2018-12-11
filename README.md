@@ -21,3 +21,4 @@
 # 第三方链接
 [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)<br/>
 [高德地图](https://lbs.amap.com/)
+|apk|[打包成多个apk](https://github.com/fengliang1992/AndroidLibs/blob/master/apk/src/main/java/com/fltry/module/apk/ApkActivity.java)|[获取app信息](https://github.com/fengliang1992/AndroidLibs/blob/master/apk/src/main/java/com/fltry/module/apk/AppUtils.java)|
