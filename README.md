@@ -29,3 +29,5 @@
 px = dp * (dpi / 160)<br/>
 dp = (160 * px) / dpi<br/>
 dpi = （√屏幕宽度² + 屏幕高度²）/ 屏幕斜对角尺寸（英寸in）<br/>
+density = 当前设备屏幕总宽度（单位为像素）/ 设计图总宽度（单位为 dp) <br/>
+px = dp * density <br/>
