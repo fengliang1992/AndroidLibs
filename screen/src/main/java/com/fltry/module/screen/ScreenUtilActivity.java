@@ -10,7 +10,6 @@ import android.view.View;
 import com.fltry.module.lib_common.BaseActivity;
 import com.fltry.module.screen.databinding.ActivityScreenUtilBinding;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 
@@ -59,6 +58,6 @@ public class ScreenUtilActivity extends BaseActivity<ActivityScreenUtilBinding> 
 
     public void getPic2(View v) {
         Bitmap bitmap2 = ScreenUtils.snapShotWithoutStatusBar(ScreenUtilActivity.this);
-        dataBinding.suIv3.setImageBitmap(bitmap2);
+        dataBinding.suIv2.setImageBitmap(bitmap2);
     }
 }

@@ -5,51 +5,47 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_purple"
+        android:background="@android:color/white"
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
         <include layout="@layout/toolbar_layout" />
 
-
-        <TextView
-            android:id="@+id/su_tv"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="8dp"
-            android:padding="12dp"
-            android:textColor="@android:color/black"
-            android:textSize="15sp" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="点击下面获取当前截图" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点击下面获取当前截图" />
 
-            <ImageView
-                android:id="@+id/su_iv2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/darker_gray"
-                android:onClick="getPic"
-                android:scaleType="centerInside" />
 
-            <ImageView
-                android:id="@+id/su_iv3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/darker_gray"
-                android:onClick="getPic2"
-                android:scaleType="centerInside" />
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/su_iv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="@android:color/darker_gray"
+                    android:onClick="getPic"
+                    android:scaleType="centerInside" />
 
+                <TextView
+                    android:id="@+id/su_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8dp"
+                    android:padding="12dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 </layout>
