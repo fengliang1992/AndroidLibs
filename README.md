@@ -7,7 +7,7 @@
 |dialog|[弹窗](https://github.com/fengliang1992/AndroidLibs/blob/master/dialog/src/main/java/com/fltry/module/dialog/DialogActivity.java)|[设置Dialog大小位置](https://github.com/fengliang1992/AndroidLibs/blob/master/dialog/src/main/java/com/fltry/module/dialog/DialogUtli.java)、[fragmentDialog](https://github.com/fengliang1992/AndroidLibs/blob/master/dialog/src/main/java/com/fltry/module/dialog/FragmentDlg.java)、[自定义加载的Dialog](https://github.com/fengliang1992/AndroidLibs/blob/master/dialog/src/main/java/com/fltry/module/dialog/FragmentDlg2.java)|
 |eventbus|[eventbus](https://github.com/fengliang1992/AndroidLibs/blob/master/eventbus/src/main/java/com/fltry/module/eventbus/OkHttpActivity.java)|apk下载更新|
 |excption|[异常处理](https://github.com/fengliang1992/AndroidLibs/blob/master/excption/src/main/java/com/fltry/module/excption/ExcptionActivity.java)|[异常捕获](https://github.com/fengliang1992/AndroidLibs/blob/master/excption/src/main/java/com/fltry/module/excption/CrashHandler.java)、[ANR](https://github.com/fengliang1992/AndroidLibs/blob/master/excption/src/main/java/com/fltry/module/excption/AppBlockCanaryContext.java)|
-|glide|[第三方图片加载库](https://github.com/fengliang1992/AndroidLibs/blob/master/glide/src/main/java/com/fltry/module/glide/GlideActivity.java)|mvp+豆瓣api|
+|glide|[第三方图片加载库](https://github.com/fengliang1992/AndroidLibs/blob/master/glide/src/main/java/com/fltry/module/glide/GlideActivity.java)|mvp+豆瓣api、smallestWidth适配方案|
 |gson|[json解析库](https://github.com/fengliang1992/AndroidLibs/blob/master/gson/src/main/java/com/fltry/module/gson/GsonActivity.java)|解析对象和数组|
 |permission|[6.0以上权限申请](https://github.com/fengliang1992/AndroidLibs/blob/master/permission/src/main/java/com/fltry/module/permission/PermissionActivity.java)|读写权限、摄像头权限、定位权限|
 |picture|[图片处理](https://github.com/fengliang1992/AndroidLibs/blob/master/picture/src/main/java/com/fltry/module/picture/PictureActivity.java)|图片ScaleType、拍照、调用系统相册、查看超大图片|
@@ -28,6 +28,11 @@
 ### px与dp换算公式
 px = dp * (dpi / 160)<br/>
 dp = (160 * px) / dpi<br/>
-dpi = （√屏幕宽度² + 屏幕高度²）/ 屏幕斜对角尺寸（英寸in）<br/>
+dpi = √(屏幕宽度² + 屏幕高度²）/ 屏幕斜对角尺寸（英寸in）<br/>
 density = 当前设备屏幕总宽度（单位为像素）/ 设计图总宽度（单位为 dp) <br/>
 px = dp * density <br/>
+ppi只能用来描述屏幕的显示密度，也不能描述图片的清晰度 <br/>
+dpi才能用来描述图片显示的清晰度，表示图片在屏幕上的显示效果 <br/>
+例：iphone8 4.7 英寸1334 x 750 像素分辨率，326 ppi <br/>
+屏幕宽度 = 160 * 750 / 326 = 368dp <br/>
+density = √(1334² + 750²) / 4.7 = 326.612 ≈ 326ppi <br/>
