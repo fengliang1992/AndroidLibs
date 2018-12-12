@@ -23,10 +23,10 @@
 [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)<br/>
 [高德地图](https://lbs.amap.com/)<br/>
 [Toasty](https://github.com/GrenderG/Toasty)<br/>
-[blockcanary异常检测](https://github.com/markzhai/AndroidPerformanceMonitor)<br/>
+[blockcanary异常检测](https://github.com/markzhai/AndroidPerformanceMonitor)
 # 其他
 ### px与dp换算公式
-px = dp * (dpi / 160)
-dp = (160 * px) / dpi
-dpi = （√屏幕宽度² + 屏幕高度²）/ 屏幕斜对角尺寸（英寸in）
+px = dp * (dpi / 160)<br/>
+dp = (160 * px) / dpi<br/>
+dpi = （√屏幕宽度² + 屏幕高度²）/ 屏幕斜对角尺寸（英寸in）<br/>
 
