@@ -65,7 +65,13 @@ public abstract class ClassBeanFragemt extends Fragment {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, classes.get(position).getUri()));
                 } catch (Exception e) {
-                    AlertDialogUtils.getMyAlert(mContext, "跳转失败", "由于65535报错，SDK暂时组件化运行").show();
+                    e.printStackTrace();
+                    String msg;
+                    if (e.getMessage().contains("No Activity found"))
+                        msg = "未找到相应的界面，请确认当前是否为组件模式";
+                    else
+                        msg = "由于65535报错，SDK暂时组件化运行";
+                    AlertDialogUtils.getMyAlert(mContext, "跳转失败", msg).show();
                 }
             }
         });

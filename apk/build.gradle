@@ -1,8 +1,4 @@
-if(isModule.toBoolean()){
-    apply plugin: 'com.android.application'
-}else {
-    apply plugin: 'com.android.library'
-}
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
