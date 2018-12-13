@@ -18,6 +18,8 @@ import com.fltry.androidlibs.ui.ButterknifeActivity;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class RefreshActivity extends ButterknifeActivity {
 
@@ -33,9 +35,17 @@ public class RefreshActivity extends ButterknifeActivity {
     RelativeLayout loadmore_footer_view;
     private ArrayList<String> arrayList1;
     private MyAdapter myAdapter;
+    private Unbinder unbinder;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
 
     @Override
     protected void initView() {
+        unbinder = ButterKnife.bind(this);
         arrayList1 = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             arrayList1.add("第" + (i + 1) + "个");

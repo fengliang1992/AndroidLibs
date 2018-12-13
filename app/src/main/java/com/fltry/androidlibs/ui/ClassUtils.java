@@ -44,6 +44,7 @@ class ClassUtils {
                 classes.add(new ClassBean("Refresh_刷新", "refresh"));
                 classes.add(new ClassBean("TimePic_系统时间日期选择器", "timeSelect"));
                 classes.add(new ClassBean("TextView_富文本", "autoText"));
+                classes.add(new ClassBean("标签布局", "pullList"));
                 break;
         }
         return classes;

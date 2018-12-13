@@ -14,7 +14,9 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 public class TimeSelectActivity extends ButterknifeActivity {
 
@@ -27,6 +29,13 @@ public class TimeSelectActivity extends ButterknifeActivity {
 
     private Calendar calendar;
     private CustomDatePicker timePicker;
+    private Unbinder unbinder;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
 
     @Override
     protected int getLayoutId() {
@@ -40,6 +49,7 @@ public class TimeSelectActivity extends ButterknifeActivity {
 
     @Override
     protected void initView() {
+        unbinder = ButterKnife.bind(this);
         calendar = Calendar.getInstance(Locale.CHINA);//获取日期格式器对象
         tsTv.setText(calendar.get(Calendar.HOUR_OF_DAY) + ":" +
                 calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND));

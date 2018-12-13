@@ -11,17 +11,5 @@ import butterknife.Unbinder;
 
 public abstract class ButterknifeActivity extends BaseActivity {
 
-    private Unbinder unbinder;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        unbinder = ButterKnife.bind(this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
-    }
 }

@@ -11,10 +11,13 @@ import android.widget.TextView;
 
 import com.fltry.androidlibs.R;
 import com.fltry.androidlibs.ui.ButterknifeActivity;
+import com.fltry.module.lib_common.BaseActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
-public class AutoTextActivity extends ButterknifeActivity {
+public class AutoTextActivity extends BaseActivity {
 
     @BindView(R.id.auto_tv)
     AutoTextView autoTv;
@@ -23,8 +26,17 @@ public class AutoTextActivity extends ButterknifeActivity {
     @BindView(R.id.auto_tv3)
     TextView autoTv3;
 
+    private Unbinder unbinder;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
+
     @Override
     protected void initView() {
+        unbinder = ButterKnife.bind(this);
         autoTv.setText("冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥冯亮是帅哥");
         String text = "改变颜色，改变大小，冯亮是帅哥冯亮是帅哥冯亮是帅哥---SpannableStringBuilder";
 

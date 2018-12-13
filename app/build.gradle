@@ -39,7 +39,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
     implementation project(':lib_common')
-    if (!isModule.toBoolean()){
+    if (!isModule.toBoolean()) {
         implementation project(':dialog')
         implementation project(':screen')
         implementation project(':excption')
