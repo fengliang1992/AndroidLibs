@@ -23,7 +23,8 @@
 [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)<br/>
 [高德地图](https://lbs.amap.com/)<br/>
 [Toasty](https://github.com/GrenderG/Toasty)<br/>
-[blockcanary异常检测](https://github.com/markzhai/AndroidPerformanceMonitor)
+[blockcanary异常检测](https://github.com/markzhai/AndroidPerformanceMonitor)<br/>
+[ViewPagerLayoutManager](https://github.com/leochuan/ViewPagerLayoutManager)
 # 其他
 ### px与dp换算公式
 px = dp * (dpi / 160)<br/>
