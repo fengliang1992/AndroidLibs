@@ -42,10 +42,10 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.android.support:design:26.1.0'
-    testImplementation 'junit:junit:4.12'
+    implementation "com.android.support:appcompat-v7:$android_support"
+    implementation "com.android.support:design:$android_support"
+    implementation "com.android.support.constraint:constraint-layout:$constraint_version"
+    testImplementation "junit:junit:$android_junit"
     implementation project(':lib_common')
     implementation files('libs/AMap3DMap_6.3.0_AMapNavi_6.2.0_AMapSearch_6.1.0_AMapLocation_4.1.0_20180705.jar')
 }
