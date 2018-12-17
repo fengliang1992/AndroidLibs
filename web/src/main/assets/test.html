@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>我是一个标题</title>
+  </head>
+  <body>
+    <div>
+        <button onclick="usrAndroid()">调用android方法</button><br>
+        <a href="https://www.baidu.com">百度一下，你就知道</a>
+    </div>
+    <script>
+        function loadJsFunction(msg){
+            alert(msg);
+        }
+        function usrAndroid(){
+            android.getClient("调用成功");
+        }
+    </script>
+  </body>
+</html>
