@@ -8,7 +8,11 @@
   <body>
     <div>
         <button onclick="android.getClient('调用成功')">调用android方法</button><br>
-        <a href="https://www.baidu.com">百度一下，你就知道</a>
+        <a href="https://www.baidu.com">百度一下，你就知道</a><br><br>
+        <a href="fltry://module:80/gson">打开app</a><br/><br>
+        <button onclick="android.startOtherApp('fltry://module:80/gson')">调用android打开其他app方法一</button><br><br>
+        <button onclick="android.startOtherApp2()">调用android打开其他app方法二</button><br><br>
+        <button onclick="android.startOtherApp3()">调用android打开其他app方法三</button><br><br>
     </div>
     <script>
         function loadJsFunction(msg){

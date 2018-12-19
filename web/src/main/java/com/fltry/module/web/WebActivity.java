@@ -1,8 +1,13 @@
 package com.fltry.module.web;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -81,6 +86,39 @@ public class WebActivity extends BaseActivity<ActivityWebBinding> {
     @JavascriptInterface //仍然必不可少
     public void getClient(String str) {
         AlertDialogUtils.getMyAlert(mContext, "js调用android方法", str).show();
+    }
+
+    @JavascriptInterface
+    public void startOtherApp(String url) {
+        try {
+            dataBinding.webWb.loadUrl(url);
+//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        } catch (Exception e) {
+            e.printStackTrace();
+            AlertDialogUtils.getMyAlert(mContext, "跳转失败", "未找到相应的界面").show();
+        }
+    }
+
+    @JavascriptInterface
+    public void startOtherApp2() {
+        try {
+            StartApp.startAPP(WebActivity.this, "com.fltry.module.gson","通过包名跳转成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            AlertDialogUtils.getMyAlert(mContext, "跳转失败", "未找到相关应用").show();
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    @JavascriptInterface
+    public void startOtherApp3() {
+        try {
+            ComponentName com = ComponentName.createRelative("com.fltry.module.gson","com.fltry.module.gson.GsonActivity");
+            StartApp.startApp(WebActivity.this,com, "通过ComponentName跳转成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            AlertDialogUtils.getMyAlert(mContext, "跳转失败", "未找到相关应用").show();
+        }
     }
 
     //WebViewClient主要帮助WebView处理各种通知、请求事件

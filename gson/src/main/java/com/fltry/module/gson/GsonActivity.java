@@ -1,8 +1,10 @@
 package com.fltry.module.gson;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.fltry.module.gson.databinding.ActivityGsonBinding;
+import com.fltry.module.lib_common.AlertDialogUtils;
 import com.fltry.module.lib_common.BaseActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -28,6 +30,9 @@ public class GsonActivity extends BaseActivity<ActivityGsonBinding> {
 
     @Override
     protected void initView() {
+        String str = this.getIntent().getStringExtra("flag");//本段代码用于测试app之间的跳转
+        if (null != str && !str.equals(""))
+            AlertDialogUtils.getMyAlert(mContext, "接收数据", str).show();
         gson = new Gson();
     }
 
