@@ -1,1 +1,1 @@
-git add . && git commit -m "启动其它应用" && git push || git pull && git push
+git add . && git commit -m "start other app" && git push || git pull && git push
