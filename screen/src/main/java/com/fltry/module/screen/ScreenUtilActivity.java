@@ -17,7 +17,7 @@ public class ScreenUtilActivity extends BaseActivity<ActivityScreenUtilBinding> 
         stringBuffer.append("屏幕宽度：" + ScreenUtils.getScreenWidth(mContext) + "\n");
         stringBuffer.append("屏幕高度：" + ScreenUtils.getScreenHeight(mContext) + "\n");
         stringBuffer.append("状态栏的高度1：" + ScreenUtils.getStatusHeight(mContext) + "\n");
-        stringBuffer.append("状态栏的高度2：" + ScreenUtils.getStatusBarHeight(mContext));
+        stringBuffer.append("状态栏的高度2：" + ScreenUtils.getStatusBarHeight(mContext) + "\n");
         stringBuffer.append("当前手机系统语言：" + SystemUtil.getSystemLanguage() + "\n");
         stringBuffer.append("当前手机系统版本号：" + SystemUtil.getSystemVersion() + "\n");
         stringBuffer.append("手机型号：" + SystemUtil.getSystemModel() + "\n");
