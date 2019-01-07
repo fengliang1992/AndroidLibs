@@ -10,7 +10,6 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.TextView;
 
 import com.fltry.androidlibs.R;
-import com.fltry.androidlibs.ui.ButterknifeActivity;
 import com.fltry.module.lib_common.BaseActivity;
 
 import butterknife.BindView;

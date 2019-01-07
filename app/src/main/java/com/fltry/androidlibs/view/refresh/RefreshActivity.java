@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.fltry.androidlibs.R;
-import com.fltry.androidlibs.ui.ButterknifeActivity;
+import com.fltry.module.lib_common.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class RefreshActivity extends ButterknifeActivity {
+public class RefreshActivity extends BaseActivity {
 
     @BindView(R.id.refresh_lv)
     ListView refreshLv;

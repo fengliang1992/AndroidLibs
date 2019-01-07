@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.fltry.androidlibs.R;
-import com.fltry.androidlibs.ui.ButterknifeActivity;
+import com.fltry.module.lib_common.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class ElasticActivity extends ButterknifeActivity {
+public class ElasticActivity extends BaseActivity {
 
     @BindView(R.id.elastic_list)
     ElasticListView elasticList;

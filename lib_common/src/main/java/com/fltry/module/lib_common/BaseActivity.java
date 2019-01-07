@@ -14,7 +14,7 @@ import android.widget.TextView;
  * Created by tol on 2018/3/21.
  * base类
  */
-public abstract class BaseActivity<B extends ViewDataBinding> extends AppCompatActivity {
+public abstract class BaseActivity<B extends ViewDataBinding> extends SwipeBackActivity {
     public Context mContext;
     private TextView mToolbarTitle;
     private Toolbar mToolbar;

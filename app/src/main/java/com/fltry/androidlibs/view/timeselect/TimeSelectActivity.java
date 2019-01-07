@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.fltry.androidlibs.R;
-import com.fltry.androidlibs.ui.ButterknifeActivity;
+import com.fltry.module.lib_common.BaseActivity;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-public class TimeSelectActivity extends ButterknifeActivity {
+public class TimeSelectActivity extends BaseActivity {
 
     @BindView(R.id.ts_tv)
     TextView tsTv;
