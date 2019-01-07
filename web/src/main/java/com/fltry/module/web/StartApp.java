@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -49,5 +50,14 @@ public class StartApp {
                 Toast.makeText(activity, "启动异常", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    /*
+    * 启动一个app
+    */
+    public static void startAPP(Activity activity, Uri uri, String param) throws Exception {
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.putExtra("flag", param);
+        activity.startActivity(intent);
     }
 }

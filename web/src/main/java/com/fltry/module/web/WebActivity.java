@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.ComponentName;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -91,8 +90,7 @@ public class WebActivity extends BaseActivity<ActivityWebBinding> {
     @JavascriptInterface
     public void startOtherApp(String url) {
         try {
-            dataBinding.webWb.loadUrl(url);
-//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+            StartApp.startAPP(WebActivity.this, Uri.parse(url), "通过url跳转成功！");
         } catch (Exception e) {
             e.printStackTrace();
             AlertDialogUtils.getMyAlert(mContext, "跳转失败", "未找到相应的界面").show();
@@ -102,7 +100,7 @@ public class WebActivity extends BaseActivity<ActivityWebBinding> {
     @JavascriptInterface
     public void startOtherApp2() {
         try {
-            StartApp.startAPP(WebActivity.this, "com.fltry.module.gson","通过包名跳转成功！");
+            StartApp.startAPP(WebActivity.this, "com.fltry.module.gson", "通过包名跳转成功！");
         } catch (Exception e) {
             e.printStackTrace();
             AlertDialogUtils.getMyAlert(mContext, "跳转失败", "未找到相关应用").show();
@@ -113,8 +111,8 @@ public class WebActivity extends BaseActivity<ActivityWebBinding> {
     @JavascriptInterface
     public void startOtherApp3() {
         try {
-            ComponentName com = ComponentName.createRelative("com.fltry.module.gson","com.fltry.module.gson.GsonActivity");
-            StartApp.startApp(WebActivity.this,com, "通过ComponentName跳转成功");
+            ComponentName com = ComponentName.createRelative("com.fltry.module.gson", "com.fltry.module.gson.GsonActivity");
+            StartApp.startApp(WebActivity.this, com, "通过ComponentName跳转成功");
         } catch (Exception e) {
             e.printStackTrace();
             AlertDialogUtils.getMyAlert(mContext, "跳转失败", "未找到相关应用").show();
