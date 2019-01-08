@@ -1,7 +1,10 @@
 package com.fltry.androidlibs.view.timeselect;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -26,6 +29,8 @@ public class TimeSelectActivity extends BaseActivity {
     TextView tsTv2;
     @BindView(R.id.ts_tv3)
     TextView tsTv3;
+    @BindView(R.id.ts_tv4)
+    TextView tsTv4;
 
     private Calendar calendar;
     private CustomDatePicker timePicker;
@@ -67,9 +72,9 @@ public class TimeSelectActivity extends BaseActivity {
         tsTv3.setText(GetTimeUtli.getTime("yyyy-MM-dd HH"));
     }
 
-    @OnClick({R.id.ts_btn, R.id.ts_btn2, R.id.ts_btn3})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
+    @OnClick({R.id.ts_btn, R.id.ts_btn2, R.id.ts_btn3, R.id.ts_btn4})
+    public void onViewClicked(View v) {
+        switch (v.getId()) {
             case R.id.ts_btn:
                 TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
                     @Override
@@ -93,6 +98,27 @@ public class TimeSelectActivity extends BaseActivity {
                 break;
             case R.id.ts_btn3:
                 timePicker.show(tsTv3.getText().toString());
+                break;
+            case R.id.ts_btn4:
+                final Dialog dialog = new Dialog(mContext, R.style.MyDialog2);
+                View view = View.inflate(mContext, R.layout.dialog_custom, null);
+                MyCalendar myCalendar = view.findViewById(R.id.myCalendar);
+                Log.i("MyCalendar", Color.RED + "++++++");
+                myCalendar.setDayColor("2019-1-23", Color.WHITE, Color.RED);
+                myCalendar.setOnSelectClickListener(new MyCalendar.OnSelectClickListener() {
+                    @Override
+                    public void onSelect(String year, String month, String day) {
+                        tsTv4.setText(year + "-" + month + "-" + day);
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onMonthChange() {
+
+                    }
+                });
+                dialog.setContentView(view);
+                dialog.show();
                 break;
         }
     }

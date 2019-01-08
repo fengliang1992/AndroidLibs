@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -72,6 +73,15 @@ public class WebActivity extends BaseActivity<ActivityWebBinding> {
             @Override
             public void onClick(View v) {
                 dataBinding.webWb.loadUrl("javascript:loadJsFunction('调用html方法成功')");
+            }
+        });
+
+        dataBinding.webOtherBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.baidu.com");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
     }
