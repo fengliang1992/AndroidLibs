@@ -66,12 +66,7 @@ public class OkHttpActivity extends BaseActivity<ActivityHttpBinding> {
     public void update(View v) {
         new AlertDialog.Builder(mContext).setTitle("温馨提示")
                 .setMessage("是否更新apk？")
-                .setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        downloadAPK(url, "test.apk");
-                    }
-                })
+                .setPositiveButton("立即更新", (dialog, which) -> downloadAPK(url, "test.apk"))
                 .setNegativeButton("取消", null)
                 .show();
     }

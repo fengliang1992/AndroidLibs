@@ -70,38 +70,32 @@ public class ToastActivity extends BaseActivity<ActivityToastBinding> {
     }
 
     public void loadingToast(View v) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 101; i++) {
-                    Message msg = new Message();
-                    msg.what = 0;
-                    msg.arg1 = i;
-                    handler.sendMessage(msg);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+        new Thread(() -> {
+            for (int i = 0; i < 101; i++) {
+                Message msg = new Message();
+                msg.what = 0;
+                msg.arg1 = i;
+                handler.sendMessage(msg);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
     }
 
     public void loadingToast2(View v) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 101; i++) {
-                    Message msg = new Message();
-                    msg.what = 1;
-                    msg.arg1 = i;
-                    handler.sendMessage(msg);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+        new Thread(() -> {
+            for (int i = 0; i < 101; i++) {
+                Message msg = new Message();
+                msg.what = 1;
+                msg.arg1 = i;
+                handler.sendMessage(msg);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();

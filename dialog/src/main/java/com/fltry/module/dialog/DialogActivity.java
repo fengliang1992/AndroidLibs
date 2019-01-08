@@ -45,12 +45,7 @@ public class DialogActivity extends BaseActivity<ActivityDialogBinding> {
             if (fragmentDlg2 != null) {
                 fragmentDlg2.setStep(step, new Random().nextInt(2) % 2 + 1);
                 if (step < FragmentDlg2.titles.length - 1) {
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            handler.sendEmptyMessage(0);
-                        }
-                    }, 2000);
+                    handler.postDelayed(() -> handler.sendEmptyMessage(0), 2000);
                     step++;
                 }
             }
@@ -124,11 +119,6 @@ public class DialogActivity extends BaseActivity<ActivityDialogBinding> {
         fragmentDlg2 = new FragmentDlg2();
         fragmentDlg2.show(getSupportFragmentManager(), "fragmentDlgTest2");
         step = 0;
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                handler.sendEmptyMessage(0);
-            }
-        }, 2000);
+        handler.postDelayed(() -> handler.sendEmptyMessage(0), 2000);
     }
 }

@@ -69,20 +69,12 @@ public class WebActivity extends BaseActivity<ActivityWebBinding> {
 //                "<body><h2>使用webview显示 html代码</h2></body></html>", "text/html" , "utf-8", null);
         dataBinding.webWb.loadUrl("file:///android_asset/test.html");
 
-        dataBinding.webBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dataBinding.webWb.loadUrl("javascript:loadJsFunction('调用html方法成功')");
-            }
-        });
+        dataBinding.webBtn.setOnClickListener(v -> dataBinding.webWb.loadUrl("javascript:loadJsFunction('调用html方法成功')"));
 
-        dataBinding.webOtherBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.baidu.com");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
+        dataBinding.webOtherBtn.setOnClickListener(v -> {
+            Uri uri = Uri.parse("https://www.baidu.com");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         });
     }
 

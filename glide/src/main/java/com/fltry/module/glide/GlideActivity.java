@@ -57,15 +57,12 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> imp
         dataBinding.glideGv.setItemAnimator(new DefaultItemAnimator());
         MyAdapter myAdapter = new MyAdapter(subjects, mContext);
         dataBinding.glideGv.setAdapter(myAdapter);
-        myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View v, int position) {
-                ScrollHelper.smoothScrollToTargetView(dataBinding.glideGv, v);
-                String msg = "名字：" + subjects.get(position).getTitle()
-                        + "\n类型：" + subjects.get(position).getGenres().toString()
-                        + "\n上映时间：" + subjects.get(position).getYear();
-                AlertDialogUtils.getMyAlert(mContext, "电影详情", msg).show();
-            }
+        myAdapter.setOnItemClickListener((v, position) -> {
+            ScrollHelper.smoothScrollToTargetView(dataBinding.glideGv, v);
+            String msg = "名字：" + subjects.get(position).getTitle()
+                    + "\n类型：" + subjects.get(position).getGenres().toString()
+                    + "\n上映时间：" + subjects.get(position).getYear();
+            AlertDialogUtils.getMyAlert(mContext, "电影详情", msg).show();
         });
     }
 

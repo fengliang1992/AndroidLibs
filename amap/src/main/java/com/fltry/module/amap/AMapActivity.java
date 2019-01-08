@@ -254,13 +254,7 @@ public class AMapActivity extends BaseActivity<ActivityAmapBinding> {
         builder.setMessage("当前应用缺少定位权限。请点击\"设置\"-\"权限\"-打开所需权限。");
         // 拒绝, 退出应用
         builder.setNegativeButton("取消", null);
-        builder.setPositiveButton("设置",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startAppSettings();
-                    }
-                });
+        builder.setPositiveButton("设置", (dialog, which) -> startAppSettings());
         builder.setCancelable(false);
         builder.show();
     }
