@@ -38,3 +38,6 @@ dpi才能用来描述图片显示的清晰度，表示图片在屏幕上的显�
 例：iphone8 4.7 英寸1334 x 750 像素分辨率，326 ppi <br/>
 屏幕宽度 = 160 * 750 / 326 = 368dp <br/>
 density = √(1334² + 750²) / 4.7 = 326.612 ≈ 326ppi <br/>
+
+### RecyclerView
+RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inflate(view, parent, false)，不然条目match_parent无效。
