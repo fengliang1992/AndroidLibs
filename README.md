@@ -25,7 +25,8 @@
 [高德地图](https://lbs.amap.com/)<br/>
 [Toasty](https://github.com/GrenderG/Toasty)<br/>
 [blockcanary异常检测](https://github.com/markzhai/AndroidPerformanceMonitor)<br/>
-[ViewPagerLayoutManager](https://github.com/leochuan/ViewPagerLayoutManager)
+[ViewPagerLayoutManager](https://github.com/leochuan/ViewPagerLayoutManager)<br/>
+[多渠道打包](https://github.com/Wing-Li/boon)
 # 其他
 ### px与dp换算公式
 px = dp * (dpi / 160)<br/>
