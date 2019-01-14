@@ -58,6 +58,7 @@ RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inf
         android:theme="@style/MyEditText"/>
 ```
 ### 动画
+#### Interpolator
 |java类|xml id值|描述|
 |:---|:---|:---|
 |AccelerateDecelerateInterpolator|@android:anim/accelerate_decelerate_interpolator|动画始末速率较慢，中间加速|
