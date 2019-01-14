@@ -42,3 +42,18 @@ density = √(1334² + 750²) / 4.7 = 326.612 ≈ 326ppi <br/>
 
 ### RecyclerView
 RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inflate(view, parent, false)，不然条目match_parent无效。
+
+### EditText
+改变下划线样式<br/>
+```
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@android:color/holo_blue_dark</item>
+    </style>
+```
+```
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:theme="@style/MyEditText"/>
+```
