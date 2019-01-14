@@ -25,7 +25,8 @@
 [高德地图](https://lbs.amap.com/)<br/>
 [Toasty](https://github.com/GrenderG/Toasty)<br/>
 [blockcanary异常检测](https://github.com/markzhai/AndroidPerformanceMonitor)<br/>
-[ViewPagerLayoutManager](https://github.com/leochuan/ViewPagerLayoutManager)
+[ViewPagerLayoutManager](https://github.com/leochuan/ViewPagerLayoutManager)<br/>
+[多渠道打包](https://github.com/Wing-Li/boon)
 # 其他
 ### px与dp换算公式
 px = dp * (dpi / 160)<br/>
@@ -38,3 +39,35 @@ dpi才能用来描述图片显示的清晰度，表示图片在屏幕上的显�
 例：iphone8 4.7 英寸1334 x 750 像素分辨率，326 ppi <br/>
 屏幕宽度 = 160 * 750 / 326 = 368dp <br/>
 density = √(1334² + 750²) / 4.7 = 326.612 ≈ 326ppi <br/>
+
+### RecyclerView
+RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inflate(view, parent, false)，不然条目match_parent无效。
+
+### EditText
+改变下划线样式<br/>
+```
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@android:color/holo_blue_dark</item>
+    </style>
+```
+```
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:theme="@style/MyEditText"/>
+```
+### 动画
+#### Interpolator
+|java类|xml id值|描述|
+|:---|:---|:---|
+|AccelerateDecelerateInterpolator|@android:anim/accelerate_decelerate_interpolator|动画始末速率较慢，中间加速|
+|AccelerateInterpolator|@android:anim/accelerate_interpolator|动画开始速率较慢，之后慢慢加速|
+|AnticipateInterpolator|@android:anim/anticipate_interpolator|开始的时候从后向前甩|
+|AnticipateOvershootInterpolator|@android:anim/anticipate_overshoot_interpolator|类似上面AnticipateInterpolator|
+|BounceInterpolator|@android:anim/bounce_interpolator|动画结束时弹起|
+|CycleInterpolator|@android:anim/cycle_interpolator|循环播放速率改变为正弦曲线|
+|DecelerateInterpolator|@android:anim/decelerate_interpolator|动画开始快然后慢|
+|LinearInterpolator|@android:anim/linear_interpolator|动画匀速改变|
+|OvershootInterpolator|@android:anim/overshoot_interpolator|向前弹出一定值之后回到原来位置|
+|PathInterpolator||新增，定义路径坐标后按照路径坐标来跑|
