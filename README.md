@@ -57,3 +57,16 @@ RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inf
         android:layout_height="wrap_content" 
         android:theme="@style/MyEditText"/>
 ```
+### 动画
+|java类|xml id值|描述|
+|:---|:---|:---|
+|AccelerateDecelerateInterpolator|@android:anim/accelerate_decelerate_interpolator|动画始末速率较慢，中间加速|
+|AccelerateInterpolator|@android:anim/accelerate_interpolator|动画开始速率较慢，之后慢慢加速|
+|AnticipateInterpolator|@android:anim/anticipate_interpolator|开始的时候从后向前甩|
+|AnticipateOvershootInterpolator|@android:anim/anticipate_overshoot_interpolator|类似上面AnticipateInterpolator|
+|BounceInterpolator|@android:anim/bounce_interpolator|动画结束时弹起|
+|CycleInterpolator|@android:anim/cycle_interpolator|循环播放速率改变为正弦曲线|
+|DecelerateInterpolator|@android:anim/decelerate_interpolator|动画开始快然后慢|
+|LinearInterpolator|@android:anim/linear_interpolator|动画匀速改变|
+|OvershootInterpolator|@android:anim/overshoot_interpolator|向前弹出一定值之后回到原来位置|
+|PathInterpolator||新增，定义路径坐标后按照路径坐标来跑|
