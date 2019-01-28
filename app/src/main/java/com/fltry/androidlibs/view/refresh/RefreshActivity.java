@@ -58,70 +58,43 @@ public class RefreshActivity extends BaseActivity {
         refreshRv.setLayoutManager(layoutManager);
         refreshRv.setAdapter(myAdapter);
 
-        refreshRl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        handler.sendEmptyMessage(0);
-                    }
-                }).start();
+        refreshRl.setOnRefreshListener(() -> new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        });
+            handler.sendEmptyMessage(0);
+        }).start());
 
-        refreshRl.setOnLoadListener(new RefreshLayout.OnLoadListener() {
-            @Override
-            public void onLoad() {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        handler.sendEmptyMessage(1);
-                    }
-                }).start();
+        refreshRl.setOnLoadListener(() -> new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        });
-        refreshR2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        handler.sendEmptyMessage(2);
-                    }
-                }).start();
+            handler.sendEmptyMessage(1);
+        }).start());
+        refreshR2.setOnRefreshListener(() -> new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        });
+            handler.sendEmptyMessage(2);
+        }).start());
         refreshRv.addOnScrollListener(new EndLessOnScrollListener(layoutManager) {
             @Override
             public void onLoadMore(int currentPage) {
                 Log.i("aaa", "记载更改");
                 loadmore_footer_view.setVisibility(View.VISIBLE);
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        handler.sendEmptyMessage(2);
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
+                    handler.sendEmptyMessage(2);
                 }).start();
             }
         });

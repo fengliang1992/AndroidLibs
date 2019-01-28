@@ -127,12 +127,7 @@ public class PermissionActivity extends BaseActivity {
         // 拒绝, 退出应用
         builder.setNegativeButton("取消", null);
         builder.setPositiveButton("设置",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startAppSettings();
-                    }
-                });
+                (dialog, which) -> startAppSettings());
         builder.setCancelable(false);
         builder.show();
     }
