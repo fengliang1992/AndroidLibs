@@ -74,3 +74,5 @@ RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inf
 |LinearInterpolator|@android:anim/linear_interpolator|动画匀速改变|
 |OvershootInterpolator|@android:anim/overshoot_interpolator|向前弹出一定值之后回到原来位置|
 |PathInterpolator||新增，定义路径坐标后按照路径坐标来跑|
+
+### [音视频学习地址](http://www.cnblogs.com/renhui/p/7452572.html)
