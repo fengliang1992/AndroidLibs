@@ -1,2 +1,2 @@
-git add . && git commit -m "ValueAnimation test" && git push || git pull && git push
+git add . && git commit -m "Éý¼¶ÁËandroid studio°æ±¾" && git push || git pull && git push
 pause

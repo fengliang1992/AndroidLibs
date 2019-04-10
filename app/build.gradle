@@ -20,7 +20,7 @@ android {
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "安卓工具_" + "${defaultConfig.versionCode}" + ".apk"
+            outputFileName = "安卓工具_" + "${variant.versionCode}" + ".apk"
         }
     }
 
@@ -40,8 +40,8 @@ dependencies {
     implementation "com.android.support:design:$android_support"
     implementation "com.android.support.constraint:constraint-layout:$constraint_version"
     testImplementation "junit:junit:$android_junit"
-    compile 'com.jakewharton:butterknife:8.4.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     implementation project(':lib_common')
     if (!isModule.toBoolean()) {

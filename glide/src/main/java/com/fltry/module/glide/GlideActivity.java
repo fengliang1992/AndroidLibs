@@ -72,25 +72,22 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> imp
         } else {
             new AlertDialog.Builder(mContext).setTitle("选择效果")
                     .setAdapter(new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, types),
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dataBinding.setType(types[which]);
-                                    if (which == 0) {
-                                        setMyRecyclerLayoutManage(new CircleLayoutManager(mContext));
-                                    } else if (which == 1) {
-                                        setMyRecyclerLayoutManage(new ScaleLayoutManager(mContext, 20));
-                                    } else if (which == 2) {
-                                        setMyRecyclerLayoutManage(new CircleScaleLayoutManager(mContext));
-                                    } else if (which == 3) {
-                                        setMyRecyclerLayoutManage(new CarouselLayoutManager(mContext, 100));
-                                    } else if (which == 4) {
-                                        setMyRecyclerLayoutManage(new GalleryLayoutManager(mContext, 20));
-                                    } else if (which == 5) {
-                                        setMyRecyclerLayoutManage(new RotateLayoutManager(mContext, 20));
-                                    } else {
-                                        setMyRecyclerLayoutManage(new GridLayoutManager(mContext, 3));
-                                    }
+                            (dialog, which) -> {
+                                dataBinding.setType(types[which]);
+                                if (which == 0) {
+                                    setMyRecyclerLayoutManage(new CircleLayoutManager(mContext));
+                                } else if (which == 1) {
+                                    setMyRecyclerLayoutManage(new ScaleLayoutManager(mContext, 20));
+                                } else if (which == 2) {
+                                    setMyRecyclerLayoutManage(new CircleScaleLayoutManager(mContext));
+                                } else if (which == 3) {
+                                    setMyRecyclerLayoutManage(new CarouselLayoutManager(mContext, 100));
+                                } else if (which == 4) {
+                                    setMyRecyclerLayoutManage(new GalleryLayoutManager(mContext, 20));
+                                } else if (which == 5) {
+                                    setMyRecyclerLayoutManage(new RotateLayoutManager(mContext, 20));
+                                } else {
+                                    setMyRecyclerLayoutManage(new GridLayoutManager(mContext, 3));
                                 }
                             }).show();
         }
