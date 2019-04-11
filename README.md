@@ -41,7 +41,7 @@ dpi才能用来描述图片显示的清晰度，表示图片在屏幕上的显�
 density = √(1334² + 750²) / 4.7 = 326.612 ≈ 326ppi <br/>
 
 ### 二维码项目
-[亲测好用](https://github.com/MRYangY/YZxing)
+[扫很小的二维码不是很好](https://github.com/MRYangY/YZxing)
 
 ### RecyclerView
 RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inflate(view, parent, false)，不然条目match_parent无效。
