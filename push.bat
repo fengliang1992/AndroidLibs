@@ -1,2 +1,2 @@
-git add . && git commit -m "升级了android studio版本" && git push || git pull && git push
+git add . && git commit -m "统一了组件的版本" && git push || git pull && git push
 pause
