@@ -52,6 +52,11 @@ dependencies {
         implementation project(':toast')
         implementation project(':database')
         implementation project(':glide')
+        implementation project(':web')
+        implementation project(':chart')
+        implementation project(':animation')
+        implementation project(':sensor')
+        implementation project(':eventbus')
     }
 }
 repositories {

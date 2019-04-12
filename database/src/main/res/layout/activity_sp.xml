@@ -9,6 +9,14 @@
 
         <include layout="@layout/toolbar_layout" />
 
+        <Button
+            android:id="@+id/sp_db_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DB数据库"
+            android:onClick="readOnClick"/>
+
+
         <EditText
             android:id="@+id/sp_et1"
             android:layout_width="match_parent"

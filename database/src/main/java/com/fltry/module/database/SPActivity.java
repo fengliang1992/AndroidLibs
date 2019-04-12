@@ -1,5 +1,6 @@
 package com.fltry.module.database;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
@@ -21,7 +22,7 @@ public class SPActivity extends BaseActivity<ActivitySpBinding> {
 
     @Override
     protected void initView() {
-
+        dataBinding.spDbBtn.setOnClickListener(v -> startActivity(new Intent(mContext, DBActivity.class)));
     }
 
     public void saveOnClick(View v) {

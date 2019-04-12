@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".DBActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 </manifest>
