@@ -41,6 +41,7 @@ dpi才能用来描述图片显示的清晰度，表示图片在屏幕上的显�
 density = √(1334² + 750²) / 4.7 = 326.612 ≈ 326ppi <br/>
 
 ### 二维码项目
+[zxing.jar下载地址](http://repo1.maven.org/maven2/com/google/zxing/core/)<br>
 [扫很小的二维码不是很好](https://github.com/MRYangY/YZxing)
 
 ### RecyclerView
