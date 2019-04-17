@@ -8,6 +8,10 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
+import com.fltry.module.lib_common.GlobalValues;
+
+import org.greenrobot.eventbus.EventBus;
+
 public class NetWorkChangReceiver extends BroadcastReceiver {
 
     /**
@@ -30,7 +34,7 @@ public class NetWorkChangReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (WifiManager.WIFI_STATE_CHANGED_ACTION.equals(intent.getAction())) {// 监听wifi的打开与关闭，与wifi的连接无关
             int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0);
-            Log.e("TAG", "wifiState:" + wifiState);
+            Log.e(GlobalValues.TAG, "wifiState:" + wifiState);
             switch (wifiState) {
                 case WifiManager.WIFI_STATE_DISABLED:
                     break;
@@ -44,13 +48,15 @@ public class NetWorkChangReceiver extends BroadcastReceiver {
             NetworkInfo info = intent.getParcelableExtra(ConnectivityManager.EXTRA_NETWORK_INFO);
             if (info != null) {
                 //如果当前的网络连接成功并且网络连接可用
+                String state = "";
                 if (NetworkInfo.State.CONNECTED == info.getState() && info.isAvailable()) {
                     if (info.getType() == ConnectivityManager.TYPE_WIFI || info.getType() == ConnectivityManager.TYPE_MOBILE) {
-                        Log.i("TAG", getConnectionType(info.getType()) + "连上");
+                        state = getConnectionType(info.getType()) + "连上";
                     }
                 } else {
-                    Log.i("TAG", getConnectionType(info.getType()) + "断开");
+                    state = getConnectionType(info.getType()) + "断开";
                 }
+                EventBus.getDefault().post(state);
             }
         }
     }

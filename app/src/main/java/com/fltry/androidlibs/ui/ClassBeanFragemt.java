@@ -3,6 +3,7 @@ package com.fltry.androidlibs.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ public abstract class ClassBeanFragemt extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (mRootView == null) {
             mRootView = View.inflate(getContext(), getLayoutId(), null);
         } else {// 移除view之前的fragment
@@ -55,24 +56,21 @@ public abstract class ClassBeanFragemt extends Fragment {
         final ArrayList<ClassBean> classes = getClasses();
         getLv().setAdapter(new MyClassAdapter(getContext(), classes));
 
-        getLv().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position > classes.size() - 1) {
-                    Toast.makeText(getContext(), "index越界", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, classes.get(position).getUri()));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    String msg;
-                    if (e.getMessage().contains("No Activity found"))
-                        msg = "未找到相应的界面，请确认当前是否为组件模式";
-                    else
-                        msg = "由于65535报错，SDK暂时组件化运行";
-                    AlertDialogUtils.getMyAlert(mContext, "跳转失败", msg).show();
-                }
+        getLv().setOnItemClickListener((parent, view, position, id) -> {
+            if (position > classes.size() - 1) {
+                Toast.makeText(getContext(), "index越界", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, classes.get(position).getUri(mContext)));
+            } catch (Exception e) {
+                e.printStackTrace();
+                String msg;
+                if (e.getMessage().contains("No Activity found"))
+                    msg = "未找到相应的界面，请确认当前是否为组件模式";
+                else
+                    msg = "由于65535报错，SDK暂时组件化运行";
+                AlertDialogUtils.getMyAlert(mContext, "跳转失败", msg).show();
             }
         });
     }

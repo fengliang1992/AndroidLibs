@@ -1,26 +1,30 @@
 package com.fltry.androidlibs.ui;
 
+import android.content.Context;
 import android.net.Uri;
+
+import com.fltry.androidlibs.R;
 
 class ClassBean {
 
-    private String name;
-    private String className;
+    private int nameRes;
+    private int clzRes;
 
-    ClassBean(String name, String className) {
-        this.name = name;
-        this.className = className;
+    ClassBean(int nameRes, int clzRes) {
+        this.nameRes = nameRes;
+        this.clzRes = clzRes;
     }
 
-    String getName() {
-        return name;
+    String getName(Context context) {
+        return context.getResources().getString(nameRes);
     }
 
-    private String getClassName() {
-        return "fltry://module:80/" + className;
+    private String getClassName(Context context) {
+        return context.getResources().getString(R.string.scheme) + "://" + context.getResources().getString(R.string.host) + ":"
+                + context.getResources().getString(R.string.port) + context.getResources().getString(clzRes);
     }
 
-    Uri getUri() {
-        return Uri.parse(getClassName());
+    Uri getUri(Context context) {
+        return Uri.parse(getClassName(context));
     }
 }

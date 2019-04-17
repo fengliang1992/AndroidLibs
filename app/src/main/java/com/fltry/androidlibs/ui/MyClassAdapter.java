@@ -38,7 +38,7 @@ public class MyClassAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = View.inflate(context, R.layout.item_classes, null);
         TextView textView = convertView.findViewById(R.id.item_classes_tv);
-        textView.setText(classes.get(position).getName());
+        textView.setText(classes.get(position).getName(context));
         return convertView;
     }
 }

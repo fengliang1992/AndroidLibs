@@ -28,4 +28,29 @@
     <string name="path_sensor">/sensor</string>
     <string name="path_toast">/toast</string>
     <string name="path_web">/web</string>
+
+    <string name="module_name_elastic">弹性界面</string>
+    <string name="module_name_refresh">列表刷新</string>
+    <string name="module_name_timeSelect">系统时间日期选择器</string>
+    <string name="module_name_autoText">富文本</string>
+    <string name="module_name_pullList">标签布局</string>
+    <string name="module_name_net_state">网络状态</string>
+    <string name="module_name_amap">AMap_高德地图</string>
+    <string name="module_name_animation">动画</string>
+    <string name="module_name_apk">获取apk信息</string>
+    <string name="module_name_chart">图表</string>
+    <string name="module_name_database">数据存储</string>
+    <string name="module_name_dialog">弹窗</string>
+    <string name="module_name_eventbus">OkHttp + EventBus</string>
+    <string name="module_name_exception">异常奔溃ANR</string>
+    <string name="module_name_glide">glide</string>
+    <string name="module_name_gson">Gson</string>
+    <string name="module_name_permission">/permission</string>
+    <string name="module_name_picture">图片处理</string>
+    <string name="module_name_qrcode">二维码</string>
+    <string name="module_name_retrofit">rxandroid2 + retrofit</string>
+    <string name="module_name_screen">屏幕</string>
+    <string name="module_name_sensor">传感器</string>
+    <string name="module_name_toast">Toast</string>
+    <string name="module_name_web">webView</string>
 </resources>
