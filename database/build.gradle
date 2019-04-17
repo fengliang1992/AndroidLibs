@@ -51,5 +51,4 @@ dependencies {
     implementation "com.android.support:design:$android_support"
     implementation "com.android.support.constraint:constraint-layout:$constraint_version"
     implementation project(':lib_common')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

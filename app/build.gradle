@@ -39,6 +39,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$android_support"
     implementation "com.android.support:design:$android_support"
     implementation "com.android.support.constraint:constraint-layout:$constraint_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation "junit:junit:$android_junit"
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

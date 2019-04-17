@@ -48,5 +48,5 @@ dependencies {
     implementation "com.android.support:design:$android_support"
     implementation "com.android.support.constraint:constraint-layout:$constraint_version"
     implementation project(':lib_common')
-    implementation 'com.google.code.gson:gson:2.8.4'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }

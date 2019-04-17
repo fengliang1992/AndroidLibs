@@ -9,7 +9,7 @@ import android.view.animation.LinearInterpolator;
 import com.fltry.module.animation.databinding.ActivityAnimationBinding;
 import com.fltry.module.lib_common.BaseActivity;
 
-public class AnimationActivity extends BaseActivity<ActivityAnimationBinding> implements View.OnClickListener {
+public class AnimationActivity extends BaseActivity<ActivityAnimationBinding> {
 
     boolean rotation;
 
@@ -25,29 +25,25 @@ public class AnimationActivity extends BaseActivity<ActivityAnimationBinding> im
 
     @Override
     protected void initView() {
-        dataBinding.btnRotate.setOnClickListener(this);
-        dataBinding.btnTranslate.setOnClickListener(this);
-        dataBinding.btnScale.setOnClickListener(this);
-        dataBinding.btnAlpha.setOnClickListener(this);
+        dataBinding.setAnimation(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_rotate:
-                rotate();
-                break;
-            case R.id.btn_translate:
-                translate();
-                break;
-            case R.id.btn_scale:
-                scale();
-                break;
-            case R.id.btn_alpha:
-                alpha();
-                break;
-        }
+    public void onRotate(View v) {
+        rotate();
     }
+
+    public void onTranslate(View v) {
+        translate();
+    }
+
+    public void onScale(View v) {
+        scale();
+    }
+
+    public void onAlpha(View v) {
+        alpha();
+    }
+
 
     private void scale() {
         AnimatorSet animationSet = new AnimatorSet();

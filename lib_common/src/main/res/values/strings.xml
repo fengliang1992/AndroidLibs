@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="host">module</string>
+    <string name="port">80</string>
+    <string name="scheme">fltry</string>
+
+    <string name="path_elastic">/elastic</string>
+    <string name="path_refresh">/refresh</string>
+    <string name="path_timeSelect">/timeSelect</string>
+    <string name="path_autoText">/autoText</string>
+    <string name="path_pullList">/pullList</string>
+    <string name="path_net_state">/netState</string>
+    <string name="path_amap">/amap</string>
+    <string name="path_animation">/animation</string>
+    <string name="path_apk">/apk</string>
+    <string name="path_chart">/chart</string>
+    <string name="path_database">/database</string>
+    <string name="path_dialog">/dialog</string>
+    <string name="path_eventbus">/eventbus</string>
+    <string name="path_exception">/exception</string>
+    <string name="path_glide">/glide</string>
+    <string name="path_gson">/gson</string>
+    <string name="path_permission">/permission</string>
+    <string name="path_picture">/picture</string>
+    <string name="path_qrcode">/qrcode</string>
+    <string name="path_retrofit">/retrofit</string>
+    <string name="path_screen">/screen</string>
+    <string name="path_sensor">/sensor</string>
+    <string name="path_toast">/toast</string>
+    <string name="path_web">/web</string>
+</resources>

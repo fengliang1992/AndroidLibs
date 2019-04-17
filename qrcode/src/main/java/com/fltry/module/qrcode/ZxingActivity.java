@@ -1,13 +1,11 @@
 package com.fltry.module.qrcode;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,8 +16,6 @@ import com.google.zxing.WriterException;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
 import com.yzq.zxinglibrary.common.Constant;
-
-import java.io.Serializable;
 
 
 public class ZxingActivity extends BaseActivity<ActivityZxingBinding> {

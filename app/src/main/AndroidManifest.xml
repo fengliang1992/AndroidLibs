@@ -10,11 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeNotTranslucent">
         <activity
+            android:name=".view.netstate.NetStateActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <data
+                    android:host="@string/host"
+                    android:path="@string/path_net_state"
+                    android:port="@string/port"
+                    android:scheme="@string/scheme" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -22,18 +35,13 @@
             android:name=".view.elastic.ElasticActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-
-                <!-- 协议部分，随便设置 -->
                 <data
-                    android:host="module"
-                    android:path="/elastic"
-                    android:port="80"
-                    android:scheme="fltry" />
-                <!-- 下面这几行也必须得设置 -->
+                    android:host="@string/host"
+                    android:path="@string/path_elastic"
+                    android:port="@string/port"
+                    android:scheme="@string/scheme" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
@@ -41,18 +49,13 @@
             android:name=".view.refresh.RefreshActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-
-                <!-- 协议部分，随便设置 -->
                 <data
-                    android:host="module"
-                    android:path="/refresh"
-                    android:port="80"
-                    android:scheme="fltry" />
-                <!-- 下面这几行也必须得设置 -->
+                    android:host="@string/host"
+                    android:path="@string/path_refresh"
+                    android:port="@string/port"
+                    android:scheme="@string/scheme" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
@@ -60,18 +63,13 @@
             android:name=".view.timeselect.TimeSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-
-                <!-- 协议部分，随便设置 -->
                 <data
-                    android:host="module"
-                    android:path="/timeSelect"
-                    android:port="80"
-                    android:scheme="fltry" />
-                <!-- 下面这几行也必须得设置 -->
+                    android:host="@string/host"
+                    android:path="@string/path_timeSelect"
+                    android:port="@string/port"
+                    android:scheme="@string/scheme" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
@@ -79,18 +77,13 @@
             android:name=".view.autotext.AutoTextActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-
-                <!-- 协议部分，随便设置 -->
                 <data
-                    android:host="module"
-                    android:path="/autoText"
-                    android:port="80"
-                    android:scheme="fltry" />
-                <!-- 下面这几行也必须得设置 -->
+                    android:host="@string/host"
+                    android:path="@string/path_autoText"
+                    android:port="@string/port"
+                    android:scheme="@string/scheme" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
@@ -98,21 +91,24 @@
             android:name=".view.pulllist.PullListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-
-                <!-- 协议部分，随便设置 -->
                 <data
-                    android:host="module"
-                    android:path="/pullList"
-                    android:port="80"
-                    android:scheme="fltry" />
-                <!-- 下面这几行也必须得设置 -->
+                    android:host="@string/host"
+                    android:path="@string/path_pullList"
+                    android:port="@string/port"
+                    android:scheme="@string/scheme" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".view.netstate.NetWorkChangReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

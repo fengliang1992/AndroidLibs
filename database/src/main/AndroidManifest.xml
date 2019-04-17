@@ -8,13 +8,11 @@
             android:name=".SPActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <!--协议部分，随便设置-->
                 <data
-                    android:host="module"
-                    android:path="/database"
-                    android:port="80"
-                    android:scheme="fltry" />
-                <!--下面这几行也必须得设置-->
+                    android:host="@string/host"
+                    android:path="@string/path_database"
+                    android:port="@string/port"
+                    android:scheme="@string/scheme" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />

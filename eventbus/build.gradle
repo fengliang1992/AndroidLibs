@@ -48,7 +48,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$android_support"
     implementation "com.android.support:design:$android_support"
     implementation "com.android.support.constraint:constraint-layout:$constraint_version"
-    implementation 'org.greenrobot:eventbus:3.1.1'
-    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation "org.greenrobot:eventbus:$eventbus"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3"
     implementation project(':lib_common')
 }
