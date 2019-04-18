@@ -25,14 +25,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // 建表
-        String sql = "create table " +
+        db.execSQL(createTable());
+    }
+
+    public String createTable() {
+        return "create table " +
                 TABLE_NAME +
-                "(ID integer primary key autoincrement, " +
+                "(" + ID + " integer primary key autoincrement, " +
                 NAME + " varchar, " +
                 AGE + " varchar"
                 + ")";
-        db.execSQL(sql);
     }
 
     @Override

@@ -5,10 +5,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.fltry.module.database.databinding.ActivityDbBinding;
 import com.fltry.module.lib_common.BaseActivity;
+import com.fltry.module.lib_common.GlobalValues;
 
 public class DBActivity extends BaseActivity<ActivityDbBinding> {
 
@@ -40,6 +42,16 @@ public class DBActivity extends BaseActivity<ActivityDbBinding> {
         dataBinding.dbDeleteBtn.setOnClickListener(v -> DBDelete());
         dataBinding.dbSearchBtn.setOnClickListener(v -> DBSearch());
         dataBinding.dbSearchAllBtn.setOnClickListener(v -> DBSearchAll());
+        dataBinding.dbCreatTableBtn.setOnClickListener(v -> {
+            try {
+                databaseWrite.execSQL(dbHelper.createTable());
+            } catch (Exception e) {
+                showAlert(e.getMessage());
+            }
+        });
+        dataBinding.dbDeleteTableBtn.setOnClickListener(v -> {
+            databaseWrite.execSQL("DROP TABLE IF EXISTS " + DBHelper.TABLE_NAME);
+        });
     }
 
     private void showAlert(String msg) {
@@ -48,20 +60,24 @@ public class DBActivity extends BaseActivity<ActivityDbBinding> {
     }
 
     private void DBSearchAll() {
-        Cursor cursor = databaseRead.query(DBHelper.TABLE_NAME, null, null,
-                null, null, null, null);
-        int nameIndex = cursor.getColumnIndex(DBHelper.NAME);
-        int ageIndex = cursor.getColumnIndex(DBHelper.AGE);
-        int idIndex = cursor.getColumnIndex(DBHelper.ID);
-        StringBuilder msg = new StringBuilder();
-        while (cursor.moveToNext()) {
-            String id = cursor.getString(idIndex);
-            String name = cursor.getString(nameIndex);
-            String age = cursor.getString(ageIndex);
-            msg.append("id：").append(id).append("\tname：").append(name).append("\tage：").append(age).append("\n");
+        try {
+            Cursor cursor = databaseRead.query(DBHelper.TABLE_NAME, null, null,
+                    null, null, null, null);
+            int nameIndex = cursor.getColumnIndex(DBHelper.NAME);
+            int ageIndex = cursor.getColumnIndex(DBHelper.AGE);
+            int idIndex = cursor.getColumnIndex(DBHelper.ID);
+            StringBuilder msg = new StringBuilder();
+            while (cursor.moveToNext()) {
+                String id = cursor.getString(idIndex);
+                String name = cursor.getString(nameIndex);
+                String age = cursor.getString(ageIndex);
+                msg.append("id：").append(id).append("\tname：").append(name).append("\tage：").append(age).append("\n");
+            }
+            cursor.close();
+            dataBinding.dbSearchResultTv.setText(msg.toString());
+        } catch (Exception e) {
+            showAlert(e.getMessage());
         }
-        cursor.close();
-        dataBinding.dbSearchResultTv.setText(msg.toString());
     }
 
     /*
@@ -79,8 +95,14 @@ public class DBActivity extends BaseActivity<ActivityDbBinding> {
             return;
         }
         try {
-            Cursor cursor = databaseRead.query(DBHelper.TABLE_NAME, new String[]{DBHelper.ID, DBHelper.NAME, DBHelper.AGE},
-                    DBHelper.ID + "=" + id(), null, null, null, null);
+            String table = DBHelper.TABLE_NAME;
+            String[] columns = new String[]{DBHelper.ID, DBHelper.NAME, DBHelper.AGE};
+            String selection = DBHelper.ID + "=?";
+            String[] selectionArgs = new String[]{id()};
+            String groupBy = null;
+            String having = null;
+            String orderBy = null;
+            Cursor cursor = databaseRead.query(table, columns, selection, selectionArgs, groupBy, having, orderBy, null);
             StringBuilder msg = new StringBuilder();
             while (cursor.moveToNext()) {
                 String id = cursor.getString(cursor.getColumnIndex(DBHelper.ID));
@@ -88,6 +110,7 @@ public class DBActivity extends BaseActivity<ActivityDbBinding> {
                 String age = cursor.getString(cursor.getColumnIndex(DBHelper.AGE));
                 msg.append("id：").append(id).append("\tname：").append(name).append("\tage：").append(age).append("\n");
             }
+            dataBinding.dbSearchResultTv.setText(msg.toString());
             cursor.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,9 +125,12 @@ public class DBActivity extends BaseActivity<ActivityDbBinding> {
         }
 
         try {
-            databaseWrite.delete(DBHelper.TABLE_NAME, DBHelper.ID, new String[]{id()});
-            databaseWrite.delete(DBHelper.TABLE_NAME, DBHelper.NAME, new String[]{name()});
-            databaseWrite.delete(DBHelper.TABLE_NAME, DBHelper.AGE, new String[]{age()});
+            if (!TextUtils.isEmpty(id()))
+                databaseWrite.delete(DBHelper.TABLE_NAME, DBHelper.ID + "=?", new String[]{id()});
+            if (!TextUtils.isEmpty(name()))
+                databaseWrite.delete(DBHelper.TABLE_NAME, DBHelper.NAME + "=?", new String[]{name()});
+            if (!TextUtils.isEmpty(age()))
+                databaseWrite.delete(DBHelper.TABLE_NAME, DBHelper.AGE + "=?", new String[]{age()});
             DBSearchAll();
         } catch (Exception e) {
             e.printStackTrace();
