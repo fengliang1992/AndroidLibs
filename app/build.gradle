@@ -10,6 +10,7 @@ android {
         versionCode rootProject.ext.version_code
         versionName rootProject.ext.version_name
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -45,6 +46,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation "org.greenrobot:eventbus:$eventbus"
     implementation project(':lib_common')
+    implementation 'com.android.support:multidex:1.0.3'
     if (!isModule.toBoolean()) {
         implementation project(':dialog')
         implementation project(':screen')
@@ -58,6 +60,8 @@ dependencies {
         implementation project(':animation')
         implementation project(':sensor')
         implementation project(':eventbus')
+        implementation project(':gson')
+        implementation project(':amap')
     }
 }
 repositories {
