@@ -77,6 +77,7 @@ RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inf
 |PathInterpolator||新增，定义路径坐标后按照路径坐标来跑|
 
 ### [音视频学习地址](http://www.cnblogs.com/renhui/p/7452572.html)
+### [相关API](https://developer.xamarin.com/api/root/MonoAndroid-lib/)
 ### 摄像头相关参数
 #### CameraDevice.createCaptureRequest(int templateType)
 TEMPLATE_RECORD             创建适合录像的请求。<br>
