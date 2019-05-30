@@ -19,12 +19,6 @@ android {
         }
     }
 
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "安卓工具_" + "${variant.versionCode}" + ".apk"
-        }
-    }
-
     dataBinding {
         enabled = true
     }

@@ -1,5 +1,6 @@
 package com.fltry.module.screen;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.View;
 
@@ -46,5 +47,9 @@ public class ScreenUtilActivity extends BaseActivity<ActivityScreenUtilBinding> 
     public void getPic2(View v) {
         Bitmap bitmap2 = ScreenUtils.snapShotWithoutStatusBar(ScreenUtilActivity.this);
         dataBinding.suIv2.setImageBitmap(bitmap2);
+    }
+
+    public void intentTo(View v) {
+        startActivity(new Intent(mContext, ScreenActivity.class));
     }
 }
