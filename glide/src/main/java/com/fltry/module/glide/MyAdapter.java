@@ -34,12 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
                 .load(subjects.get(position).getImages().getMedium())
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.imageView);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onItemClickListener.onItemClick(v, holder.getAdapterPosition());
-            }
-        });
+        holder.itemView.setOnClickListener(v -> onItemClickListener.onItemClick(v, holder.getAdapterPosition()));
     }
 
     @Override
