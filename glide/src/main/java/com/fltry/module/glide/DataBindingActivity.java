@@ -58,12 +58,7 @@ public abstract class DataBindingActivity<B extends ViewDataBinding> extends App
     private void showBack() {
         //setNavigationIcon必须在setSupportActionBar(toolbar);方法后面加入
         mToolbar.setNavigationIcon(com.fltry.module.lib_common.R.mipmap.fhj_hs);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        mToolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     /**

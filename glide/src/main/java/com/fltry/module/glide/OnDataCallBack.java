@@ -4,6 +4,6 @@ public interface OnDataCallBack<T> {
 
     void succeed(T data);
 
-    void failed(String error);
+    void failed(Throwable error);
 
 }

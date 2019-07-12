@@ -1,7 +1,6 @@
 package com.fltry.module.glide;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,7 +42,7 @@ public class GlideActivity extends DataBindingActivity<ActivityGlideBinding> imp
         dataBinding.setType(types[0]);
         glideVM = new GlideVM(this);
         dataBinding.setGlideVM(glideVM);
-        dataBinding.setCount(10 + "");
+        dataBinding.setCount("10");
         glideVM.gitMovies();
     }
 

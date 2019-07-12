@@ -26,8 +26,8 @@ public class GlideVM {
             }
 
             @Override
-            public void failed(String error) {
-                iGlideView.httpFailed(error);
+            public void failed(Throwable error) {
+                iGlideView.httpFailed(error.getMessage());
             }
         });
     }
