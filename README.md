@@ -46,7 +46,9 @@ density = √(1334² + 750²) / 4.7 = 326.612 ≈ 326ppi <br/>
 
 ### RecyclerView
 RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inflate(view, parent, false)，不然条目match_parent无效。
-
+RecyclerView实现ViewPage滑动效果<br>
+new LinearSnapHelper().attachToRecyclerView(mRecyclerView)<br>
+new PagerSnapHelper().attachToRecyclerView(mRecyclerView)
 ### EditText
 改变下划线样式<br/>
 ```
@@ -61,9 +63,6 @@ RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inf
         android:layout_height="wrap_content" 
         android:theme="@style/MyEditText"/>
 ```
-### RecyclerView实现ViewPage滑动效果
-new LinearSnapHelper().attachToRecyclerView(mRecyclerView)<br>
-new PagerSnapHelper().attachToRecyclerView(mRecyclerView)
 ### 动画
 #### Interpolator
 |java类|xml id值|描述|
