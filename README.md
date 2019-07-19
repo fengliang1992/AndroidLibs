@@ -45,7 +45,7 @@ density = √(1334² + 750²) / 4.7 = 326.612 ≈ 326ppi <br/>
 [扫很小的二维码不是很好](https://github.com/MRYangY/YZxing)
 
 ### RecyclerView
-RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inflate(view, parent, false)，不然条目match_parent无效。
+RecyclerView设置adapter，获取View需要用LayoutInflater.from(mContext).inflate(view, parent, false)，不然条目match_parent无效。<br>
 RecyclerView实现ViewPage滑动效果<br>
 new LinearSnapHelper().attachToRecyclerView(mRecyclerView)<br>
 new PagerSnapHelper().attachToRecyclerView(mRecyclerView)
