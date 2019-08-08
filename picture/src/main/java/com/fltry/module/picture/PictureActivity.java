@@ -130,4 +130,8 @@ public class PictureActivity extends BaseActivity<ActivityPictureBinding> implem
             e.printStackTrace();
         }
     }
+
+    public void picLargeWeb(View v) {
+        startActivity(new Intent(mContext, BigPicActivity.class));
+    }
 }
