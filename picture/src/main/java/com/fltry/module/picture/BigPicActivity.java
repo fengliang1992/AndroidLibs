@@ -20,7 +20,8 @@ public class BigPicActivity extends BaseActivity<ActivityBigPicBinding> {
         dataBinding.webView.getSettings().setUseWideViewPort(true);
         dataBinding.webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         dataBinding.webView.getSettings().setLoadWithOverviewMode(true);
-        dataBinding.webView.loadUrl("file:///android_res/drawable/qingming.png");
+//        dataBinding.webView.loadUrl("file:///android_res/drawable/qingming.jpg");
+        dataBinding.webView.loadUrl("file:///android_asset/qingming.jpg");
     }
 
     @Override
