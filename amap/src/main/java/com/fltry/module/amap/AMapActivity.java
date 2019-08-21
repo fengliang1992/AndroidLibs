@@ -208,7 +208,7 @@ public class AMapActivity extends BaseActivity<ActivityAmapBinding> {
                                     "查询时间：" + weatherlive.getReportTime() + "\n" +
                                     "天气：" + weatherlive.getWeather() + "\n" +
                                     "温度：" + weatherlive.getTemperature() + "℃\n" +
-                                    "湿度：" + weatherlive.getWindDirection() + "%\n" +
+                                    "湿度：" + weatherlive.getHumidity() + "%\n" +
                                     "风力：" + weatherlive.getWindDirection() + "风     " + weatherlive.getWindPower() + "级")
                             .setNegativeButton("知道了", null)
                             .show();

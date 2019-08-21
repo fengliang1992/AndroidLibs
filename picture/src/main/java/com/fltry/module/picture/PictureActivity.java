@@ -39,9 +39,7 @@ public class PictureActivity extends BaseActivity<ActivityPictureBinding> implem
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         ImageView.ScaleType scaleType = ImageView.ScaleType.CENTER;
-        if (checkedId == R.id.pic_sb_rb1) {
-            scaleType = ImageView.ScaleType.CENTER;
-        } else if (checkedId == R.id.pic_sb_rb2) {
+        if (checkedId == R.id.pic_sb_rb2) {
             scaleType = ImageView.ScaleType.CENTER_INSIDE;
         } else if (checkedId == R.id.pic_sb_rb3) {
             scaleType = ImageView.ScaleType.CENTER_CROP;

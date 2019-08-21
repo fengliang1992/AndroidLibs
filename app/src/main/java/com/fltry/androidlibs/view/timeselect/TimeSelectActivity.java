@@ -76,23 +76,17 @@ public class TimeSelectActivity extends BaseActivity {
     public void onViewClicked(View v) {
         switch (v.getId()) {
             case R.id.ts_btn:
-                TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                        calendar.set(Calendar.MINUTE, minute);
-                        tsTv.setText(formatTime(hourOfDay) + ":" + formatTime(minute));
-                    }
+                TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, (view, hourOfDay, minute) -> {
+                    calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                    calendar.set(Calendar.MINUTE, minute);
+                    tsTv.setText(formatTime(hourOfDay) + ":" + formatTime(minute));
                 }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
                 timePickerDialog.show();
                 break;
             case R.id.ts_btn2:
-                DatePickerDialog datePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        calendar.set(year, month, dayOfMonth);
-                        tsTv2.setText(year + "-" + formatTime((month + 1)) + "-" + formatTime((dayOfMonth)));
-                    }
+                DatePickerDialog datePickerDialog = new DatePickerDialog(mContext, (view, year, month, dayOfMonth) -> {
+                    calendar.set(year, month, dayOfMonth);
+                    tsTv2.setText(year + "-" + formatTime((month + 1)) + "-" + formatTime((dayOfMonth)));
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
                 break;
