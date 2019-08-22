@@ -17,7 +17,7 @@ import android.widget.ListView;
  * ElasticScrollView
  */
 public class ElasticListView extends ListView {
-	private float y;
+	private float mY;
 	private Rect normal = new Rect();
 	private boolean animationFinish = true;
 
@@ -71,27 +71,24 @@ public class ElasticListView extends ListView {
 			int action = ev.getAction();
 			switch (action) {
 			case MotionEvent.ACTION_DOWN:
-				y = ev.getY();
+				mY = ev.getY();
 				break;
 			case MotionEvent.ACTION_UP:
-				y = 0;
+				mY = 0;
 				if (isNeedAnimation()) {
 					animation();
 				}
 				break;
 			case MotionEvent.ACTION_MOVE:
-				final float preY = y == 0 ? ev.getY() : y;
+				final float preY = mY == 0 ? ev.getY() : mY;
 				float nowY = ev.getY();
 				int deltaY = (int) (preY - nowY);
 
-				y = nowY;
-				// �����������ϻ�������ʱ�Ͳ����ٹ�������ʱ�ƶ�����
+				mY = nowY;
 				if (isNeedMove(deltaY)) {
 					if (normal.isEmpty()) {
-						// ���������Ĳ���λ��
 						normal.set(getLeft(), getTop(), getRight(), getBottom());
 					}
-					// �ƶ�����
 					layout(getLeft(), getTop() - deltaY / 2, getRight(), getBottom() - deltaY / 2);
 				}
 				break;
@@ -101,9 +98,7 @@ public class ElasticListView extends ListView {
 		}
 	}
 
-	// ���������ƶ�
 	public void animation() {
-		// �����ƶ�����
 		TranslateAnimation ta = new TranslateAnimation(0, 0, 0, normal.top - getTop());
 		ta.setDuration(200);
 		ta.setAnimationListener(new AnimationListener() {
@@ -121,7 +116,6 @@ public class ElasticListView extends ListView {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				clearAnimation();
-				// ���ûص������Ĳ���λ��
 				layout(normal.left, normal.top, normal.right, normal.bottom);
 				normal.setEmpty();
 				animationFinish = true;
@@ -130,20 +124,16 @@ public class ElasticListView extends ListView {
 		startAnimation(ta);
 	}
 
-	// �Ƿ���Ҫ��������
 	public boolean isNeedAnimation() {
 		return !normal.isEmpty();
 	}
 
-	// �Ƿ���Ҫ�ƶ�����
 	public boolean isNeedMove(float deltaY) {
 		if (overScrolled && getChildCount() > 0) {
 			if (getLastVisiblePosition() == getCount() - 1 && deltaY > 0) {
 				return true;
 			}
-			if (getFirstVisiblePosition() == 0 && deltaY < 0) {
-				return true;
-			}
+			return getFirstVisiblePosition() == 0 && deltaY < 0;
 		}
 		return false;
 	}

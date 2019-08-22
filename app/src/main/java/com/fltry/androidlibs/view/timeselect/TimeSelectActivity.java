@@ -61,12 +61,7 @@ public class TimeSelectActivity extends BaseActivity {
         tsTv2.setText(calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH) + "-" +
                 calendar.get(Calendar.DAY_OF_MONTH));
 
-        timePicker = new CustomDatePicker(this, "请选择时间", new CustomDatePicker.ResultHandler() {
-            @Override
-            public void handle(String time) {
-                tsTv3.setText(time);
-            }
-        }, "2000-01-01 00:00", "2050-12-31 23:59");// "2027-12-31 23:59"
+        timePicker = new CustomDatePicker(this, "请选择时间", time -> tsTv3.setText(time), "2000-01-01 00:00", "2050-12-31 23:59");// "2027-12-31 23:59"
         timePicker.showSpecificTime(true);
         timePicker.setIsLoop(true);
         tsTv3.setText(GetTimeUtli.getTime("yyyy-MM-dd HH"));
